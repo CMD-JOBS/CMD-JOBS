@@ -1,7 +1,7 @@
 # <img src="images/banner_github.svg" width="100%" alt="banner">
 
-## Table of contents
-  - [Table of contents](#table-of-contents)
+## Inhoudsopgave
+  - [Inhoudsopgave](#Inhoudsopgave)
   - [Wat is CMD-JOBS?](#Wat-is-CMD-JOBS?)
   - [Functies](#Functies)
   - [Documentatie](#Documentatie)
