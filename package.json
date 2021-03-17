@@ -1,0 +1,32 @@
+{
+  "name": "cmd-jobs",
+  "version": "1.0.0",
+  "description": "CMD-JOBS Project",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "test-commando"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CMD-JOBS/CMD-JOBS.git"
+  },
+  "keywords": [
+    "matching-app"
+  ],
+  "author": "Yunus Emre Alkan, Dylan Troff, Robbin Jansen, Ashley Keuning, Jorn veltrop",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CMD-JOBS/CMD-JOBS/issues"
+  },
+  "homepage": "https://github.com/CMD-JOBS/CMD-JOBS#readme"
+}
