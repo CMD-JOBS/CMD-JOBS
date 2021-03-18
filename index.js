@@ -1,5 +1,9 @@
 const express = require('express');
-const exphbs = require('express-handlebars');
+const hbs = require('express-handlebars');
+const bodyParser = require('body-parser');
+const slug = require('slug');
+const multer = require('multer');
+const { MongoClient } = require('mongodb')
 const app = express();
 // const sass = require('node-sass');
 const port = 3000;
@@ -8,9 +12,8 @@ const port = 3000;
 app.use(express.static('static'));
 
 // Template engine opgeven
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
-
+app.engine('hbs', hbs({extname: 'hbs'}));
+app.set('view engine', 'hbs');
 
 // Routes
 app.get('/', (req, res) => {
