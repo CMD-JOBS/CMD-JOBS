@@ -1,9 +1,9 @@
 const express = require('express');
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-const slug = require('slug');
-const multer = require('multer');
-const { MongoClient } = require('mongodb')
+// const slug = require('slug');
+// const multer = require('multer');
+// const { MongoClient } = require('mongodb')
 const app = express();
 // const sass = require('node-sass');
 const port = 3000;
