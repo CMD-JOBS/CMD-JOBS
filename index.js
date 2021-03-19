@@ -32,6 +32,10 @@ app.get('/registreren', (req, res) => {
   res.render('registreren')
 });
 
+app.post('/registreren', (req, res) => {
+  
+})
+
 // 404 pagina
 app.use(function (req, res, next) {
   res.status(404).send("Sorry ik heb niks kunnen vinden");
