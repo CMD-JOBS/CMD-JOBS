@@ -3,8 +3,14 @@ const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const slug = require('slug');
 const multer = require('multer');
-const { MongoClient } = require('mongodb')
+const { MongoClient } = require('mongodb');
 const app = express();
+// Gebruikt voor Hashen passwords
+const bcrypt = require('bcrypt');
+
+// Tijdelijke opslag plaats voor gebruikers
+const gebruikers = []
+
 // const sass = require('node-sass');
 const port = 3000;
 
@@ -15,10 +21,17 @@ app.use(express.static('static'));
 app.engine('hbs', hbs({extname: 'hbs'}));
 app.set('view engine', 'hbs');
 
+// Zorgt dat je de info uit textvelden mee kan requiren met een post functie
+app.use(express.urlencoded({extended: false}))
+
 // Routes
 app.get('/', (req, res) => {
   res.render('homepagina')
 });
+
+app.post('/', (req, res) => {
+  
+})
 
 app.get('/resultaten', (req, res) => {
   res.render('resultaten')
@@ -32,8 +45,20 @@ app.get('/registreren', (req, res) => {
   res.render('registreren')
 });
 
-app.post('/registreren', (req, res) => {
-  
+app.post('/registreren', async (req, res) => {
+  try {
+    const hashedWachtwoord = await bcrypt.hash(req.body.password, 10)
+    gebruikers.push({
+      id: Date.now().toString(),
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedWachtwoord
+    })
+    res.redirect('/')
+  } catch{
+    res.redirect('/registreren')
+  }
+  console.log(gebruikers)
 })
 
 // 404 pagina
