@@ -4,7 +4,7 @@ const app = express();
 // const sass = require('node-sass');
 const port = 3000;
 
-// Aangeven waar onze statishce files zich bevinden  
+// Aangeven waar onze statische files zich bevinden  
 app.use(express.static('static'));
 
 // Template engine opgeven

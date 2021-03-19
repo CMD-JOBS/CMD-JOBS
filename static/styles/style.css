@@ -18,6 +18,17 @@ body {
     margin: 7.5em auto;
 }
 
+/* .homepagina svg {
+    height: 25em;
+    margin: 7.5em auto;
+}
+
+.cls-2{
+    font-size: 180px;
+    font-family: Montserrat-Bold, Montserrat;
+    font-weight: 700;
+} */
+
 .homepagina a {
     display: block;
     text-decoration: none;
@@ -27,7 +38,6 @@ body {
     margin: 0 auto;
     padding: 0.75em 0;
     border-radius: 2em;
-    font-weight: 600;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
     transition: 0.25s;
 }
