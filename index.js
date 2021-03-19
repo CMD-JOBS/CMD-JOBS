@@ -61,6 +61,7 @@ app.post('/registreren', async (req, res) => {
   console.log(gebruikers)
 })
 
+
 // 404 pagina
 app.use(function (req, res, next) {
   res.status(404).send("Sorry ik heb niks kunnen vinden");
