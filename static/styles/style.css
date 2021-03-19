@@ -214,7 +214,7 @@ form {
 }
 
 .profielToevoegen input[type=text]::placeholder, input[type=number]::placeholder, textarea::placeholder, select::placeholder {
-    color: #FFF021);
+    color: #FFF021;
     font-weight: 500;
 }
 
