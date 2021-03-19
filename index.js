@@ -28,6 +28,10 @@ app.get('/account', (req, res) => {
   res.render('account')
 });
 
+app.get('/profielToevoegen', (req, res) => {
+  res.render('profielToevoegen')
+});
+
 // 404 pagina
 app.use(function (req, res, next) {
   res.status(404).send("Sorry ik heb niks kunnen vinden");

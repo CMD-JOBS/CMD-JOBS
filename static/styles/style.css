@@ -58,7 +58,7 @@ body {
 /* Footer met navigatie */
 .navigatie-footer {
     background-color: #FFF021;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
@@ -107,4 +107,145 @@ body {
 
 .resultaten div:hover {
     transform: translateY(-5%)
+}
+
+
+/* profielToevoegen page */
+
+.profielToevoegen {
+    color: black;
+    background-color: #FFF021;
+    padding: 1em;
+}
+
+form {
+    margin: 0em;
+}
+
+.prPic {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    color: white;
+}
+
+.prPic > span {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    font-size: .9em;
+    margin-left: 1.5em;
+    background-color: black;
+    padding: .6em 1.2em;
+    border-radius: 2.4em;
+    cursor: pointer;
+}
+
+.prPic > span img {
+    height: 1em;
+}
+
+.prPic p {
+    display: inline-block;
+    height: fit-content;
+    margin:0;
+    margin-left: 1em;
+    text-decoration: underline;
+}
+
+.prPic div {
+    position: relative;
+    height: 6em;
+    width: 6em;
+    border-radius: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prPic div > img {
+    height: 6em;
+    width: 6em;
+    object-fit: cover;
+    border-radius: 5em;
+    transition: opacity ease .4s;
+}
+
+.prPic div span {
+    background-color: hsla(0, 0%, 0%, 0.5);
+    width: 6em;
+    height: 6em;
+    border-radius: 5em;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity ease .2s;
+    cursor: pointer;
+}
+
+.prPic div span > img {
+    position: absolute;
+    height: 2.3em;
+    pointer-events: none;
+}
+
+.prPic div span:hover {
+    opacity: 1;
+    transition: opacity ease .4s;
+}
+
+
+.profielToevoegen input[name="prPic"] {
+    display: none;
+}
+
+.profielToevoegen input[type=text], input[type=number], textarea, select {
+    width: 80%;
+    padding: .8em 1em;
+    display: block;
+    border: none;
+    border-radius: 1em;
+    color: #FFF021;
+    background-color: white;
+    font-weight: 500;
+    outline-color: grey;
+}
+
+.profielToevoegen input[type=text]::placeholder, input[type=number]::placeholder, textarea::placeholder, select::placeholder {
+    color: #FFF021);
+    font-weight: 500;
+}
+
+.profielToevoegen textarea {
+    resize: vertical;
+}
+  
+.profielToevoegen input[type=submit] {
+    display: block;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 3em;
+    background-color: black;
+    color: white;
+    padding: .8em 1.5em;
+    border: none;
+    border-radius: 2em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color .25s ease, color .25s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.profielToevoegen input[type=number] {
+    width: 3em;
+}
+
+.profielToevoegen label  {
+    display: flex;
+    margin-top: 1em;
+    margin-bottom: .2em;
 }
