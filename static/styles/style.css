@@ -117,12 +117,15 @@ body {
     background-color: #FFF021;
     padding: 1em;
     overflow-x: hidden;
+    height: 100%;
 }
 
 .profielToevoegen form {
     margin: 0em;
     display: flex;
     width: 200vw;
+    transition: transform .25s ease;
+    transform: translateX(0);
 }
 
 .profielToevoegen fieldset {
@@ -233,11 +236,14 @@ body {
 
 .profielToevoegen textarea {
     resize: vertical;
+    font-family: "Open Sans"
 }
   
 .profielToevoegen input[type=submit] {
     display: flex;
     font-size: 1em;
+    transform: translateX(-1em);
+    margin: auto;
     margin-top: 2em;
     background-color: black;
     color: white;
@@ -291,5 +297,45 @@ body {
 }
 
 .profielToevoegen .volgendeForm {
+    transition: transform .25s ease;
     transform: translateX(-100vw);
+}
+
+.profielToevoegen section:first-of-type {
+    display: flex;
+}
+
+.profielToevoegen section:first-of-type input {
+    width: auto;
+}
+
+.profielToevoegen section:first-of-type div:first-of-type {
+    margin-right: 1em;
+}
+
+.profielToevoegen select[name="Dienstverband"], select[name="Bedrijfsgrootte"]{
+    width: 35%;
+}
+
+/* Slider rondjes */
+
+.profielToevoegen > div:last-of-type {
+    position: relative;
+    display: flex;
+    margin-top: 1em;
+    justify-content: center;
+    width: 100%;
+}
+
+.profielToevoegen > div:last-of-type span {
+    width: .8em;
+    height: .8em;
+    margin: .2em;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.profielToevoegen > div:last-of-type .formActive {
+    background-color: rgba(0, 0, 0, 1);
+    transform: scale(1.3);
 }

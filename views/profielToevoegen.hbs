@@ -1,7 +1,7 @@
 {{> logo-header}}
 
 <main class="profielToevoegen">
-    <form action="/addProfile" method="post" enctype="multipart/form-data">
+    <form action="/profielToevoegen" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend>Persoonlijke info</legend>
             <label for="prPic" class="prPic">
@@ -16,14 +16,17 @@
             </label>
             <input id="prPic" type="file" name="prPic" accept="image/*" required>
 
-            <label for="fname">Voornaam:</label>
-            <input id="fname" type="text" name="fname" required>
-
-            <label for="lname">Achternaam:</label>
-            <input id="lname" type="text" name="lname" required>
-
-            <label for="city">Woonplaats:</label>
-            <input id="city" type="text" name="city" required>
+            <section>
+                <div>
+                    <label for="fname">Voornaam:</label>
+                    <input id="fname" type="text" name="fname" required>
+                </div>
+                
+                <div>
+                    <label for="lname">Achternaam:</label>
+                    <input id="lname" type="text" name="lname" required>
+                </div>
+            </section>
 
             <label for="opleidingsNiveau">Opleidingsniveau:</label>
             <select id="opleidingsNiveau" name="opleidingsNiveau" required>
@@ -32,6 +35,9 @@
                 <option value="HBO">HBO</option>
                 <option value="Universiteit">Universiteit</option>
             </select>
+
+            <label for="about">Over mij:</label>
+            <textarea name="about" id="about" cols="30" rows="5"></textarea>
         </fieldset>
         
 
@@ -50,14 +56,32 @@
                 <option value="BackendDevelopment">Backend Development</option>
                 <option value="Research">Research</option>        
             </select>
-
-             <select id="Functie" name="Functie" required>
+            
+            <label for="Dienstverband">Dienstverband:</label>
+            <select id="Dienstverband" name="Dienstverband" required>
                 <option>Kies:</option>
-                <option value="FrontendDevelopment">Frontend Development</option>
+                <option value="Fulltime">Fulltime</option>
+                <option value="Parttime">Parttime</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Stage">Stage</option>
+            </select>
+
+            <label for="Bedrijfsgrootte">Bedrijfsgrootte (aantal medewerkers):</label>
+            <select id="Bedrijfsgrootte" name="Bedrijfsgrootte" required>
+                <option>Kies:</option>
+                <option value="0>10">0 tot 10</option>
+                <option value="10>50">10 tot 50</option>
+                <option value="50+">Boven de 50</option>
+            </select>
 
             <input type="submit" value="Opslaan">
         </fieldset>
     </form>
+
+    <div>
+        <span class="formActive"></span>
+        <span></span>
+    </div>
 
     <a id="buttonVolgende" href="#">Volgende</a>
     
