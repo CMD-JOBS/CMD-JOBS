@@ -105,7 +105,7 @@ body {
     min-width: 350px;
     /* margin: auto; */
     background-color: #F4F4F4;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     border-radius: 1em;
     margin-right: 2em;
     transition: 0.25s;
@@ -117,4 +117,128 @@ body {
 
 .resultaten div:hover {
     transform: translateY(-5%)
+}
+
+
+
+/* Profiel pagina */
+
+.profiel-pagina {
+    font-family: sans-serif;
+}
+
+.profiel-foto {
+    text-align: center;
+    background-image: url(/images/cmd-jobs-achtergrond-10.png);
+    background-size: cover;
+    padding: 2.5em 0 1.5em;
+}
+
+.profiel-foto img {
+    height: 7.5em;
+    /* background-color: rgb(231, 231, 231); */
+    background-color: rgb(123, 184, 123);
+    border-radius: 50%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.profiel-foto h1 {
+    margin: 0;
+    margin-top: 1em;
+    padding: 0;
+    font-size: 22px;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-weight: Bolder;
+}
+
+.profiel-pagina section {
+    margin: 2em 1em;
+    background-color: white;
+    border-radius: 0.75em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 1.5em;
+}
+
+.profiel-pagina section p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.profiel-pagina section div p {
+    padding-bottom: 1em;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.profiel-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profiel-flex svg {
+    height: 1.25em;
+    vertical-align: middle;
+    fill: rgba(0, 0, 0, 0.5);
+    transition: 0.25s;
+}
+
+.profiel-flex svg:hover {
+    fill: rgba(0, 0, 0, 1);
+}
+
+#aanpassen {
+    fill: white;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 100;
+    font-size: 12px;
+    text-decoration: underline;
+    transition: 0.25s;
+}
+
+#aanpassen:hover {
+    color: rgba(0, 0, 0, 1);
+}
+
+
+/* Profiel Form */
+
+.profiel-gegevens {
+    margin: 2em;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+.biografie textarea {
+    width: 100%;
+    resize: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    /* border: none;
+    outline: none; */
+}
+
+.profiel-pagina article div {
+    margin-top: 1.5em;
+}
+
+.profiel-pagina article label {
+    display: inline;
+    padding-right: 1em;
+}
+
+.profiel-pagina article input {
+    /* border: none; */
+    outline: none;
+    float: right;
+    width: 50%;
 }

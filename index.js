@@ -24,8 +24,8 @@ app.get('/resultaten', (req, res) => {
   res.render('resultaten')
 });
 
-app.get('/account', (req, res) => {
-  res.render('account')
+app.get('/profiel', (req, res) => {
+  res.render('profiel', { title: "JobDone" })
 });
 
 // 404 pagina
