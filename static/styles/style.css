@@ -236,10 +236,9 @@ body {
 }
   
 .profielToevoegen input[type=submit] {
-    display: block;
-    margin: auto;
+    display: flex;
+    font-size: 1em;
     margin-top: 2em;
-    margin-bottom: 3em;
     background-color: black;
     color: white;
     padding: .8em 1.5em;
@@ -268,8 +267,9 @@ body {
     display: flex;
 }
 
-.profielToevoegen > div a {
-    margin: auto;
+.profielToevoegen > a {
+    display: inline-block;
+    font-size: 1em;
     margin-top: 1em;
     background-color: black;
     color: white;
@@ -283,4 +283,13 @@ body {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+.profielToevoegen legend {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.profielToevoegen .volgendeForm {
+    transform: translateX(-100vw);
 }

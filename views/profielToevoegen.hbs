@@ -24,16 +24,42 @@
 
             <label for="city">Woonplaats:</label>
             <input id="city" type="text" name="city" required>
+
+            <label for="opleidingsNiveau">Opleidingsniveau:</label>
+            <select id="opleidingsNiveau" name="opleidingsNiveau" required>
+                <option>Kies:</option>
+                <option value="MBO">MBO</option>
+                <option value="HBO">HBO</option>
+                <option value="Universiteit">Universiteit</option>
+            </select>
         </fieldset>
         
 
         <fieldset>
             <legend>Voorkeuren</legend>
+            
+            <label for="Functie">Functie:</label>
+            <select id="Functie" name="Functie" required>
+                <option>Kies:</option>
+                <option value="FrontendDevelopment">Frontend Development</option>
+                <option value="ContentManagement">Content Management</option>
+                <option value="VisualInterfaceDesign">Visual Interface Design</option>
+                <option value="ProjectManagement">Project Management</option>
+                <option value="InteractionDesign">Interaction Design</option>
+                <option value="UXDesign">UX Design</option>
+                <option value="BackendDevelopment">Backend Development</option>
+                <option value="Research">Research</option>        
+            </select>
+
+             <select id="Functie" name="Functie" required>
+                <option>Kies:</option>
+                <option value="FrontendDevelopment">Frontend Development</option>
+
             <input type="submit" value="Opslaan">
         </fieldset>
     </form>
 
-    <div><a href="#">Volgende</a></div>
+    <a id="buttonVolgende" href="#">Volgende</a>
     
 </main>
 
