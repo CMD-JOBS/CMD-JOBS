@@ -1,19 +1,28 @@
-{{> logo-header}}
-
 <main class="resultaten">
-
+    {{#each users}}
     <div>
+        <h2 class="salaris">{{vacatureTitel}}</h2>
+        <h3 class="salaris">{{bedrijfsNaam}}</h3>
+        <h4 class="salaris">{{plaats}}</h4>
+        <h4 class="salaris">{{salaris}},- per maand</h4>
+        {{!-- waarom werkt het alleen in classes?? --}}
+        <p class="description">{{vacatureInformatie}}...Philips is een groot bedrijf in het hart van Haarlem
+            en
+            ze zijn momenteel op
+            zoek naar
+            een nieuwe UX Designer.</p>
+
+        {{!-- de vormgeving van deze button is het zelfde als alle andere divs omdat deze button
+        in een div staat, ik ga de styling NOG niet aanpassen van deze button, want straks gaat het fout
+        ofzo x ashley:)
+        --}}
+        {{!-- <div class="opslaanButton"> --}}
+            <form action="/opgeslagenvacatures" method="POST">
+                <button type="submit" name="userid" value={{_id}}>opslaan</button>
+            </form>
+            {{!--
+        </div> --}}
     </div>
 
-    <div>
-    </div>
-
-    <div>
-    </div>
-
-    <div>
-    </div>
-
+    {{/each}}
 </main>
-
-{{> navigatie-footer}}
