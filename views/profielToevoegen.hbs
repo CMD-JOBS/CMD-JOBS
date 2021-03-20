@@ -14,21 +14,27 @@
                     <p>Profiel foto wijzigen</p>   
                 </span>
             </label>
-            <input id="prPic" type="file" name="prPic" accept="image/*">
+            <input id="prPic" type="file" name="prPic" accept="image/*" required>
 
             <label for="fname">Voornaam:</label>
-            <input id="fname" type="text" name="fname" placeholder="Lieke" required>
+            <input id="fname" type="text" name="fname" required>
 
             <label for="lname">Achternaam:</label>
-            <input id="lname" type="text" name="lname" placeholder="de Groot" required>
+            <input id="lname" type="text" name="lname" required>
 
             <label for="city">Woonplaats:</label>
-            <input id="city" type="text" name="city" placeholder="Amsterdam" required>
+            <input id="city" type="text" name="city" required>
+        </fieldset>
+        
 
-            <label for="age">Leeftijd:</label>
-            <input id="age" type="number" name="age" placeholder="20" required>
-
+        <fieldset>
+            <legend>Voorkeuren</legend>
             <input type="submit" value="Opslaan">
         </fieldset>
     </form>
+
+    <div><a href="#">Volgende</a></div>
+    
 </main>
+
+<script src="scripts/profielToevoegen.js"></script>
