@@ -4,9 +4,9 @@
     <form action="/profielToevoegen" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend>Persoonlijke info</legend>
-            <label for="prPic" class="prPic">
+            <label for="pFoto" class="pFoto">
                 <div>
-                    <img id="profilePic" src="/images/blankProfile.png">
+                    <img id="profielFoto" src="/images/blankProfile.png">
                     <span><img src="/images/upload.svg"></span>
                 </div>
                 <span>
@@ -14,61 +14,61 @@
                     <p>Profiel foto wijzigen</p>   
                 </span>
             </label>
-            <input id="prPic" type="file" name="prPic" accept="image/*" required>
+            <input id="pFoto" type="file" name="pFoto" accept="image/*" required>
 
             <section>
                 <div>
-                    <label for="fname">Voornaam:</label>
-                    <input id="fname" type="text" name="fname" required>
+                    <label for="vNaam">Voornaam:</label>
+                    <input id="vNaam" type="text" name="vNaam" required>
                 </div>
                 
                 <div>
-                    <label for="lname">Achternaam:</label>
-                    <input id="lname" type="text" name="lname" required>
+                    <label for="aNaam">Achternaam:</label>
+                    <input id="aNaam" type="text" name="aNaam" required>
                 </div>
             </section>
 
             <label for="opleidingsNiveau">Opleidingsniveau:</label>
             <select id="opleidingsNiveau" name="opleidingsNiveau" required>
-                <option>Kies:</option>
+                <option disabled selected value>Kies:</option>
                 <option value="MBO">MBO</option>
                 <option value="HBO">HBO</option>
                 <option value="Universiteit">Universiteit</option>
             </select>
 
-            <label for="about">Over mij:</label>
-            <textarea name="about" id="about" cols="30" rows="5"></textarea>
+            <label for="biografie">Biografie:</label>
+            <textarea name="biografie" id="biografie" cols="30" rows="5" required></textarea>
         </fieldset>
         
 
         <fieldset>
             <legend>Voorkeuren</legend>
             
-            <label for="Functie">Functie:</label>
-            <select id="Functie" name="Functie" required>
-                <option>Kies:</option>
-                <option value="FrontendDevelopment">Frontend Development</option>
-                <option value="ContentManagement">Content Management</option>
-                <option value="VisualInterfaceDesign">Visual Interface Design</option>
-                <option value="ProjectManagement">Project Management</option>
-                <option value="InteractionDesign">Interaction Design</option>
-                <option value="UXDesign">UX Design</option>
-                <option value="BackendDevelopment">Backend Development</option>
+            <label for="functie">Functie:</label>
+            <select id="functie" name="functie" required>
+                <option disabled selected value>Kies:</option>
+                <option value="Frontend Development">Frontend Development</option>
+                <option value="Content Management">Content Management</option>
+                <option value="Visual Interface Design">Visual Interface Design</option>
+                <option value="Project Management">Project Management</option>
+                <option value="Interaction Design">Interaction Design</option>
+                <option value="UX Design">UX Design</option>
+                <option value="Backend Development">Backend Development</option>
                 <option value="Research">Research</option>        
             </select>
             
-            <label for="Dienstverband">Dienstverband:</label>
-            <select id="Dienstverband" name="Dienstverband" required>
-                <option>Kies:</option>
+            <label for="dienstverband">Dienstverband:</label>
+            <select id="dienstverband" name="dienstverband" required>
+                <option disabled selected value>Kies:</option>
                 <option value="Fulltime">Fulltime</option>
                 <option value="Parttime">Parttime</option>
                 <option value="Freelance">Freelance</option>
                 <option value="Stage">Stage</option>
             </select>
 
-            <label for="Bedrijfsgrootte">Bedrijfsgrootte (aantal medewerkers):</label>
-            <select id="Bedrijfsgrootte" name="Bedrijfsgrootte" required>
-                <option>Kies:</option>
+            <label for="bedrijfsgrootte">Bedrijfsgrootte (aantal medewerkers):</label>
+            <select id="bedrijfsgrootte" name="bedrijfsgrootte" required>
+                <option disabled selected value>Kies:</option>
                 <option value="0>10">0 tot 10</option>
                 <option value="10>50">10 tot 50</option>
                 <option value="50+">Boven de 50</option>
