@@ -106,8 +106,6 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
                   };
   await db.collection('profielen').insertOne(profiel);
   res.render('homepagina', {title: 'Nieuw Profiel', profiel})
-
-  client.close();
 });
 
 // 404 pagina
