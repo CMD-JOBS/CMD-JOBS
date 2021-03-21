@@ -5,6 +5,9 @@
         <img src="images/profiel-foto-mockup.png" alt="">
         {{!-- <img src="images/test.png" alt=""> --}}
         <h1>Yunus Emre Alkan</h1>
+
+        <p id="bewerk-knop">Bewerk profiel</p>
+
     </header>
 
 
@@ -39,7 +42,7 @@
 
 
 
-    <form class="profiel-gegevens" action="#">
+    <form class="profiel-gegevens" action="/profiel" enctype="multipart/form-data" method="post">
 
         <div class="biografie">
             <label for="biografie">Biografie</label>
@@ -93,7 +96,7 @@
             </select>
         </div>
 
-        <input class="knop" type="submit" value="Gegevens aanpassen">
+        <input id="bewerkt-verzend-knop" type="submit" value="Gegevens aanpassen">
     </form>
 
 
