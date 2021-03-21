@@ -43,33 +43,57 @@
 
         <div class="biografie">
             <label for="biografie">Biografie</label>
-            <textarea name="biografie" rows="5" required>Ik ben designer</textarea>
+            <textarea name="biografie" rows="5"
+                required>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit provident temporibus facere eos voluptate quibusdam doloremque dignissimos expedita dolore. Eius nihil architecto quas voluptate cumque ratione est vero quae velit.</textarea>
         </div>
-        <br>
-        <p>Ik ben opzoek naar:</p>
-
-<article>
-        <div class="bedrijfs-grootte">
-            <label for="bedrijfsgrootte">Bedrijfsgrootte:</label>
-            <input name="bedrijfsgrootte" value="5" required></input>
-        </div>
-
-        <div class="functiee">
-            <label for="functie">Functie:</label>
-            <input name="functie" value="Designer" required></input>
-        </div>
-
-        <div class="dienstverbande">
-            <label for="dienstverband">Dienstverband:</label>
-            <input name="dienstverband" value="Fulltime" required></input>
-        </div>
-
         <div class="opleidingsniveau">
             <label for="opleidingsniveau">Opleidingsniveau:</label>
-            <input name="opleidingsniveau" value="Hbo" required></input>
+            <select id="opleidingsNiveau" name="opleidingsNiveau" required>
+                <option disabled selected value>HBO</option>
+                <option value="MBO">MBO</option>
+                <option value="HBO">HBO</option>
+                <option value="Universiteit">Universiteit</option>
+            </select>
         </div>
-</article>
+        <p>Voorkeuren:</p>
 
+        <div class="functe">
+            <label for="functie">Functie:</label>
+            <select id="functie" name="functie" required>
+                <option disabled selected value>Frontend Development</option>
+                <option value="Frontend Development">Frontend Development</option>
+                <option value="Content Management">Content Management</option>
+                <option value="Visual Interface Design">Visual Interface Design</option>
+                <option value="Project Management">Project Management</option>
+                <option value="Interaction Design">Interaction Design</option>
+                <option value="UX Design">UX Design</option>
+                <option value="Backend Development">Backend Development</option>
+                <option value="Research">Research</option>
+            </select>
+        </div>
+
+        <div class="dienstverband">
+            <label for="dienstverband">Dienstverband:</label>
+            <select id="dienstverband" name="dienstverband" required>
+                <option disabled selected value>Parttime</option>
+                <option value="Fulltime">Fulltime</option>
+                <option value="Parttime">Parttime</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Stage">Stage</option>
+            </select>
+        </div>
+
+        <div class="bedrijfs-grootte">
+            <label for="bedrijfsgrootte">Bedrijfsgrootte:</label>
+            <select id="bedrijfsgrootte" name="bedrijfsgrootte" required>
+                <option selected value>0 tot 10</option>
+                <option value="0>10">0 tot 10</option>
+                <option value="10>50">10 tot 50</option>
+                <option value="50+">Boven de 50</option>
+            </select>
+        </div>
+
+        <input class="knop" type="submit" value="Gegevens aanpassen">
     </form>
 
 
