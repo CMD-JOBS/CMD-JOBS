@@ -10,6 +10,7 @@ const multer = require('multer');
 const { MongoClient } = require('mongodb');
 const app = express();
 const passport = require('passport')
+const localStrategy = require('passport-local')
 
 const flash = require('express-flash');
 const session = require('express-session'); 
@@ -58,7 +59,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', passport.authenticate('local', {
-  succesRedirect: '/resultaten',
+  successRedirect: '/resultaten',
   failureRedirect: '/',
   failureFlash: true
 }))
