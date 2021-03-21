@@ -48,23 +48,21 @@ async function connectDB() {
   await client.connect();
   db = await client.db(process.env.DB_NAME)
 }
-// connectDB()
-//   .then(() => {
-//     // Het verbinden met de DB is gelukt
-//     console.log('Feest!')
-//   })
-//   .catch(error => {
-//     // Het verbinden met de DB is niet gelukt
-//     console.log(error)
-//   });
+connectDB()
+  .then(() => {
+    // Het verbinden met de DB is gelukt
+    console.log('Feest!')
+  })
+  .catch(error => {
+    // Het verbinden met de DB is niet gelukt
+    console.log(error)
+  });
 
 // Aangeven waar onze statische files zich bevinden  
 app.use(express.static('static'));
 
 //BodyParser
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Template engine opgeven
 app.engine('hbs', hbs({
@@ -81,24 +79,11 @@ app.get('/resultaten', (req, res) => {
   res.render('resultaten')
 });
 
-// app.get('/profiel', async (req, res) => {
-//   let profielen = {}
-//   profielen = await db.collection('profielen').find({}, {
-//   }).toArray();
-//   res.render('profiel', {
-//     title: "test",
-//     profielen,
-//   });
-// });
-
-
 app.get('/profiel', (req, res) => {
   res.render('profiel')
 });
 
 app.post('/profiel', async (req, res) => {
-
-  console.log(req.body.functie);
 
   await connectDB()
 
@@ -107,19 +92,20 @@ app.post('/profiel', async (req, res) => {
     console.log('we have a connection to mongo!');
   })
   .catch((error) => {
-    // if connection is unsuccesful, show errors dsds
+    // if connection is unsuccesful, show errors
     console.log(error);
   });
 
-  const profielen = {
+   const profielen = {
     "biografie": req.body.biografie,
     "opleidingsNiveau": req.body.opleidingsNiveau,
     "functie": req.body.functie,
     "dienstverband": req.body.dienstverband,
     "bedrijfsgrootte": req.body.bedrijfsgrootte
   };
+  
   await db.collection('profielen').insertOne(profielen);
-
+  console.log(req.body.functie);
   res.render('profiel', {
     title: "test",
     profielen
@@ -148,6 +134,32 @@ app.post('/profiel', async (req, res) => {
 
 // TEST
 // TEST
+
+app.get('/form', (req, res) => {
+  let profielen = {}
+  res.render('testForm', {
+    title: "Gebruiker Toevoegen",
+    profielen
+  });
+});
+
+app.post('/form', async (req, res) => {
+  const id = slug(req.body.opleidingsNiveau);
+  const profielen = {
+    "opleidingsNiveau": req.body.opleidingsNiveau,
+    "dienstverband": req.body.dienstverband
+  };
+  await db.collection('profielen').insertOne(profielen);
+  res.render('aangepasteGegevens', {
+    title: "hello",
+    profielen
+  })
+});
+
+
+
+
+
 
 // 404 pagina
 app.use(function (req, res, next) {
