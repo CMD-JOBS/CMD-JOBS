@@ -107,10 +107,10 @@ app.post('/profiel', async (req, res) => {
     console.log('we have a connection to mongo!');
   })
   .catch((error) => {
-    // if connection is unsuccesful, show errors
+    // if connection is unsuccesful, show errors dsds
     console.log(error);
   });
-  
+
   const profielen = {
     "biografie": req.body.biografie,
     "opleidingsNiveau": req.body.opleidingsNiveau,
