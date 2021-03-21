@@ -11,7 +11,6 @@ function setPreviewProfielFoto() {
 
 
 // Button volgende
-
 const buttonVolgende = document.querySelector('#buttonVolgende');
 const profileForm = document.querySelector('.profielToevoegen form');
 const formActive1 = document.querySelector('.profielToevoegen > div:last-of-type span:first-of-type');
