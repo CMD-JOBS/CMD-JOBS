@@ -3,7 +3,6 @@ const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const slug = require('slug');
 const multer = require('multer');
-const { MongoClient } = require('mongodb')
 const app = express();
 // const sass = require('node-sass');
 const port = 3000;
@@ -36,14 +35,33 @@ const upload = multer({
 });
 
 //Database Jorn
-let db = null;
+const dotenv = require('dotenv').config();
+const { MongoClient } = require('mongodb');
+const { ObjectID } = require('mongodb')     ;
+// object id is de id van van dne database
+// require mongodb
 
+// test voor database
+console.log(process.env.TESTVAR);
+
+let db = null;
+let resultatenCollection = null;
+let opgeslagenCollection = null;
+// database dingen* voor collectie, dit moet aangepast worden
+
+// get URI from .env file
+const uri = process.env.DB_URI;
+// make connection to database
+const options = { useUnifiedTopology: true };
+const client = new MongoClient(uri, options);
+// function conncectDB JORN
 async function databaseJorn() {
-  const uri = "mongodb+srv://Ashley:mongodbWW@cluster0.ivfex.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-  const options = { useNewUrlParser: true, useUnifiedTopology: true };
-  const client = new MongoClient(uri, options);
-  db = await client.db('users');
-};
+  await client.connect();
+  db = await client.db(process.env.DB_NAME);
+  resultatenCollection = await db.collection('resultaten');
+  opgeslagenCollection = await db.collection('opgeslagen');
+}
+// collection moet aangepast worden
 
 // Routes
 app.get('/', (req, res) => {
@@ -64,22 +82,22 @@ app.get('/profielToevoegen', (req, res) => {
 
 app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
   await databaseJorn()
-   .then(() => {
-      //Succesvolle verbinding
-      console.log('We have a connection to Mongo!')
-   })
-   .catch( error => {
-      //Error bij verbinden
-      console.log(error)
-   });
+  .then(() => {
+    // if succesful connection is made show a message
+    console.log('we have a connection to mongo!');
+  })
+  .catch((error) => {
+    // if connection is unsuccesful, show errors
+    console.log(error);
+  });
 
   const id = slug(req.body.vNaam + req.body.aNaam);
   const pFotoPath = '../uploads/' + req.file.filename;
   const profiel = {
                     'id': id, 
-                    'profileImg': pFotoPath, 
-                    'firstName': req.body.vNaam, 
-                    'lastName': req.body.aNaam, 
+                    'profielFoto': pFotoPath, 
+                    'voornaam': req.body.vNaam, 
+                    'achternaam': req.body.aNaam, 
                     'opleidingsNiveau': req.body.opleidingsNiveau, 
                     'biografie': req.body.biografie, 
                     'functie': req.body.functie, 
@@ -87,7 +105,7 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
                     'bedrijfsgrootte': req.body.bedrijfsgrootte
                   };
   await db.collection('profielen').insertOne(profiel);
-  res.render('profielPagina', {title: 'Nieuw Profiel', profiel})
+  res.render('homepagina', {title: 'Nieuw Profiel', profiel})
 
   client.close();
 });
