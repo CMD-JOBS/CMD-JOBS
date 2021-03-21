@@ -117,3 +117,8 @@ body {
 .resultaten div:hover {
     transform: translateY(-5%)
 }
+
+.messages{
+    color: red;
+    font-style:normal;
+}
