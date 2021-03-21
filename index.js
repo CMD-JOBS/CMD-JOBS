@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //Multer setup
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
-     callback(null, './uploads');
+     callback(null, 'static/uploads');
   },
 
   filename: function (req, file, callback){
@@ -92,7 +92,7 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
   });
 
   const id = slug(req.body.vNaam + req.body.aNaam);
-  const pFotoPath = '../uploads/' + req.file.filename;
+  const pFotoPath = 'uploads/' + req.file.filename;
   const profiel = {
                     'id': id, 
                     'profielFoto': pFotoPath, 
