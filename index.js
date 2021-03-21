@@ -54,7 +54,7 @@ app.use(passport.session())
 app.use(express.urlencoded({extended: false}))
 
 // Routes
-app.get('/', (req, res) => {
+app.get('/',checkNotAuthenticated, (req, res) => {
   res.render('homepagina')
 });
 
@@ -64,7 +64,7 @@ app.post('/', passport.authenticate('local', {
   failureFlash: true
 }))
 
-app.get('/resultaten', (req, res) => {
+app.get('/resultaten',checkAuthenticated, (req, res) => {
   res.render('resultaten')
 });
 
@@ -72,7 +72,7 @@ app.get('/account', (req, res) => {
   res.render('account')
 });
 
-app.get('/registreren', (req, res) => {
+app.get('/registreren',checkNotAuthenticated, (req, res) => {
   res.render('registreren')
 });
 
@@ -91,6 +91,21 @@ app.post('/registreren', async (req, res) => {
   }
   console.log(users)
 })
+
+//veiligheid en zorgen dat iemand is ingelogt voordat hij bij de index kan
+function checkAuthenticated(req, res, next) {
+  if(req.isAuthenticated()){
+    return next()
+  }
+  res.redirect('/')
+}
+
+function checkNotAuthenticated(req, res, next) {
+  if(req.isAuthenticated()){
+    res.redirect('/resultaten')
+  }
+  next()
+}
 
 
 // 404 pagina
