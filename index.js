@@ -49,18 +49,6 @@ async function connectDB() {
   db = await client.db(process.env.DB_NAME)
 }
 
-connectDB()
-  .then(() => {
-    // Het verbinden met de DB is gelukt
-    console.log('Feest!')
-  })
-  .catch(error => {
-
-    // Het verbinden met de DB is niet gelukt
-
-    console.log(error)
-
-  })
 
 // Aangeven waar onze statishce files zich bevinden  
 app.use(express.static('static'));
@@ -116,14 +104,23 @@ app.post('/registreren', async (req, res) => {
     console.log(error);
   });
   try {
+    // Database inloggen gebruiker
     const hashedWachtwoord = await bcrypt.hash(req.body.password, 10)
+    const gebruiker = {
+      email: req.body.email,
+      password: hashedWachtwoord
+    }
+    await db.collection('profielen').insertOne(gebruiker);
+
+    //inlog gebruiker
+
     users.push({
       id: Date.now().toString(),
       name: req.body.name,
       email: req.body.email,
       password: hashedWachtwoord
     })
-    res.redirect('/')
+    res.render('/profielToevoegen', {gebruiker});
   } catch{
     res.redirect('/registreren')
   }
