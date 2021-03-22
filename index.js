@@ -1,4 +1,4 @@
- if (process.env.NODE_ENV !== 'production'){
+if (process.env.NODE_ENV !== 'production'){
   require('dotenv').config()
 }
 
@@ -12,7 +12,6 @@ const { ObjectID } = require('mongodb');
 const app = express();
 const passport = require('passport')
 const localStrategy = require('passport-local')
-
 const flash = require('express-flash');
 const session = require('express-session'); 
 
@@ -54,9 +53,7 @@ async function connectDB() {
   opgeslagenCollection = await db.collection('opgeslagen');
 }
 
-
 // Aangeven waar onze statishce files zich bevinden  
-
 app.use(express.static('static'));
 
 // Template engine opgeven
@@ -110,7 +107,7 @@ app.post('/', passport.authenticate('local', {
 // ashley werkt in deze route 
 app.get('/resultaten',checkAuthenticated, async (req, res) => {
   // de functie voor de opslaan  optie
-  const objectID = new ObjectID('605863f4615b2a027a3008b5');
+  const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
  opgeslagenCollection.find({ _id: objectID }, (err, opslaanObject) => {
 
   if (err) {
@@ -147,7 +144,7 @@ app.get('/resultaten',checkAuthenticated, async (req, res) => {
 });
 
 app.get('/opgeslagenvacatures', async (req, res) => {
-  const objectID = new ObjectID('605863f4615b2a027a3008b5');
+  const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
   // object van de eerste id
   opgeslagenCollection.findOne({ _id: objectID }, (err, opslaanObject) => {
     if (err) {
@@ -176,7 +173,7 @@ app.get('/opgeslagenvacatures', async (req, res) => {
 
 // het submitten van de button
 app.post('/opgeslagenvacatures', async (req, res) => {
-  const objectID = new ObjectID('605863f4615b2a027a3008b5');
+  const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
   const opgeslagenVacatures = new ObjectID(req.body.userid); // is de button van de like button
 
   await opgeslagenCollection.update(
