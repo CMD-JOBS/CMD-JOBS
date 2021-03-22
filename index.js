@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV !== 'production'){
+ if (process.env.NODE_ENV !== 'production'){
   require('dotenv').config()
 }
 
@@ -199,6 +199,69 @@ function checkNotAuthenticated(req, res, next) {
   next()
 }
 
+
+
+// Profiel pagina
+
+app.get('/profiel', async (req, res) => {
+
+  await connectDB()
+
+    .then(() => {
+      // if succesful connection is made show a message
+      console.log('we have a connection to mongo!');
+    })
+    .catch((error) => {
+      // if connection is unsuccesful, show errors
+      console.log(error);
+    });
+
+
+  // profiel
+
+  let profielen = {};
+  profielen = await db.collection('profielen').find().toArray();
+  const profiel = profielen.find(profiel => profiel.id == "YunusEmreAlkan");
+  if (profiel === undefined) {
+    res.status(404).send('Sorry deze pagina is niet beschikbaar!')
+  } else {
+    res.render('profiel', {
+      title: 'Profiel test',
+      profiel
+    });
+  }
+});
+
+app.post('/profiel', async (req, res) => {
+
+  await connectDB()
+
+    .then(() => {
+      // if succesful connection is made show a message
+      console.log('we have a connection to mongo!');
+    })
+    .catch((error) => {
+      // if connection is unsuccesful, show errors
+      console.log(error);
+    });
+
+  const profiel = {
+    "biografie": req.body.biografie,
+    "opleidingsNiveau": req.body.opleidingsNiveau,
+    "functie": req.body.functie,
+    "dienstverband": req.body.dienstverband,
+    "bedrijfsgrootte": req.body.bedrijfsgrootte
+  };
+
+  await db.collection('profielen').insertOne(profiel);
+  console.log("Data is verzonden, voorbeeld: " + req.body.functie);
+  res.render('profiel', {
+    title: "test",
+    profiel
+  })
+});
+
+
 // 404 pagina
 app.use(function (req, res, next) {
   res.status(404).send("Sorry ik heb niks kunnen vinden");
@@ -208,5 +271,3 @@ app.use(function (req, res, next) {
 app.listen(port, () => {
   console.log(`Gebruikte poort: ${port}!`)
 })
-
-
