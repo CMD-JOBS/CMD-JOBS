@@ -3,29 +3,29 @@ body {
     padding: 0;
     font-family: "Open Sans";
 }
-
 /* Homepagina */
 .homepagina {
     background-color: #FFF021;
     height: 100vh;
     text-align: center;
 }
-
 .homepagina img {
     height: 20em;
     margin: 7.5em auto;
-}
+ }
 
-/* .homepagina svg {
-    height: 25em;
+ .homepagina button{
+     display: block;
+     text-decoration: none;
+     width: 50%;
+     color: white;
+     width: 60%;
+     color:white;
+     background-color: black;
+     margin: 0 auto;
+     padding: 0.75em 0;
     margin: 7.5em auto;
 }
-
-.cls-2{
-    font-size: 180px;
-    font-family: Montserrat-Bold, Montserrat;
-    font-weight: 700;
-} */
 
 .homepagina a {
     display: block;
@@ -39,30 +39,46 @@ body {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
     transition: 0.25s;
 }
-
 .homepagina a:hover {
     width: 55%;
     font-size: 17px;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
-}
+     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
+ }
+
+ .homepagina form{
+     position: relative;
+     top: -10em;
+     display: block;
+     text-decoration: none;
+     width: 50%;
+     color:black;
+     margin: 0 auto;
+     font-weight: 600;
+     transition: 0.25s;
+ }
+
+ .homepagina label{
+     display: block;
+ }
+
+ .homepagina p{
+     display: block;
+     position: relative;
+     top: -10em;
+ }
 
 
-
-/* Header met logo */
+ /* Header met logo */
 .logo-header {
     background-color: #FFF021;
     text-align: center;
 }
-
 .logo-header img {
     height: 5em;
     margin: 0;
     padding: 0;
     vertical-align: middle;
 }
-
-
-
 /* Footer met navigatie */
 .navigatie-footer {
     background-color: #FFF021;
@@ -74,13 +90,10 @@ body {
     justify-content: space-around;
     padding: 1.5em;
     /* box-shadow: 0px 0 20px rgba(0, 0, 0, 0.5); */
-    ;
 }
-
 .navigatie-footer svg {
     height: 2em;
 }
-
 /* Resultaten - Cards */
 .resultaten {
     padding-top: 4em;
@@ -94,28 +107,260 @@ body {
     background-size: contain;
     height: calc(100vh - 10em);
 }
-
 ::-webkit-scrollbar {
     display: none;
 }
-
 .resultaten div {
     height: 500px;
     min-width: 350px;
     /* margin: auto; */
     background-color: #F4F4F4;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     border-radius: 1em;
     margin-right: 2em;
     transition: 0.25s;
 }
-
 .resultaten div:first-child {
     margin-left: 4em;
 }
-
 .resultaten div:hover {
     transform: translateY(-5%)
+}
+
+
+/* profielToevoegen page */
+
+.profielToevoegen {
+    color: black;
+    background-color: #FFF021;
+    padding: 1em;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.profielToevoegen form {
+    margin: 0em;
+    display: flex;
+    width: 200vw;
+    transition: transform .25s ease;
+    transform: translateX(0);
+}
+
+.profielToevoegen fieldset {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-inline-size: initial;
+}
+
+.pFoto {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    color: white;
+}
+
+.pFoto > span {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    font-size: .9em;
+    margin-left: 1.5em;
+    background-color: black;
+    padding: .6em 1.2em;
+    border-radius: 2.4em;
+    cursor: pointer;
+}
+
+.pFoto > span img {
+    height: 1em;
+}
+
+.pFoto p {
+    display: inline-block;
+    height: fit-content;
+    margin:0;
+    margin-left: 1em;
+    text-decoration: underline;
+}
+
+.pFoto div {
+    position: relative;
+    height: 6em;
+    width: 6em;
+    border-radius: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pFoto div > img {
+    height: 6em;
+    width: 6em;
+    object-fit: cover;
+    border-radius: 5em;
+    transition: opacity ease .4s;
+}
+
+.pFoto div span {
+    background-color: hsla(0, 0%, 0%, 0.5);
+    width: 6em;
+    height: 6em;
+    border-radius: 5em;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity ease .2s;
+    cursor: pointer;
+}
+
+.pFoto div span > img {
+    position: absolute;
+    height: 2.3em;
+    pointer-events: none;
+}
+
+.pFoto div span:hover {
+    opacity: 1;
+    transition: opacity ease .4s;
+}
+
+
+.profielToevoegen input[name="pFoto"] {
+    display: flex;
+    opacity: 0;
+    margin-top: -20px;
+}
+
+.profielToevoegen input[type=text], input[type=number], textarea, select {
+    width: 80%;
+    padding: .8em 1em;
+    display: block;
+    border: none;
+    border-radius: 1em;
+    color: black;
+    background-color: white;
+    font-weight: 500;
+    outline-color: grey;
+}
+
+.profielToevoegen input[type=text]::placeholder, input[type=number]::placeholder, textarea::placeholder, select::placeholder {
+    color: grey;
+    font-weight: 500;
+}
+
+.profielToevoegen textarea {
+    resize: vertical;
+    font-family: "Open Sans"
+}
+  
+.profielToevoegen input[type=submit] {
+    display: flex;
+    font-size: 1em;
+    transform: translateX(-1em);
+    margin: auto;
+    margin-top: 2em;
+    background-color: black;
+    color: white;
+    padding: .8em 1.5em;
+    border: none;
+    border-radius: 2em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color .25s ease, color .25s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.profielToevoegen input[type=number] {
+    width: 3em;
+}
+
+.profielToevoegen label  {
+    display: flex;
+    margin-top: 1em;
+    margin-bottom: .2em;
+}
+
+.profielToevoegen > div {
+    width: 100%;
+    display: flex;
+}
+
+.profielToevoegen > a {
+    display: inline-block;
+    font-size: 1em;
+    margin-top: 1em;
+    background-color: black;
+    color: white;
+    padding: .8em 1.5em;
+    border: none;
+    border-radius: 2em;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color .25s ease, color .25s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.profielToevoegen legend {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.profielToevoegen .volgendeForm {
+    transition: transform .25s ease;
+    transform: translateX(-100vw);
+}
+
+.profielToevoegen section:first-of-type {
+    display: flex;
+}
+
+.profielToevoegen section:first-of-type input {
+    width: auto;
+}
+
+.profielToevoegen section:first-of-type div:first-of-type {
+    margin-right: 1em;
+}
+
+.profielToevoegen select[name="Dienstverband"], select[name="Bedrijfsgrootte"]{
+    width: 35%;
+}
+
+/* Slider rondjes */
+
+.profielToevoegen > div:last-of-type {
+    position: relative;
+    display: flex;
+    margin-top: 1em;
+    justify-content: center;
+    width: 100%;
+}
+
+.profielToevoegen > div:last-of-type span {
+    cursor: pointer;
+    width: .8em;
+    height: .8em;
+    margin: .2em;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.profielToevoegen > div:last-of-type .formActive {
+    background-color: rgba(0, 0, 0, 1);
+    transform: scale(1.3);
+}
+
+.error {
+    background-color: #ff5e00 !important;
 }
 
 
