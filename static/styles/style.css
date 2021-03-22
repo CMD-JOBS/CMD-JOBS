@@ -373,8 +373,4 @@ body {
 
 .error {
     background-color: #ff5e00 !important;
-
-.messages{
-    color: red;
-    font-style:normal;
 }
