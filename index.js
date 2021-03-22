@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const slug = require('slug');
 const multer = require('multer');
 const { MongoClient } = require('mongodb');
+const { ObjectID } = require('mongodb');
 const app = express();
 const passport = require('passport')
 const localStrategy = require('passport-local')
@@ -35,7 +36,8 @@ const port = 3000;
 
 
 let db = null;
-
+let resultatenCollection = null;
+let opgeslagenCollection = null;
 
 
 // functie om de database te connecten
@@ -48,6 +50,8 @@ async function connectDB() {
   const client = new MongoClient(uri, options)
   await client.connect();
   db = await client.db(process.env.DB_NAME)
+  resultatenCollection = await db.collection('resultaten');
+  opgeslagenCollection = await db.collection('opgeslagen');
 }
 
 
@@ -103,12 +107,121 @@ app.post('/', passport.authenticate('local', {
   failureFlash: true
 }))
 
-app.get('/resultaten',checkAuthenticated, (req, res) => {
-  res.render('resultaten')
+// ashley werkt in deze route 
+app.get('/resultaten',checkAuthenticated, async (req, res) => {
+  // de functie voor de opslaan  optie
+  const objectID = new ObjectID('6057e96025113f2db486f18d');
+ opgeslagenCollection.find({ _id: objectID }, (err, opslaanObject) => {
+
+  if (err) {
+    console.log(err); // als er een error dan showt het een error
+  } else if (opslaanObject.opgeslagen) {
+
+    resultatenCollection // in de profile collection wordt die profiel verwijdert
+      .find({ _id: { $in: opslaanObject.opgeslagen } }) // nin = not in array //find id uit de database
+      .toArray((err, users) => {
+        // add de gelikede profielen worden in een array geplaatst en in de collectie van likes.
+        if (err) {
+          console.log(err);
+        } else {
+          res.render('resultaten', {
+            title: 'Een lijst met resultaten',
+            users,
+          });
+        }
+      });
+  } else {
+    // anders wordt het aan een array toegevoed
+  resultatenCollection.find({}).toArray((err, users) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('resultaten', {
+          title: 'Een lijst met resultaten',
+          users,
+        });
+      }
+    });
+  }
+});
 });
 
-app.get('/account', (req, res) => {
-  res.render('account')
+app.get('/opgeslagenvacatures', async (req, res) => {
+  const objectID = new ObjectID('6057e96025113f2db486f18d');
+  // object van de eerste id
+  opgeslagenCollection.findOne({ _id: objectID }, (err, opslaanObject) => {
+    if (err) {
+      console.log(err);
+    } else if (opslaanObject.opgeslagen) {
+      resultatenCollection
+        .find({ _id: { $in: opslaanObject.opgeslagen } }) // wanneer er een profiel wordt geliked
+        // wordt deze in de saved profiles pagina bewaard
+        .toArray((err, users) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render('opgeslagenvacatures', {
+              title: 'opgeslagen vacatures',
+              users,
+            });
+          }
+        });
+    } else {
+      res.render('opgeslagenvacatures', {
+        title: 'opgeslagen vacatures',
+      });
+    }
+  });
+});
+
+// het submitten van de button
+app.post('/opgeslagenvacatures', async (req, res) => {
+  const objectID = new ObjectID('66057e96025113f2db486f18d');
+  const opgeslagenVacatures = new ObjectID(req.body.userid); // is de button van de like button
+
+  await opgeslagenCollection.update(
+
+    /*
+     * het update de database, door de push, door het te pushen wordt er er een
+     *  object in de array gezet in de likes profile
+     */
+    { _id: objectID },
+    { $push: { opgeslagen: opgeslagenVacatures } }, // push is om meer objecten in de array.
+  );
+
+  opgeslagenCollection.findOne({ _id: objectID }, (err, opslaanObject) => {
+    if (err) {
+      console.log(err);
+    } else {
+      resultatenCollection
+        .find({ _id: { $in: opslaanObject.opgeslagen } }) // de collectie likes komen in de pagina van de savedprofiles
+        .toArray((err, users) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render('opgeslagenvacatures', {
+              // dit is aan andere route
+              title: 'opgeslagen vacatures',
+              users,
+            });
+          }
+        });
+
+      /*
+       * als het in de savedprofile pagina staat, of in de likes collectie
+       * wordt het verwijdert ui te de recommendation pagina
+       */
+      resultatenCollection
+        .find({ _id: { $in: opslaanObject.opgeslagen } })
+        .toArray((err, users) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(users);
+          }
+        });
+    }
+  });
 });
 
 app.get('/profielToevoegen', (req, res) => {
@@ -271,3 +384,4 @@ app.use(function (req, res, next) {
 app.listen(port, () => {
   console.log(`Gebruikte poort: ${port}!`)
 })
+

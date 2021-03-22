@@ -1,0 +1,23 @@
+[
+    {
+        "vacatureTitel": "UX designer",
+        "bedrijfsNaam": "Sony ",
+        "plaats": "Haarlem",
+        "salaris": "3000",
+        "vacatureInformatie": "meer informatie over de vacature"
+    },
+    {
+        "vacatureTitel": "Frontend developer",
+        "bedrijfsNaam": "Resoluut ",
+        "plaats": "Amsterdam",
+        "salaris": "3500",
+        "vacatureInformatie": "meer informatie over de vacature"
+    },
+    {
+        "vacatureTitel": "Visual Designer",
+        "bedrijfsNaam": "Bravroure ",
+        "plaats": "Amsterdam",
+        "salaris": "3020",
+        "vacatureInformatie": "meer informatie over de vacature"
+    }
+]
