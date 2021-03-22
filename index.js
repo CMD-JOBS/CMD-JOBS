@@ -33,6 +33,35 @@ const users = []
 // const sass = require('node-sass');
 const port = 3000;
 
+let db = null;
+
+
+
+// functie om de database te connecten
+
+async function connectDB() {
+  const uri = process.env.DB_URI
+  const options = {
+    useUnifiedTopology: true
+  };
+  const client = new MongoClient(uri, options)
+  await client.connect();
+  db = await client.db(process.env.DB_NAME)
+}
+
+connectDB()
+  .then(() => {
+    // Het verbinden met de DB is gelukt
+    console.log('Feest!')
+  })
+  .catch(error => {
+
+    // Het verbinden met de DB is niet gelukt
+
+    console.log(error)
+
+  })
+
 // Aangeven waar onze statishce files zich bevinden  
 app.use(express.static('static'));
 
@@ -77,6 +106,15 @@ app.get('/registreren',checkNotAuthenticated, (req, res) => {
 });
 
 app.post('/registreren', async (req, res) => {
+  await connectDB()
+  .then(() => {
+    // if succesful connection is made show a message
+    console.log('we have a connection to mongo!');
+  })
+  .catch((error) => {
+    // if connection is unsuccesful, show errors
+    console.log(error);
+  });
   try {
     const hashedWachtwoord = await bcrypt.hash(req.body.password, 10)
     users.push({
