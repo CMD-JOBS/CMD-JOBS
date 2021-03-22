@@ -13,6 +13,8 @@ logs/
 # Uitzonderingen
 !logs/example.log
 
+*:Zone.Identifier
+
 # config files
 .eslintrc
 Procfile
