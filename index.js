@@ -177,7 +177,7 @@ app.post('/registreren', async (req, res) => {
       email: req.body.email,
       password: hashedWachtwoord
     })
-    res.render('/profielToevoegen', {gebruiker});
+    res.render('profielToevoegen', {gebruiker});
   } catch{
     res.redirect('/registreren')
   }

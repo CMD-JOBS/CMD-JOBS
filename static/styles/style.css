@@ -14,32 +14,23 @@ body {
     margin: 7.5em auto;
  }
 
- .homepagina button{
-     display: block;
-     text-decoration: none;
-     width: 50%;
-     color: white;
-     width: 60%;
-     color:white;
-     background-color: black;
-     margin: 0 auto;
-     padding: 0.75em 0;
-    margin: 7.5em auto;
-}
 
-.homepagina a {
+.homepagina button {
     display: block;
     text-decoration: none;
+    appearance: none;
+    border: none;
     width: 50%;
     color: white;
     background-color: black;
-    margin: 0 auto;
+    cursor: pointer;
+    margin: 1em auto;
     padding: 0.75em 0;
     border-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
     transition: 0.25s;
 }
-.homepagina a:hover {
+.homepagina button:hover {
     width: 55%;
     font-size: 17px;
      box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
@@ -437,7 +428,7 @@ body {
     margin-bottom: 7.5em;
 }
 
-label {
+.profiel-pagina label {
     margin-bottom: 0.5em;
     font-weight: 600;
     font-size: 16px;
@@ -446,7 +437,7 @@ label {
     vertical-align: middle;
 }
 
-textarea {
+.profiel-pagina textarea {
     margin: 1em 0;
     margin-bottom: 0;
     width: calc(100% - 0.5em);
@@ -470,7 +461,7 @@ textarea {
     font-size: 18px;
 }
 
-select {
+.profiel-pagina select {
     border: none;
     outline: none;
     width: 50%;
