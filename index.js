@@ -110,7 +110,7 @@ app.post('/', passport.authenticate('local', {
 // ashley werkt in deze route 
 app.get('/resultaten',checkAuthenticated, async (req, res) => {
   // de functie voor de opslaan  optie
-  const objectID = new ObjectID('6057e96025113f2db486f18d');
+  const objectID = new ObjectID('605863f4615b2a027a3008b5');
  opgeslagenCollection.find({ _id: objectID }, (err, opslaanObject) => {
 
   if (err) {
@@ -147,7 +147,7 @@ app.get('/resultaten',checkAuthenticated, async (req, res) => {
 });
 
 app.get('/opgeslagenvacatures', async (req, res) => {
-  const objectID = new ObjectID('6057e96025113f2db486f18d');
+  const objectID = new ObjectID('605863f4615b2a027a3008b5');
   // object van de eerste id
   opgeslagenCollection.findOne({ _id: objectID }, (err, opslaanObject) => {
     if (err) {
@@ -176,7 +176,7 @@ app.get('/opgeslagenvacatures', async (req, res) => {
 
 // het submitten van de button
 app.post('/opgeslagenvacatures', async (req, res) => {
-  const objectID = new ObjectID('66057e96025113f2db486f18d');
+  const objectID = new ObjectID('605863f4615b2a027a3008b5');
   const opgeslagenVacatures = new ObjectID(req.body.userid); // is de button van de like button
 
   await opgeslagenCollection.update(
@@ -336,7 +336,7 @@ app.get('/profiel', async (req, res) => {
   profielen = await db.collection('profielen').find().toArray();
   const profiel = profielen.find(profiel => profiel.id == "YunusEmreAlkan");
   if (profiel === undefined) {
-    res.status(404).send('Sorry deze pagina is niet beschikbaar!')
+    // res.status(404).send('Sorry deze pagina is niet beschikbaar!')
   } else {
     res.render('profiel', {
       title: 'Profiel test',
