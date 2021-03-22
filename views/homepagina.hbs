@@ -1,5 +1,21 @@
 <main class="homepagina">
     <img src="images/cmd-jobs-logo.png" alt="CMD JOBS Logo">
 
-    <a href="/resultaten">Inloggen</a>
+    <form action="/" method="POST">
+    {{#if messages.error}}
+    {{messages.error}}
+    {{/if}}
+
+    <div>
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" required>   
+    </div>
+    <div>
+        <label for="password">Wachtwoord</label>
+        <input type="password" name="password" id="password" required>   
+    </div>
+    <button type="submit">Login</button>
+    </form>
+    <p>Nog geen account?<a href="/registreren">Registreer hier</a></p>
 </main>
+
