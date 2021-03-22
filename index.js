@@ -80,6 +80,7 @@ app.get('/profielToevoegen', (req, res) => {
   res.render('profielToevoegen')
 });
 
+//
 app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
   await databaseJorn()
   .then(() => {
