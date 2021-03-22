@@ -1,1 +1,18 @@
-console.log ("hello");
+console.log("hello");
+
+var bewerkKnop = document.getElementById("bewerk-knop");
+
+function textareaBewerken() {
+    var textarea = document.querySelector(".profiel-pagina textarea");
+    textarea.classList.toggle("bewerk-textarea");
+
+    var selectBox, i;
+    selectBox = document.querySelectorAll("#functie");
+    for (i = 0; i < selectBox.length; i++) {
+        selectBox[i].classList.toggle("bewerk-select");
+    }
+  
+    var bewerktVerzendKnop = document.getElementById("bewerkt-verzend-knop");
+    bewerktVerzendKnop.classList.toggle("laat-bewerkt-verzend-knop-zien");
+}
+bewerkKnop.addEventListener("click", textareaBewerken); 

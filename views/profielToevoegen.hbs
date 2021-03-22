@@ -1,0 +1,90 @@
+{{> logo-header}}
+
+<main class="profielToevoegen">
+    <form action="/profielToevoegen" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Persoonlijke info</legend>
+            <label for="pFoto" class="pFoto">
+                <div>
+                    <img id="profielFoto" src="/images/blankProfile.png">
+                    <span><img src="/images/upload.svg"></span>
+                </div>
+                <span>
+                    <img src="/images/camera.svg">
+                    <p>Profiel foto wijzigen</p>   
+                </span>
+            </label>
+            <input id="pFoto" type="file" name="pFoto" accept="image/*" required>
+
+            <section>
+                <div>
+                    <label for="vNaam">Voornaam:</label>
+                    <input id="vNaam" type="text" name="vNaam" required>
+                </div>
+                
+                <div>
+                    <label for="aNaam">Achternaam:</label>
+                    <input id="aNaam" type="text" name="aNaam" required>
+                </div>
+            </section>
+
+            <label for="opleidingsNiveau">Opleidingsniveau:</label>
+            <select id="opleidingsNiveau" name="opleidingsNiveau" required>
+                <option disabled selected value>Kies:</option>
+                <option value="MBO">MBO</option>
+                <option value="HBO">HBO</option>
+                <option value="Universiteit">Universiteit</option>
+            </select>
+
+            <label for="biografie">Biografie:</label>
+            <textarea name="biografie" id="biografie" cols="30" rows="5" required></textarea>
+        </fieldset>
+        
+
+        <fieldset>
+            <legend>Voorkeuren</legend>
+            
+            <label for="functie">Functie:</label>
+            <select id="functie" name="functie" required>
+                <option disabled selected value>Kies:</option>
+                <option value="Frontend Development">Frontend Development</option>
+                <option value="Content Management">Content Management</option>
+                <option value="Visual Interface Design">Visual Interface Design</option>
+                <option value="Project Management">Project Management</option>
+                <option value="Interaction Design">Interaction Design</option>
+                <option value="UX Design">UX Design</option>
+                <option value="Backend Development">Backend Development</option>
+                <option value="Research">Research</option>        
+            </select>
+            
+            <label for="dienstverband">Dienstverband:</label>
+            <select id="dienstverband" name="dienstverband" required>
+                <option disabled selected value>Kies:</option>
+                <option value="Fulltime">Fulltime</option>
+                <option value="Parttime">Parttime</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Stage">Stage</option>
+            </select>
+
+            <label for="bedrijfsgrootte">Bedrijfsgrootte (aantal medewerkers):</label>
+            <select id="bedrijfsgrootte" name="bedrijfsgrootte" required>
+                <option disabled selected value>Kies:</option>
+                <option value="0>10">0 tot 10</option>
+                <option value="10>50">10 tot 50</option>
+                <option value="50+">Boven de 50</option>
+            </select>
+
+            <input type="submit" value="Opslaan">
+        </fieldset>
+    </form>
+
+    <div>
+        <span class="formActive"></span>
+        <span></span>
+    </div>
+
+    <a id="buttonVolgende" href="#">Volgende</a>
+    
+</main>
+
+<script src="scripts/profielToevoegen.js"></script>
