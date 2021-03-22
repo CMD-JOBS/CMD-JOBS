@@ -72,6 +72,26 @@ app.use(passport.session())
 // Zorgt dat je de info uit textvelden mee kan requiren met een post functie
 app.use(express.urlencoded({extended: false}))
 
+//BodyParser
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//Multer setup
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+     callback(null, 'static/uploads');
+  },
+
+  filename: function (req, file, callback){
+     callback(null, Date.now() + '-' + file.originalname)
+  }
+});
+const upload = multer({
+  storage: storage,
+  limits: {
+     fileSize: 1024 * 1024 * 3,
+  },
+});
+
 // Routes
 app.get('/',checkNotAuthenticated, (req, res) => {
   res.render('homepagina')
@@ -90,6 +110,41 @@ app.get('/resultaten',checkAuthenticated, (req, res) => {
 app.get('/account', (req, res) => {
   res.render('account')
 });
+
+app.get('/profielToevoegen', (req, res) => {
+  res.render('profielToevoegen')
+});
+
+//
+app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
+  db
+  await connectDB()
+  .then(() => {
+    // if succesful connection is made show a message
+    console.log('we have a connection to mongo!');
+  })
+  .catch((error) => {
+    // if connection is unsuccesful, show errors
+    console.log(error);
+  });
+  
+  const id = slug(req.body.vNaam + req.body.aNaam);
+  const pFotoPath = 'uploads/' + req.file.filename;
+  const profiel = {
+                    'id': id, 
+                    'profielFoto': pFotoPath, 
+                    'voornaam': req.body.vNaam, 
+                    'achternaam': req.body.aNaam, 
+                    'opleidingsNiveau': req.body.opleidingsNiveau, 
+                    'biografie': req.body.biografie, 
+                    'functie': req.body.functie, 
+                    'dienstverband': req.body.dienstverband,
+                    'bedrijfsgrootte': req.body.bedrijfsgrootte
+                  };
+  await db.collection('profielen').insertOne(profiel);
+  res.render('homepagina', {title: 'Nieuw Profiel', profiel})
+});
+  
 
 app.get('/registreren',checkNotAuthenticated, (req, res) => {
   res.render('registreren')
@@ -143,7 +198,6 @@ function checkNotAuthenticated(req, res, next) {
   }
   next()
 }
-
 
 // 404 pagina
 app.use(function (req, res, next) {
