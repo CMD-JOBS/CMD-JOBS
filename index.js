@@ -326,12 +326,9 @@ app.get('/profiel', async (req, res) => {
       console.log(error);
     });
 
-
-  // profiel
-
   let profielen = {};
   profielen = await db.collection('profielen').find().toArray();
-  const profiel = profielen.find(profiel => profiel.id == "YunusEmreAlkan");
+  const profiel = profielen.find(profiel => profiel.id == "jornveltrop");
   if (profiel === undefined) {
     // res.status(404).send('Sorry deze pagina is niet beschikbaar!')
   } else {
@@ -345,7 +342,6 @@ app.get('/profiel', async (req, res) => {
 app.post('/profiel', async (req, res) => {
 
   await connectDB()
-
     .then(() => {
       // if succesful connection is made show a message
       console.log('we have a connection to mongo!');
