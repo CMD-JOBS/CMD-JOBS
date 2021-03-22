@@ -1,20 +1,30 @@
+
 body {
     margin: 0;
     padding: 0;
     font-family: "Open Sans";
 }
-
-
-
 /* Homepagina */
 .homepagina {
     background-color: #FFF021;
     height: 100vh;
     text-align: center;
 }
-
 .homepagina img {
     height: 20em;
+    margin: 7.5em auto;
+ }
+
+ .homepagina button{
+     display: block;
+     text-decoration: none;
+     width: 50%;
+     color: white;
+     width: 60%;
+     color:white;
+     background-color: black;
+     margin: 0 auto;
+     padding: 0.75em 0;
     margin: 7.5em auto;
 }
 
@@ -41,30 +51,46 @@ body {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
     transition: 0.25s;
 }
-
 .homepagina a:hover {
     width: 55%;
     font-size: 17px;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
-}
+     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
+ }
+
+ .homepagina form{
+     position: relative;
+     top: -10em;
+     display: block;
+     text-decoration: none;
+     width: 50%;
+     color:black;
+     margin: 0 auto;
+     font-weight: 600;
+     transition: 0.25s;
+ }
+
+ .homepagina label{
+     display: block;
+ }
+
+ .homepagina p{
+     display: block;
+     position: relative;
+     top: -10em;
+ }
 
 
-
-/* Header met logo */
+ /* Header met logo */
 .logo-header {
     background-color: #FFF021;
     text-align: center;
 }
-
 .logo-header img {
     height: 5em;
     margin: 0;
     padding: 0;
     vertical-align: middle;
 }
-
-
-
 /* Footer met navigatie */
 .navigatie-footer {
     background-color: #FFF021;
@@ -77,11 +103,9 @@ body {
     padding: 1.5em;
     /* box-shadow: 0px 0 20px rgba(0, 0, 0, 0.5); */
 }
-
 .navigatie-footer svg {
     height: 2em;
 }
-
 /* Resultaten - Cards */
 .resultaten {
     padding-top: 4em;
@@ -95,11 +119,9 @@ body {
     background-size: contain;
     height: calc(100vh - 10em);
 }
-
 ::-webkit-scrollbar {
     display: none;
 }
-
 .resultaten div {
     height: 500px;
     min-width: 350px;
@@ -110,11 +132,14 @@ body {
     margin-right: 2em;
     transition: 0.25s;
 }
-
 .resultaten div:first-child {
     margin-left: 4em;
 }
-
 .resultaten div:hover {
     transform: translateY(-5%)
+}
+
+.messages{
+    color: red;
+    font-style:normal;
 }
