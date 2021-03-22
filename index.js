@@ -33,6 +33,7 @@ const users = []
 // const sass = require('node-sass');
 const port = 3000;
 
+
 let db = null;
 
 
@@ -51,6 +52,7 @@ async function connectDB() {
 
 
 // Aangeven waar onze statishce files zich bevinden  
+
 app.use(express.static('static'));
 
 // Template engine opgeven

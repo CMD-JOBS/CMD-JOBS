@@ -12,7 +12,7 @@ body {
 }
 .homepagina img {
     height: 20em;
-     margin: 7.5em auto;
+    margin: 7.5em auto;
  }
 
  .homepagina button{
@@ -25,8 +25,29 @@ body {
      background-color: black;
      margin: 0 auto;
      padding: 0.75em 0;
+    margin: 7.5em auto;
+}
+
+/* .homepagina svg {
+    height: 25em;
+    margin: 7.5em auto;
+}
+
+.cls-2{
+    font-size: 180px;
+    font-family: Montserrat-Bold, Montserrat;
+    font-weight: 700;
+} */
+
+.homepagina a {
+    display: block;
+    text-decoration: none;
+    width: 50%;
+    color: white;
+    background-color: black;
+    margin: 0 auto;
+    padding: 0.75em 0;
     border-radius: 2em;
-    font-weight: 600;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
     transition: 0.25s;
 }
