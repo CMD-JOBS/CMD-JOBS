@@ -152,59 +152,44 @@ body {
     font-weight: Bolder;
 }
 
-.profiel-pagina section {
-    margin: 2em 1em;
-    background-color: white;
-    border-radius: 0.75em;
+
+#bewerk-knop{
+    background-color: black;
+    display: inline;
+    padding: 1.25em;
+    border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 1.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 3em;
+    margin-top: 7.5em;
 }
 
-.profiel-pagina section p {
-    margin: 0;
-    font-size: 14px;
-}
+/* #bewerk-knop p{
+    display: inline;
+    margin-top: 1em;
+} */
 
-.profiel-pagina section div p {
-    padding-bottom: 1em;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.profiel-flex {
-    display: flex;
-    justify-content: space-between;
-}
-
-.profiel-flex svg {
-    height: 1.25em;
+#bewerk-knop svg {
+    height: 1.5em;
     vertical-align: middle;
-    fill: rgba(0, 0, 0, 0.5);
-    transition: 0.25s;
-}
-
-.profiel-flex svg:hover {
-    fill: rgba(0, 0, 0, 1);
-}
-
-#aanpassen {
     fill: white;
-    color: rgba(0, 0, 0, 0.5);
-    font-weight: 100;
-    font-size: 12px;
-    text-decoration: underline;
     transition: 0.25s;
 }
 
-#aanpassen:hover {
-    color: rgba(0, 0, 0, 1);
+#bewerk-knop:hover {
+    transition: 0.25s;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
 }
+
 
 
 /* Profiel Form */
 
 .profiel-gegevens {
     margin: 2em;
+    margin-bottom: 7.5em;
 }
 
 label {
@@ -252,7 +237,7 @@ select {
 }
 
 #bewerkt-verzend-knop {
-    margin: 2.5em auto 7.5em;
+    margin: 2.5em auto;
     width: 50%;
     background-color: black;
     color: white;
@@ -265,12 +250,6 @@ select {
     font-size: 16px;
     cursor: pointer;
     display: none;
-}
-
-#bewerk-knop{
-    padding: 0;
-    margin: 0;
-    margin-top: 1em;
 }
 
 .bewerk-textarea {

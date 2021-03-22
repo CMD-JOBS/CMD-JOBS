@@ -105,7 +105,7 @@ app.post('/profiel', async (req, res) => {
   };
   
   await db.collection('profielen').insertOne(profielen);
-  console.log(req.body.functie);
+  console.log("Data is verzonden, voorbeeld: " + req.body.functie);
   res.render('profiel', {
     title: "test",
     profielen
