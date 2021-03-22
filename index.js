@@ -5,8 +5,12 @@ const slug = require('slug');
 const multer = require('multer');
 const app = express();
 const dotenv = require('dotenv').config();
-const { MongoClient } = require('mongodb');
-const { ObjectID } = require('mongodb')
+const {
+  MongoClient
+} = require('mongodb');
+const {
+  ObjectID
+} = require('mongodb')
 // const sass = require('node-sass');
 
 console.log(process.env.TESTVAR);
@@ -62,7 +66,9 @@ connectDB()
 app.use(express.static('static'));
 
 //BodyParser
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 // Template engine opgeven
 app.engine('hbs', hbs({
@@ -79,86 +85,63 @@ app.get('/resultaten', (req, res) => {
   res.render('resultaten')
 });
 
-app.get('/profiel', (req, res) => {
-  res.render('profiel')
+app.get('/profiel', async (req, res) => {
+
+  await connectDB()
+
+    .then(() => {
+      // if succesful connection is made show a message
+      console.log('we have a connection to mongo!');
+    })
+    .catch((error) => {
+      // if connection is unsuccesful, show errors
+      console.log(error);
+    });
+
+
+  // profiel
+
+  let profielen = {};
+  profielen = await db.collection('profielen').find().toArray();
+  const profiel = profielen.find(profiel => profiel.id == "YunusEmreAlkan");
+  if (profiel === undefined) {
+    res.status(404).send('Sorry deze pagina is niet beschikbaar!')
+  } else {
+    res.render('profiel', {
+      title: 'Profiel test',
+      profiel
+    });
+  }
 });
 
 app.post('/profiel', async (req, res) => {
 
   await connectDB()
 
-  .then(() => {
-    // if succesful connection is made show a message
-    console.log('we have a connection to mongo!');
-  })
-  .catch((error) => {
-    // if connection is unsuccesful, show errors
-    console.log(error);
-  });
+    .then(() => {
+      // if succesful connection is made show a message
+      console.log('we have a connection to mongo!');
+    })
+    .catch((error) => {
+      // if connection is unsuccesful, show errors
+      console.log(error);
+    });
 
-   const profielen = {
+  const profiel = {
     "biografie": req.body.biografie,
     "opleidingsNiveau": req.body.opleidingsNiveau,
     "functie": req.body.functie,
     "dienstverband": req.body.dienstverband,
     "bedrijfsgrootte": req.body.bedrijfsgrootte
   };
-  
-  await db.collection('profielen').insertOne(profielen);
+
+  await db.collection('profielen').insertOne(profiel);
   console.log("Data is verzonden, voorbeeld: " + req.body.functie);
   res.render('profiel', {
     title: "test",
-    profielen
+    profiel
   })
 });
-
-
-// app.post('/profiel', async (req, res) => {
-//   const id = slug(req.body.naam);
-//   const profiel = {
-//     "voornaam": req.body.vNaam,
-//     "achternaam": req.body.aNaam,
-//     "biografie": req.body.biografie,
-//     "opleidingsNiveau": req.body.opleidingsNiveau,
-//     "functie": req.body.functie,
-//     "dienstverband": req.body.dienstverband,
-//     "bedrijfsgrootte": req.body.bedrijfsgrootte
-//   };
-//   await db.collection('profielen').insertOne(profiel);
-//   res.render('profiel', {
-//     title: "hoi",
-//     profiel
-//   })
-// });
-
-
-// TEST
-// TEST
-
-app.get('/form', (req, res) => {
-  let profielen = {}
-  res.render('testForm', {
-    title: "Gebruiker Toevoegen",
-    profielen
-  });
-});
-
-app.post('/form', async (req, res) => {
-  const id = slug(req.body.opleidingsNiveau);
-  const profielen = {
-    "opleidingsNiveau": req.body.opleidingsNiveau,
-    "dienstverband": req.body.dienstverband
-  };
-  await db.collection('profielen').insertOne(profielen);
-  res.render('aangepasteGegevens', {
-    title: "hello",
-    profielen
-  })
-});
-
-
-
-
 
 
 // 404 pagina

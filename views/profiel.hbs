@@ -4,7 +4,7 @@
     <header class="profiel-foto">
         <img src="images/profiel-foto-mockup.png" alt="">
         {{!-- <img src="images/test.png" alt=""> --}}
-        <h1>Yunus Emre Alkan</h1>
+        <h1>{{profiel.voornaam}} {{profiel.achternaam}}</h1>
 
         <div id="bewerk-knop">
             <svg viewBox="0 0 512 512">
@@ -25,13 +25,12 @@
 
         <div class="biografie">
             <label for="biografie">Biografie</label>
-            <textarea name="biografie" rows="5"
-                required>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit provident temporibus facere eos voluptate quibusdam doloremque dignissimos expedita dolore. Eius nihil architecto quas voluptate cumque ratione est vero quae velit.</textarea>
+            <textarea name="biografie" rows="5">{{profiel.biografie}}</textarea>
         </div>
         <div class="opleidingsniveau">
             <label for="opleidingsniveau">Opleidingsniveau:</label>
             <select id="opleidingsNiveau" name="opleidingsNiveau" required>
-                <option disabled selected value>HBO</option>
+                <option disabled selected value>{{profiel.opleidingsNiveau}}</option>
                 <option value="MBO">MBO</option>
                 <option value="HBO">HBO</option>
                 <option value="Universiteit">Universiteit</option>
@@ -42,7 +41,7 @@
         <div class="functe">
             <label for="functie">Functie:</label>
             <select id="functie" name="functie" required>
-                <option disabled selected value>Frontend Development</option>
+                <option disabled selected value>{{profiel.functie}}</option>
                 <option value="Frontend Development">Frontend Development</option>
                 <option value="Content Management">Content Management</option>
                 <option value="Visual Interface Design">Visual Interface Design</option>
@@ -57,7 +56,7 @@
         <div class="dienstverband">
             <label for="dienstverband">Dienstverband:</label>
             <select id="dienstverband" name="dienstverband" required>
-                <option disabled selected value>Parttime</option>
+                <option disabled selected value>{{profiel.dienstverband}}</option>
                 <option value="Fulltime">Fulltime</option>
                 <option value="Parttime">Parttime</option>
                 <option value="Freelance">Freelance</option>
@@ -68,7 +67,7 @@
         <div class="bedrijfs-grootte">
             <label for="bedrijfsgrootte">Bedrijfsgrootte:</label>
             <select id="bedrijfsgrootte" name="bedrijfsgrootte" required>
-                <option selected value>0 tot 10</option>
+                <option selected value>{{profiel.bedrijfsgrootte}}</option>
                 <option value="0>10">0 tot 10</option>
                 <option value="10>50">10 tot 50</option>
                 <option value="50+">Boven de 50</option>
