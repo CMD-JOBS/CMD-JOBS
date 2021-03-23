@@ -85,15 +85,21 @@ passport.deserializeUser((id, done) => {
 });
 
 //Authenticate check
-function ensureAuthenticated (req, res, next) {
+
+function checkAuthenticated (req, res, next) {
   if(req.isAuthenticated()){
-    return next();
+  return next()
   }
-  req.flash('error_msg','Werkt niet');
   res.redirect('/')
+  };
 
-}
-
+  function checkNotAuthenticated (req, res, next) {
+  if(req.isAuthenticated()){
+  res.redirect('/resultaten');
+  };
+  next();
+  
+  };
 //Multer setup
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
@@ -144,11 +150,11 @@ let opgeslagenCollection = null;
 
 // Routes
 
-app.get('/', (req, res) => {
+app.get('/', checkNotAuthenticated, (req, res) => {
   res.render('inloggen')
 });
 
-app.get('/registreren', (req, res) => {
+app.get('/registreren', checkNotAuthenticated, (req, res) => {
   res.render('registreren')
 });
 
@@ -217,7 +223,7 @@ app.post('/', (req, res, next) => {
   })(req, res, next);
 });
 
-app.get('/profielToevoegen', ensureAuthenticated,(req, res) => {
+app.get('/profielToevoegen', checkAuthenticated,(req, res) => {
   res.render('profielToevoegen')
 });
 
@@ -276,7 +282,7 @@ app.get('/profiel', async (req, res) => {
   }
 });
 
-app.post('/profiel', ensureAuthenticated,async (req, res) => {
+app.post('/profiel', checkAuthenticated,async (req, res) => {
 
   await connectDB()
     .then(() => {
@@ -305,7 +311,7 @@ app.post('/profiel', ensureAuthenticated,async (req, res) => {
 });
 
 // ashley werkt in deze route 
-app.get('/resultaten',ensureAuthenticated, async (req, res) => {
+app.get('/resultaten',checkAuthenticated, async (req, res) => {
   res.render('resultaten')
   // de functie voor de opslaan  optie
 //   const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
@@ -344,7 +350,7 @@ app.get('/resultaten',ensureAuthenticated, async (req, res) => {
 // });
 });
 
-app.get('/opgeslagenvacatures',ensureAuthenticated, async (req, res) => {
+app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
   const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
   // object van de eerste id
   opgeslagenCollection.findOne({ _id: objectID }, (err, opslaanObject) => {
