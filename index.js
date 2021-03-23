@@ -391,7 +391,7 @@ app.post('/profiel', async (req, res) => {
 // ashley werkt in deze route 
 app.get('/resultaten',checkAuthenticated, async (req, res) => {
   const userData = req.session.user;
-  if (userData.voornaam == 'undefined') {
+  if (userData.voornaam == undefined) {
     res.redirect('/profielToevoegen');
   } else {
     res.render('resultaten');
