@@ -391,11 +391,13 @@ app.post('/profiel', async (req, res) => {
 // ashley werkt in deze route 
 app.get('/resultaten',checkAuthenticated, async (req, res) => {
   const userData = req.session.user;
-  if (userData.voornaam == undefined) {
+  if (userData.voornaam == 'undefined') {
     res.redirect('/profielToevoegen');
+  } else {
+    res.render('resultaten');
   }
 
-  res.render('resultaten');
+  
   // de functie voor de opslaan  optie
 //   const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
 //  opgeslagenCollection.find({ _id: objectID }, (err, opslaanObject) => {
