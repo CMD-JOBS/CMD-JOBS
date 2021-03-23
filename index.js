@@ -64,6 +64,7 @@ passport.use(
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if(err) throw err;
         if(isMatch){
+        req.session.user = user
           return done(null, user);
         } else{
           return done(null, false, {message:'Wachtwoord fout'})
@@ -216,6 +217,30 @@ app.post('/registreren', (req, res) => {
 
 // Login handle
 app.post('/', (req, res, next) => {
+  passport.use(
+    new localStrategy({ usernameField: 'email' }, (email, password, done)=>{
+      // Match user
+      User.findOne({ email: email})
+      .then(user => {
+        if(!user){
+          return done(null, false, {message: 'Email bestaat nog niet'})
+        }
+  
+        // Match Password
+        bcrypt.compare(password, user.password, (err, isMatch) => {
+          if(err) throw err;
+          if(isMatch){
+          req.session.user = user
+          console.log(user);
+            return done(null, user);
+          } else{
+            return done(null, false, {message:'Wachtwoord fout'})
+          }
+        });
+      })
+      .catch(err => console.log(err));
+    })
+  );
   passport.authenticate('local', {
     successRedirect:'/resultaten',
     failureRedirect: '/',
@@ -259,27 +284,29 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
 
 // Profiel pagina
 app.get('/profiel', async (req, res) => {
-  await connectDB()
-    .then(() => {
-      // if succesful connection is made show a message
-      console.log('we have a connection to mongo!');
-    })
-    .catch((error) => {
-      // if connection is unsuccesful, show errors
-      console.log(error);
-    });
+  console.log(req.session.user);
+  res.render('profiel')
+  // await connectDB()
+  //   .then(() => {
+  //     // if succesful connection is made show a message
+  //     console.log('we have a connection to mongo!');
+  //   })
+  //   .catch((error) => {
+  //     // if connection is unsuccesful, show errors
+  //     console.log(error);
+  //   });
 
-  let profielen = {};
-  profielen = await db.collection('profielen').find().toArray();
-  const profiel = profielen.find(profiel => profiel.id == "jornveltrop");
-  if (profiel === undefined) {
-    res.status(404).send('Sorry deze pagina is niet beschikbaar!')
-  } else {
-    res.render('profiel', {
-      title: 'Profiel test',
-      profiel
-    });
-  }
+  // let profielen = {};
+  // profielen = await db.collection('profielen').find().toArray();
+  // const profiel = profielen.find(profiel => profiel.id == "jornveltrop");
+  // if (profiel === undefined) {
+  //   res.status(404).send('Sorry deze pagina is niet beschikbaar!')
+  // } else {
+  //   res.render('profiel', {
+  //     title: 'Profiel test',
+  //     profiel
+  //   });
+  // }
 });
 
 app.post('/profiel', checkAuthenticated,async (req, res) => {
