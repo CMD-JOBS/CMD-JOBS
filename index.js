@@ -54,7 +54,7 @@ app.use((req, res, next) => {
 passport.use(
   new localStrategy({ usernameField: 'email' }, (email, password, done)=>{
     // Match user
-    User.findOne({ email: email})
+    userModel.findOne({ email: email})
     .then(user => {
       if(!user){
         return done(null, false, {message: 'Email bestaat nog niet'})
@@ -80,7 +80,7 @@ passport.serializeUser((user, done) =>{
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id,(err, user) => {
+  userModel.findById(id,(err, user) => {
     done(err, user);
   });
 });
@@ -100,7 +100,8 @@ function checkAuthenticated (req, res, next) {
   };
   next();
   
-  };
+};
+
 //Multer setup
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
@@ -120,7 +121,7 @@ const upload = multer({
 
 
 //Database connectie functie
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true
@@ -128,31 +129,132 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  profielFoto: {
+    type: String,
+    required: false
+  },
+  voornaam: {
+    type: String,
+    required: false
+  },
+  achternaam: {
+    type: String,
+    required: false
+  },
+  opleidingsNiveau: {
+    type: String,
+    required: false
+  },
+  biografie: {
+    type: String,
+    required: false
+  },
+  functie: {
+    type: String,
+    required: false
+  },
+  dienstverband: {
+    type: String,
+    required: false
+  },
+  bedrijfsgrootte: {
+    type: String,
+    required: false
   }
-
 });
 
-const User = mongoose.model("User", UserSchema);
+const collectionSchema = new mongoose.Schema({
+  vacatureTitel: {
+    type: String,
+    required: true
+  },
+  bedrijfsNaam: {
+    type: String,
+    required: true
+  },
+  plaats: {
+    type: String,
+    required: true
+  },
+  salaris: {
+    type: String,
+    required: true
+  },
+  vacatureInformatie: {
+    type: String,
+    required: true
+  }
+});
 
+const opgeslagenSchema = new mongoose.Schema({
+  vacatureTitel: {
+    type: Array,
+    required: false
+  },
+  bedrijfsNaam: {
+    type: String,
+    required: true
+  },
+  plaats: {
+    type: String,
+    required: true
+  },
+  salaris: {
+    type: String,
+    required: true
+  },
+  vacatureInformatie: {
+    type: String,
+    required: true
+  }
+});
+
+const userModel = mongoose.model('users', userSchema);
+const resultatenCollection = mongoose.model('resultaten', collectionSchema);
+const opgeslagenCollection = mongoose.model('opgeslagen', opgeslagenSchema);
 const uri = process.env.DB_URI;
 
-mongoose.connect(uri, {useNewUrlParser: true})
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => console.log('MongoDB connectie :)'))
 .catch(err => console.log(err));
 
-let db = null;
-let resultatenCollection = null;
-let opgeslagenCollection = null;
-
-
-// resultatenCollection = await db.collection('resultaten');
-// opgeslagenCollection = await db.collection('opgeslagen');
-
-
 // Routes
-
 app.get('/', checkNotAuthenticated, (req, res) => {
   res.render('inloggen')
+});
+
+// Login handle
+app.post('/', (req, res, next) => {
+  passport.use(
+    new localStrategy({ usernameField: 'email' }, (email, password, done)=>{
+      // Match user
+      userModel.findOne({ email: email})
+      .then(user => {
+        if(!user){
+          return done(null, false, {message: 'Email bestaat nog niet'})
+        }
+  
+        // Match Password
+        bcrypt.compare(password, user.password, (err, isMatch) => {
+          if(err) throw err;
+          if(isMatch){
+          req.session.user = user
+          console.log(user);
+            return done(null, user);
+          } else{
+            return done(null, false, {message:'Wachtwoord fout'})
+          }
+        });
+      })
+      .catch(err => console.log(err));
+    })
+  );
+  passport.authenticate('local', {
+    successRedirect:'/resultaten',
+    failureRedirect: '/',
+    failureFlash: true
+  })(req, res, next);
 });
 
 app.get('/registreren', checkNotAuthenticated, (req, res) => {
@@ -181,7 +283,7 @@ app.post('/registreren', (req, res) => {
     })
   } else {
     // Inlog goedkeuring
-    User.findOne({ email: email })
+    userModel.findOne({ email: email })
     .then(user =>{
       if(user) {
         //Gebruiker bestaat
@@ -192,7 +294,7 @@ app.post('/registreren', (req, res) => {
           password
         });
       } else{
-        const newUser = new User({
+        const newUser = new userModel({
           email,
           password
         });
@@ -206,7 +308,7 @@ app.post('/registreren', (req, res) => {
             newUser.save()
               .then(user =>{
                 req.flash('succes_msg','geregistreerd');
-                res.render('profielToevoegen');
+                res.redirect('/');
               })
               .catch(err => console.log(err));
         }));
@@ -215,101 +317,50 @@ app.post('/registreren', (req, res) => {
   }
 });
 
-// Login handle
-app.post('/', (req, res, next) => {
-  passport.use(
-    new localStrategy({ usernameField: 'email' }, (email, password, done)=>{
-      // Match user
-      User.findOne({ email: email})
-      .then(user => {
-        if(!user){
-          return done(null, false, {message: 'Email bestaat nog niet'})
-        }
-  
-        // Match Password
-        bcrypt.compare(password, user.password, (err, isMatch) => {
-          if(err) throw err;
-          if(isMatch){
-          req.session.user = user
-          console.log(user);
-            return done(null, user);
-          } else{
-            return done(null, false, {message:'Wachtwoord fout'})
-          }
-        });
-      })
-      .catch(err => console.log(err));
-    })
-  );
-  passport.authenticate('local', {
-    successRedirect:'/resultaten',
-    failureRedirect: '/',
-    failureFlash: true
-  })(req, res, next);
-});
-
 app.get('/profielToevoegen', checkAuthenticated,(req, res) => {
   res.render('profielToevoegen')
 });
 
 //
 app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
-  await connectDB()
-  .then(() => {
-    // if succesful connection is made show a message
-    console.log('we have a connection to mongo!');
-  })
-  .catch((error) => {
-    // if connection is unsuccesful, show errors
-    console.log(error);
-  });
-  
-  const id = slug(req.body.vNaam + req.body.aNaam);
   const pFotoPath = 'uploads/' + req.file.filename;
-  const profiel = {
-                    'id': id, 
-                    'profielFoto': pFotoPath, 
-                    'voornaam': req.body.vNaam, 
-                    'achternaam': req.body.aNaam, 
-                    'opleidingsNiveau': req.body.opleidingsNiveau, 
-                    'biografie': req.body.biografie, 
-                    'functie': req.body.functie, 
-                    'dienstverband': req.body.dienstverband,
-                    'bedrijfsgrootte': req.body.bedrijfsgrootte
-                  };
-  await db.collection('profielen').insertOne(profiel);
-  res.redirect('/');
+  const huidigeUserData = req.session.user;
+  const huidigeUserID = huidigeUserData._id;
+
+  await userModel.findOneAndUpdate({_id: huidigeUserID}, {
+      profielFoto: pFotoPath, 
+      voornaam: req.body.vNaam, 
+      achternaam: req.body.aNaam, 
+      opleidingsNiveau: req.body.opleidingsNiveau, 
+      biografie: req.body.biografie, 
+      functie: req.body.functie, 
+      dienstverband: req.body.dienstverband,
+      bedrijfsgrootte: req.body.bedrijfsgrootte
+    }, (error, data) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(data);
+        }
+      }
+  );
+  await userModel.findOne({ _id: huidigeUserID })
+      .then(user => {
+        console.log(user);
+        req.session.user = user
+      })
+      .catch(err => console.log(err));
+  res.redirect('/resultaten');
 });
 
 
 // Profiel pagina
-app.get('/profiel', async (req, res) => {
-  console.log(req.session.user);
-  res.render('profiel')
-  // await connectDB()
-  //   .then(() => {
-  //     // if succesful connection is made show a message
-  //     console.log('we have a connection to mongo!');
-  //   })
-  //   .catch((error) => {
-  //     // if connection is unsuccesful, show errors
-  //     console.log(error);
-  //   });
-
-  // let profielen = {};
-  // profielen = await db.collection('profielen').find().toArray();
-  // const profiel = profielen.find(profiel => profiel.id == "jornveltrop");
-  // if (profiel === undefined) {
-  //   res.status(404).send('Sorry deze pagina is niet beschikbaar!')
-  // } else {
-  //   res.render('profiel', {
-  //     title: 'Profiel test',
-  //     profiel
-  //   });
-  // }
+app.get('/profiel', checkAuthenticated, (req, res) => {
+  const profiel = req.session.user;
+  res.render('profiel', { profiel });
 });
 
-app.post('/profiel', checkAuthenticated,async (req, res) => {
+app.post('/profiel', async (req, res) => {
 
   await connectDB()
     .then(() => {
@@ -339,7 +390,12 @@ app.post('/profiel', checkAuthenticated,async (req, res) => {
 
 // ashley werkt in deze route 
 app.get('/resultaten',checkAuthenticated, async (req, res) => {
-  res.render('resultaten')
+  const userData = req.session.user;
+  if (userData.voornaam == undefined) {
+    res.redirect('/profielToevoegen');
+  }
+
+  res.render('resultaten');
   // de functie voor de opslaan  optie
 //   const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
 //  opgeslagenCollection.find({ _id: objectID }, (err, opslaanObject) => {
@@ -464,4 +520,3 @@ app.use(function (req, res, next) {
 app.listen(port, () => {
   console.log(`Gebruikte poort: ${port}!`)
 });
-
