@@ -1,6 +1,11 @@
 <h1>Registreren</h1>
 <form action="/registreren" method="POST">
-{{>messages}}
+
+{{#if errors}}
+    {{#each errors}}
+        <strong>{{this.message}}</strong>
+    {{/each}}
+{{/if}}
 <div>
     <label for="email">E-mail</label>
     <input type="email" name="email" id="email" required>   

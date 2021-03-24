@@ -42,14 +42,6 @@ app.use(passport.session());
 //Flash
 app.use(flash());
 
-//Global
-app.use((req, res, next) => {
-  res.locals.succes_msg = req.flash('succes_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  next();
-});
-
 //passport
 passport.use(
   new localStrategy({ usernameField: 'email' }, (email, password, done)=>{
@@ -94,12 +86,11 @@ function checkAuthenticated (req, res, next) {
   res.redirect('/')
   };
 
-  function checkNotAuthenticated (req, res, next) {
+function checkNotAuthenticated (req, res, next) {
   if(req.isAuthenticated()){
   res.redirect('/resultaten');
   };
   next();
-  
 };
 
 //Multer setup
@@ -209,7 +200,10 @@ mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
 
 // Routes
 app.get('/', checkNotAuthenticated, (req, res) => {
-  res.render('inloggen')
+  
+  const errors = req.flash();
+  console.log(errors);
+  res.render('inloggen', { errors })
 });
 
 // Login handle
@@ -248,7 +242,7 @@ app.get('/registreren', checkNotAuthenticated, (req, res) => {
   res.render('registreren')
 });
 
-app.post('/registreren', (req, res) => {
+app.post('/registreren', async (req, res) => {
   const { email, password, password2} = req.body;
   let errors = [];
   
@@ -267,46 +261,41 @@ app.post('/registreren', (req, res) => {
     errors.push({message: 'wachtwoord te kort'})
   }
 
-  if(errors.length >0){
+  await userModel.findOne({ email: email })
+  .then(user =>{
+    if(user) {
+      //Gebruiker bestaat
+      errors.push({message:"Email al in gebruik"});
+  }});
+
+  if(errors.length){
+    console.log(errors);
     res.render('registreren',{
       errors,
       email,
       password
     })
   } else {
-    // Inlog goedkeuring
-    userModel.findOne({ email: email })
-    .then(user =>{
-      if(user) {
-        //Gebruiker bestaat
-        errors.push({message:"Email al in gebruik"});
-        res.render('registreren',{
-          errors,
-          email,
-          password
+      const newUser = new userModel({
+        email,
+        password
+      });
+    //hashedPassword
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(newUser.password, salt,(err, hash)=>{
+        if(err) throw err;
+        // Verander naar Hash password
+        newUser.password = hash;
+        //save gebruiker
+        newUser.save()
+          .then(user =>{
+            req.flash('succes_msg','geregistreerd');
+            res.redirect('/');
+          })
+          .catch(err => console.log(err));
+      })
         });
-      } else{
-        const newUser = new userModel({
-          email,
-          password
-        });
-        //hashedPassword
-        bcrypt.genSalt(10, (err, salt) => 
-          bcrypt.hash(newUser.password, salt,(err, hash)=>{
-            if(err) throw err;
-            // Verander naar Hash password
-            newUser.password = hash;
-            //save gebruiker
-            newUser.save()
-              .then(user =>{
-                req.flash('succes_msg','geregistreerd');
-                res.redirect('/');
-              })
-              .catch(err => console.log(err));
-        }));
-      }
-    });
-  }
+        }
 });
 
 app.get('/profielToevoegen', checkAuthenticated,(req, res) => {
