@@ -1,7 +1,10 @@
 {{> logo-header}}
 
 <main class="resultaten">
-    {{#each users}}
+
+    <h1>Resultaten</h1>
+
+    {{#each vacatures}}
     <div>
         <h2>{{vacatureTitel}}</h2>
         <h3>{{bedrijfsNaam}}</h3>
@@ -12,8 +15,8 @@
 
 
         {{!-- <div class="opslaanButton"> --}}
-            <form action="/opgeslagenvacatures" method="POST">
-                <button type="submit" name="userid" value={{_id}}>opslaan</button>
+            <form action="/resultaten" method="POST">
+                <button type="submit" name="vacatureID" value={{_id}}>opslaan</button>
             </form>
             {{!--
         </div> --}}
@@ -21,6 +24,4 @@
 
     {{/each}}
 </main>
-{{> navigatie-footer}}
-
 {{> navigatie-footer}}
