@@ -418,10 +418,11 @@ app.post('/resultaten', async (req, res) => {
 });
 
 app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
-  const userData = req.session.user;
+  const huidigeUserData = req.session.user;
+  const huidigeUserID = huidigeUserData._id;
 
-  usersModel.find({ _id: huidigeUserID }, {opgeslagen}).lean()
-  .exec((err, vacatures) => {
+  userModel.find({ _id: huidigeUserID }, { opgeslagen }).lean()
+  .exec((err, Opgsvacatures) => {
     if (err) {
       console.log(err);
     } else {
