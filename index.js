@@ -228,7 +228,6 @@ app.post('/', (req, res, next) => {
           if(err) throw err;
           if(isMatch){
           req.session.user = user
-          console.log(user);
             return done(null, user);
           } else{
             return done(null, false, {message:'Wachtwoord fout'})
@@ -386,7 +385,7 @@ app.get('/resultaten', checkAuthenticated, async (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.render('resultaten', { title: 'Een lijst met resultaten', vacatures: vacatures});
+        res.render('resultaten', { title: 'Een lijst met resultaten', vacatures});
       }
     });
   }
@@ -420,13 +419,14 @@ app.post('/resultaten', async (req, res) => {
 app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
   const huidigeUserData = req.session.user;
   const huidigeUserID = huidigeUserData._id;
+  const huidigeUserOpgeslagen = huidigeUserData.opgeslagen;
 
-  userModel.find({ _id: huidigeUserID }, { opgeslagen }).lean()
-  .exec((err, Opgsvacatures) => {
+  vacaturesCollection.find({'_id': { $in: huidigeUserOpgeslagen }}).lean()
+  .exec((err, opgeslagenVacatures) => {
     if (err) {
       console.log(err);
     } else {
-      res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', vacatures: vacatures});
+      res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', opgeslagenVacatures});
     }
   });
 });
