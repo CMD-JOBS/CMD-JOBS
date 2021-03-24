@@ -1,0 +1,25 @@
+{{> logo-header}}
+
+<main class="details">
+    {{#each users}}
+    <h2>{{vacatureTitel}}</h2>
+    <h3>{{bedrijfsNaam}}</h3>
+    <h4>{{plaats}}</h4>
+    <h4>{{opleidingsNiveau}}</h4>
+    <h4>{{dienstVerband}}</h4>
+    <h4>{{bedrijfsGrootte}}</h4>
+    <h4 class="salaris"></h4>{{salaris}}</h4>
+
+    <p class="description">{{vacatureInformatie}}</p>
+    <h3>Werkzaamheden</h3>
+    <p>{{ werkzaamheden}}</p>
+    <h3>Kwalificaties</h3>
+    <p>{{eisen}}</p>
+    <h3>Csontact</h3>
+    <p>{{adress}}</p>
+    <p>{{eMail}}</p>
+    <p>{{telefoonNummer}}</p>
+
+    {{/each}}
+</main>
+{{> navigatie-footer}}
