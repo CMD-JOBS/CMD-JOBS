@@ -249,16 +249,21 @@ app.get('/registreren', checkNotAuthenticated, (req, res) => {
 });
 
 app.post('/registreren', (req, res) => {
-  const { email, password} = req.body;
+  const { email, password, password2} = req.body;
   let errors = [];
-
+  
   //Controleer benodigden velden
-  if (!email || !password){
+  if (!email || !password || !password2){
     errors.push({message:'please invullen'});
   }
 
+  //Check passwords match
+  if(password !== password2) {
+  errors.push({ message:'Wachtwoorden komen niet overeen'});
+}
+
   //Wachtwoord lengte instellen
-  if(password.length <2) {
+  if(password.length < 6) {
     errors.push({message: 'wachtwoord te kort'})
   }
 
