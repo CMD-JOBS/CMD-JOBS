@@ -161,10 +161,14 @@ const userSchema = new mongoose.Schema({
   bedrijfsgrootte: {
     type: String,
     required: false
+  },
+  opgeslagen: {
+    type: Array,
+    required: false
   }
 });
 
-const collectionSchema = new mongoose.Schema({
+const vacaturesSchema = new mongoose.Schema({
   vacatureTitel: {
     type: String,
     required: true
@@ -188,30 +192,14 @@ const collectionSchema = new mongoose.Schema({
 });
 
 const opgeslagenSchema = new mongoose.Schema({
-  vacatureTitel: {
+  opgeslagen: {
     type: Array,
     required: false
-  },
-  bedrijfsNaam: {
-    type: String,
-    required: true
-  },
-  plaats: {
-    type: String,
-    required: true
-  },
-  salaris: {
-    type: String,
-    required: true
-  },
-  vacatureInformatie: {
-    type: String,
-    required: true
   }
 });
 
 const userModel = mongoose.model('users', userSchema);
-const resultatenCollection = mongoose.model('resultaten', collectionSchema);
+const vacaturesCollection = mongoose.model('vacatures', vacaturesSchema);
 const opgeslagenCollection = mongoose.model('opgeslagen', opgeslagenSchema);
 const uri = process.env.DB_URI;
 
@@ -388,76 +376,56 @@ app.post('/profiel', async (req, res) => {
 });
 
 // ashley werkt in deze route 
-app.get('/resultaten',checkAuthenticated, async (req, res) => {
+app.get('/resultaten', checkAuthenticated, async (req, res) => {
   const userData = req.session.user;
   if (userData.voornaam == undefined) {
     res.redirect('/profielToevoegen');
   } else {
-    res.render('resultaten');
+    vacaturesCollection.find({}).lean()
+    .exec((err, vacatures) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('resultaten', { title: 'Een lijst met resultaten', vacatures: vacatures});
+      }
+    });
   }
+});
 
-  
-  // de functie voor de opslaan  optie
-//   const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
-//  opgeslagenCollection.find({ _id: objectID }, (err, opslaanObject) => {
+app.post('/resultaten', async (req, res) => {
+  const huidigeUserData = req.session.user;
+  const huidigeUserID = huidigeUserData._id;
 
-//   if (err) {
-//     console.log(err); // als er een error dan showt het een error
-//   } else if (opslaanObject.opgeslagen) {
+  console.log(req.body.vacatureID)
 
-//     resultatenCollection // in de profile collection wordt die profiel verwijdert
-//       .find({ _id: { $in: opslaanObject.opgeslagen } }) // nin = not in array //find id uit de database
-//       .toArray((err, users) => {
-//         // add de gelikede profielen worden in een array geplaatst en in de collectie van likes.
-//         if (err) {
-//           console.log(err);
-//         } else {
-//           res.render('resultaten', {
-//             title: 'Een lijst met resultaten',
-//             users,
-//           });
-//         }
-//       });
-//   } else {
-//     // anders wordt het aan een array toegevoed
-//   resultatenCollection.find({}).toArray((err, users) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         res.render('resultaten', {
-//           title: 'Een lijst met resultaten',
-//           users,
-//         });
-//       }
-//     });
-//   }
-// });
+  await userModel.findOneAndUpdate({_id: huidigeUserID}, {
+    $addToSet: { opgeslagen: req.body.vacatureID }
+    }, (error, data) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(data);
+        }
+      }
+  );
+  await userModel.findOne({ _id: huidigeUserID })
+      .then(user => {
+        console.log(user);
+        req.session.user = user
+      })
+      .catch(err => console.log(err));
+  res.redirect('/resultaten');
 });
 
 app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
-  const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
-  // object van de eerste id
-  opgeslagenCollection.findOne({ _id: objectID }, (err, opslaanObject) => {
+  const userData = req.session.user;
+
+  usersModel.find({ _id: huidigeUserID }, {opgeslagen}).lean()
+  .exec((err, vacatures) => {
     if (err) {
       console.log(err);
-    } else if (opslaanObject.opgeslagen) {
-      resultatenCollection
-        .find({ _id: { $in: opslaanObject.opgeslagen } }) // wanneer er een profiel wordt geliked
-        // wordt deze in de saved profiles pagina bewaard
-        .toArray((err, users) => {
-          if (err) {
-            console.log(err);
-          } else {
-            res.render('opgeslagenvacatures', {
-              title: 'opgeslagen vacatures',
-              users,
-            });
-          }
-        });
     } else {
-      res.render('opgeslagenvacatures', {
-        title: 'opgeslagen vacatures',
-      });
+      res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', vacatures: vacatures});
     }
   });
 });
@@ -467,7 +435,7 @@ app.post('/opgeslagenvacatures', async (req, res) => {
   const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
   const opgeslagenVacatures = new ObjectID(req.body.userid); // is de button van de like button
 
-  await opgeslagenCollection.update(
+  await opgeslagenCollection.updateOne(
 
     /*
      * het update de database, door de push, door het te pushen wordt er er een
@@ -481,7 +449,7 @@ app.post('/opgeslagenvacatures', async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      resultatenCollection
+      vacaturesCollection
         .find({ _id: { $in: opslaanObject.opgeslagen } }) // de collectie likes komen in de pagina van de savedprofiles
         .toArray((err, users) => {
           if (err) {
@@ -499,7 +467,7 @@ app.post('/opgeslagenvacatures', async (req, res) => {
        * als het in de savedprofile pagina staat, of in de likes collectie
        * wordt het verwijdert ui te de recommendation pagina
        */
-      resultatenCollection
+      vacaturesCollection
         .find({ _id: { $in: opslaanObject.opgeslagen } })
         .toArray((err, users) => {
           if (err) {
