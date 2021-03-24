@@ -1,5 +1,7 @@
 {{> logo-header}}
 
+<link rel="stylesheet" href="./styles/profiel-style.css">
+
 <main class="profiel-pagina">
     <header class="profiel-foto">
         <img src="{{profiel.profielFoto}}" alt="">
@@ -29,8 +31,8 @@
         </div>
         <div class="opleidingsniveau">
             <label for="opleidingsniveau">Opleidingsniveau:</label>
-            <select id="opleidingsNiveau" name="opleidingsNiveau" required>
-                <option disabled selected value>{{profiel.opleidingsNiveau}}</option>
+            <select id="opleidingsNiveau" name="opleidingsNiveau">
+                <option selected value="{{profiel.opleidingsNiveau}}">{{profiel.opleidingsNiveau}}</option>
                 <option value="MBO">MBO</option>
                 <option value="HBO">HBO</option>
                 <option value="Universiteit">Universiteit</option>
@@ -40,8 +42,8 @@
 
         <div class="functe">
             <label for="functie">Functie:</label>
-            <select id="functie" name="functie" required>
-                <option disabled selected value>{{profiel.functie}}</option>
+            <select id="functie" name="functie">
+                <option selected value="{{profiel.functie}}">{{profiel.functie}}</option>
                 <option value="Frontend Development">Frontend Development</option>
                 <option value="Content Management">Content Management</option>
                 <option value="Visual Interface Design">Visual Interface Design</option>
@@ -55,8 +57,8 @@
 
         <div class="dienstverband">
             <label for="dienstverband">Dienstverband:</label>
-            <select id="dienstverband" name="dienstverband" required>
-                <option disabled selected value>{{profiel.dienstverband}}</option>
+            <select id="dienstverband" name="dienstverband">
+                <option selected value="{{profiel.dienstverband}}">{{profiel.dienstverband}}</option>
                 <option value="Fulltime">Fulltime</option>
                 <option value="Parttime">Parttime</option>
                 <option value="Freelance">Freelance</option>
@@ -66,8 +68,8 @@
 
         <div class="bedrijfs-grootte">
             <label for="bedrijfsgrootte">Bedrijfsgrootte:</label>
-            <select id="bedrijfsgrootte" name="bedrijfsgrootte" required>
-                <option selected value>{{profiel.bedrijfsgrootte}}</option>
+            <select id="bedrijfsgrootte" name="bedrijfsgrootte">
+                <option selected value="{{profiel.bedrijfsgrootte}}">{{profiel.bedrijfsgrootte}}</option>
                 <option value="0>10">0 tot 10</option>
                 <option value="10>50">10 tot 50</option>
                 <option value="50+">Boven de 50</option>

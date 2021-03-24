@@ -357,35 +357,34 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
 // Profiel pagina
 app.get('/profiel', checkAuthenticated, (req, res) => {
   const profiel = req.session.user;
-  res.render('profiel', { profiel });
+  res.render('profiel', { layout: 'profielMain', profiel });
 });
 
 app.post('/profiel', async (req, res) => {
+  const huidigeUserData = req.session.user;
+  const huidigeUserID = huidigeUserData._id;
 
-  await connectDB()
-    .then(() => {
-      // if succesful connection is made show a message
-      console.log('we have a connection to mongo!');
-    })
-    .catch((error) => {
-      // if connection is unsuccesful, show errors
-      console.log(error);
-    });
-
-  const profiel = {
-    "biografie": req.body.biografie,
-    "opleidingsNiveau": req.body.opleidingsNiveau,
-    "functie": req.body.functie,
-    "dienstverband": req.body.dienstverband,
-    "bedrijfsgrootte": req.body.bedrijfsgrootte
-  };
-
-  await db.collection('profielen').insertOne(profiel);
-  console.log("Data is verzonden, voorbeeld: " + req.body.functie);
-  res.render('profiel', {
-    title: "test",
-    profiel
-  })
+  await userModel.findOneAndUpdate({_id: huidigeUserID}, {
+      opleidingsNiveau: req.body.opleidingsNiveau, 
+      biografie: req.body.biografie, 
+      functie: req.body.functie, 
+      dienstverband: req.body.dienstverband,
+      bedrijfsgrootte: req.body.bedrijfsgrootte
+    }, (error, data) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(data);
+        }
+      }
+  );
+  await userModel.findOne({ _id: huidigeUserID })
+      .then(user => {
+        console.log(user);
+        req.session.user = user
+      })
+      .catch(err => console.log(err));
+  res.redirect('/profiel');
 });
 
 // ashley werkt in deze route 

@@ -3,11 +3,11 @@ console.log("hello");
 var bewerkKnop = document.getElementById("bewerk-knop");
 
 function textareaBewerken() {
-    var textarea = document.querySelector(".profiel-pagina textarea");
+    var textarea = document.querySelector("textarea");
     textarea.classList.toggle("bewerk-textarea");
 
     var selectBox, i;
-    selectBox = document.querySelectorAll("#functie");
+    selectBox = document.querySelectorAll("select");
     for (i = 0; i < selectBox.length; i++) {
         selectBox[i].classList.toggle("bewerk-select");
     }
