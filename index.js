@@ -200,9 +200,7 @@ mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
 
 // Routes
 app.get('/', checkNotAuthenticated, (req, res) => {
-  
   const errors = req.flash();
-  console.log(errors);
   res.render('inloggen', { errors })
 });
 
