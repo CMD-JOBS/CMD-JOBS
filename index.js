@@ -458,6 +458,11 @@ app.post('/opgeslagenvacatures', async (req, res) => {
   res.redirect('/opgeslagenvacatures');
 });
 
+app.get('/loguit', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
 // 404 pagina
 app.use(function (req, res, next) {
   res.status(404).send("Sorry ik heb niks kunnen vinden");
