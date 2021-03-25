@@ -86,17 +86,21 @@ body {
     height: 2em;
 }
 /* Resultaten - Cards */
-.resultaten {
-    padding-top: 4em;
+
+.resultaten{
+    background-image: url(/images/cmd-jobs-achtergrond-10.png);
+    background-size: contain;
+    height: 100vh;
+    margin-bottom: 10em;
+}
+
+.flex-resultaten {
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
     flex-direction: row;
-    background-image: url(/images/cmd-jobs-achtergrond-10.png);
     /* background-color: #FFF021; */
     /* background-color: #fff02163; */
-    background-size: contain;
-    height: calc(100vh - 10em);
 }
 ::-webkit-scrollbar {
     display: none;
@@ -110,12 +114,38 @@ body {
     border-radius: 1em;
     margin-right: 2em;
     transition: 0.25s;
+    padding: 1em;
 }
 .resultaten div:first-child {
     margin-left: 4em;
 }
 .resultaten div:hover {
     transform: translateY(-5%)
+}
+
+.resultaten h1 {
+    margin: 0;
+    padding: 0.5em 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.meer details{
+    margin: 2.5em auto;
+}
+
+.resultaten p {
+    width: 50%;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    padding: 1em 0;
+    border-radius: 0.25em;
+    border: none;
+    outline: none;
+    border-radius: 2em;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 
