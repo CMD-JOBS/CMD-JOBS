@@ -367,7 +367,7 @@ app.get('/resultaten', checkAuthenticated, async (req, res) => {
   if (userData.voornaam == undefined) {
     res.redirect('/profielToevoegen');
   } else {
-    vacaturesCollection.find({})
+    await vacaturesCollection.find({})
     .where('opleidingsNiveau').equals(req.session.user.opleidingsNiveau)
     .where('functie').equals(req.session.user.functie)
     .where('dienstVerband').equals(req.session.user.dienstverband)
@@ -416,7 +416,7 @@ app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
   const huidigeUserID = huidigeUserData._id;
   const huidigeUserOpgeslagen = huidigeUserData.opgeslagen;
 
-  vacaturesCollection.find({'_id': { $in: huidigeUserOpgeslagen }}).lean()
+  await vacaturesCollection.find({'_id': { $in: huidigeUserOpgeslagen }}).lean()
   .exec((err, opgeslagenVacatures) => {
     if (err) {
       console.log(err);
