@@ -385,7 +385,7 @@ app.get('/resultaten', checkAuthenticated, async (req, res) => {
         if (vacatures.length === 0) {
           console.log(vacatures.length);
           let errors = [];
-          errors.push({message:"Helaas er zijn geen vacatures voor jouw rare zoek opdracht je blijft dus werkeloos. We laten via robbert zijn pushmeldingen weten als er nieuwe vacatures zijn"});
+          errors.push({message:"Helaas er zijn geen vacatures voor jou"});
           console.log(errors)
           res.render('resultaten', { title: 'Een lijst met resultaten', vacatures, errors});
         } 
