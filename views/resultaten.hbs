@@ -5,26 +5,39 @@
     <h1>Resultaten</h1>
     <section class="flex-resultaten">
         {{#each vacatures}}
+<<<<<<< HEAD
         <div class="card voorkant">
+=======
+        <div>
+>>>>>>> 9b3ed2fb1d46028a1294a4e9b6c4f5b3c0d25a3f
             <h2>{{vacatureTitel}}</h2>
             <h3>{{bedrijfsNaam}}</h3>
             <h4>{{plaats}}</h4>
             <h4 class="salaris"></h4>{{salaris}}</h4>
 
+<<<<<<< HEAD
             <h4 class="description">{{vacatureInformatie}}</h4>
             {{!-- <h4 class="description">{{vacatureInformatie}}</h4> --}}
+=======
+            {{!-- <p class="description">{{vacatureInformatie}}</p> --}}
+>>>>>>> 9b3ed2fb1d46028a1294a4e9b6c4f5b3c0d25a3f
 
 
             {{!-- <div class="opslaanButton"> --}}
                 {{!-- <form action="/resultaten" method="POST">
                     <button type="submit" name="vacatureID" value={{_id}}>hoi</button>
                 </form> --}}
+<<<<<<< HEAD
                 <section id="meer-details">
+=======
+                <section class="meer-details">
+>>>>>>> 9b3ed2fb1d46028a1294a4e9b6c4f5b3c0d25a3f
                     <p>Meer details</p>
                 </section>
                 {{!--
             </div> --}}
         </div>
+<<<<<<< HEAD
 
         {{!-- <div class="card achterkant">
             <h2>hoi</h2>
@@ -43,5 +56,21 @@
     <p>{{eMail}}</p>
     <p>{{telefoonNummer}}</p> --}}
 
+=======
+        {{/each}}
+    </section>
+
+
+    {{!-- <p class="description">{{vacatureInformatie}}</p>
+    <h3>Werkzaamheden</h3>
+    <p>{{ werkzaamheden}}</p>
+    <h3>Kwalificaties</h3>
+    <p>{{eisen}}</p>
+    <h3>Csontact</h3>
+    <p>{{adress}}</p>
+    <p>{{eMail}}</p>
+    <p>{{telefoonNummer}}</p> --}}
+
+>>>>>>> 9b3ed2fb1d46028a1294a4e9b6c4f5b3c0d25a3f
 </main>
 {{> navigatie-footer}}
