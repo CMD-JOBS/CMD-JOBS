@@ -42,14 +42,6 @@ app.use(passport.session());
 //Flash
 app.use(flash());
 
-//Global
-app.use((req, res, next) => {
-  res.locals.succes_msg = req.flash('succes_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  next();
-});
-
 //passport
 passport.use(
   new localStrategy({ usernameField: 'email' }, (email, password, done)=>{
@@ -94,12 +86,11 @@ function checkAuthenticated (req, res, next) {
   res.redirect('/')
   };
 
-  function checkNotAuthenticated (req, res, next) {
+function checkNotAuthenticated (req, res, next) {
   if(req.isAuthenticated()){
   res.redirect('/resultaten');
   };
   next();
-  
 };
 
 //Multer setup
@@ -209,7 +200,8 @@ mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
 
 // Routes
 app.get('/', checkNotAuthenticated, (req, res) => {
-  res.render('inloggen')
+  const errors = req.flash();
+  res.render('inloggen', { errors })
 });
 
 // Login handle
@@ -248,7 +240,7 @@ app.get('/registreren', checkNotAuthenticated, (req, res) => {
   res.render('registreren')
 });
 
-app.post('/registreren', (req, res) => {
+app.post('/registreren', async (req, res) => {
   const { email, password, password2} = req.body;
   let errors = [];
   
@@ -267,46 +259,41 @@ app.post('/registreren', (req, res) => {
     errors.push({message: 'wachtwoord te kort'})
   }
 
-  if(errors.length >0){
+  await userModel.findOne({ email: email })
+  .then(user =>{
+    if(user) {
+      //Gebruiker bestaat
+      errors.push({message:"Email al in gebruik"});
+  }});
+
+  if(errors.length){
+    console.log(errors);
     res.render('registreren',{
       errors,
       email,
       password
     })
   } else {
-    // Inlog goedkeuring
-    userModel.findOne({ email: email })
-    .then(user =>{
-      if(user) {
-        //Gebruiker bestaat
-        errors.push({message:"Email al in gebruik"});
-        res.render('registreren',{
-          errors,
-          email,
-          password
+      const newUser = new userModel({
+        email,
+        password
+      });
+    //hashedPassword
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(newUser.password, salt,(err, hash)=>{
+        if(err) throw err;
+        // Verander naar Hash password
+        newUser.password = hash;
+        //save gebruiker
+        newUser.save()
+          .then(user =>{
+            req.flash('succes_msg','geregistreerd');
+            res.redirect('/');
+          })
+          .catch(err => console.log(err));
+      })
         });
-      } else{
-        const newUser = new userModel({
-          email,
-          password
-        });
-        //hashedPassword
-        bcrypt.genSalt(10, (err, salt) => 
-          bcrypt.hash(newUser.password, salt,(err, hash)=>{
-            if(err) throw err;
-            // Verander naar Hash password
-            newUser.password = hash;
-            //save gebruiker
-            newUser.save()
-              .then(user =>{
-                req.flash('succes_msg','geregistreerd');
-                res.redirect('/');
-              })
-              .catch(err => console.log(err));
-        }));
-      }
-    });
-  }
+        }
 });
 
 app.get('/profielToevoegen', checkAuthenticated,(req, res) => {
@@ -331,14 +318,12 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
     }, (error, data) => {
         if (error) {
           console.log(error);
-        } else {
-          console.log(data);
         }
       }
   );
   await userModel.findOne({ _id: huidigeUserID })
       .then(user => {
-        console.log(user);
+        //Fill session with user data
         req.session.user = user
       })
       .catch(err => console.log(err));
@@ -365,14 +350,11 @@ app.post('/profiel', async (req, res) => {
     }, (error, data) => {
         if (error) {
           console.log(error);
-        } else {
-          console.log(data);
         }
       }
   );
   await userModel.findOne({ _id: huidigeUserID })
       .then(user => {
-        console.log(user);
         req.session.user = user
       })
       .catch(err => console.log(err));
@@ -385,11 +367,23 @@ app.get('/resultaten', checkAuthenticated, async (req, res) => {
   if (userData.voornaam == undefined) {
     res.redirect('/profielToevoegen');
   } else {
-    vacaturesCollection.find({}).lean()
+    await vacaturesCollection.find({})
+    .where('opleidingsNiveau').equals(req.session.user.opleidingsNiveau)
+    .where('functie').equals(req.session.user.functie)
+    .where('dienstVerband').equals(req.session.user.dienstverband)
+    /*.where('bedrijfsgrootte').equals(req.session.user.bedrijfsgrootte)*/
+    .lean()
     .exec((err, vacatures) => {
       if (err) {
         console.log(err);
       } else {
+        if (vacatures.length === 0) {
+          console.log(vacatures.length);
+          let errors = [];
+          errors.push({message:"Helaas er zijn geen vacatures voor jou"});
+          console.log(errors)
+          res.render('resultaten', { title: 'Een lijst met resultaten', vacatures, errors});
+        } 
         res.render('resultaten', { title: 'Een lijst met resultaten', vacatures});
       }
     });
@@ -400,21 +394,17 @@ app.post('/resultaten', async (req, res) => {
   const huidigeUserData = req.session.user;
   const huidigeUserID = huidigeUserData._id;
 
-  console.log(req.body.vacatureID)
-
   await userModel.findOneAndUpdate({_id: huidigeUserID}, {
     $addToSet: { opgeslagen: req.body.vacatureID }
     }, (error, data) => {
         if (error) {
           console.log(error);
-        } else {
-          console.log(data);
-        }
+        };
       }
   );
   await userModel.findOne({ _id: huidigeUserID })
       .then(user => {
-        console.log(user);
+        //Fill session with user data
         req.session.user = user
       })
       .catch(err => console.log(err));
@@ -426,11 +416,17 @@ app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
   const huidigeUserID = huidigeUserData._id;
   const huidigeUserOpgeslagen = huidigeUserData.opgeslagen;
 
-  vacaturesCollection.find({'_id': { $in: huidigeUserOpgeslagen }}).lean()
+  await vacaturesCollection.find({'_id': { $in: huidigeUserOpgeslagen }}).lean()
   .exec((err, opgeslagenVacatures) => {
     if (err) {
       console.log(err);
     } else {
+      if (opgeslagenVacatures.length === 0) {
+        //Als er geen opgeslagen vacatures zijn
+        let errors = [];
+        errors.push({message:"Helaas je hebt nog geen vacatures opgeslagen"});
+        res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', opgeslagenVacatures, errors});
+      } 
       res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', opgeslagenVacatures});
     }
   });
@@ -438,52 +434,31 @@ app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
 
 // het submitten van de button
 app.post('/opgeslagenvacatures', async (req, res) => {
-  const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
-  const opgeslagenVacatures = new ObjectID(req.body.userid); // is de button van de like button
+  const huidigeUserData = req.session.user;
+  const huidigeUserID = huidigeUserData._id;
 
-  await opgeslagenCollection.updateOne(
-
-    /*
-     * het update de database, door de push, door het te pushen wordt er er een
-     *  object in de array gezet in de likes profile
-     */
-    { _id: objectID },
-    { $push: { opgeslagen: opgeslagenVacatures } }, // push is om meer objecten in de array.
+  await userModel.updateOne({_id: huidigeUserID}, {
+    $pull: { opgeslagen: req.body.vacatureID }
+    }, (error, data) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(huidigeUserID, req.body.vacatureID);
+        }
+      }
   );
+  await userModel.findOne({ _id: huidigeUserID })
+      .then(user => {
+        //Fill session with user data
+        req.session.user = user
+      })
+      .catch(err => console.log(err));
+  res.redirect('/opgeslagenvacatures');
+});
 
-  opgeslagenCollection.findOne({ _id: objectID }, (err, opslaanObject) => {
-    if (err) {
-      console.log(err);
-    } else {
-      vacaturesCollection
-        .find({ _id: { $in: opslaanObject.opgeslagen } }) // de collectie likes komen in de pagina van de savedprofiles
-        .toArray((err, users) => {
-          if (err) {
-            console.log(err);
-          } else {
-            res.render('opgeslagenvacatures', {
-              // dit is aan andere route
-              title: 'opgeslagen vacatures',
-              users,
-            });
-          }
-        });
-
-      /*
-       * als het in de savedprofile pagina staat, of in de likes collectie
-       * wordt het verwijdert ui te de recommendation pagina
-       */
-      vacaturesCollection
-        .find({ _id: { $in: opslaanObject.opgeslagen } })
-        .toArray((err, users) => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log(users);
-          }
-        });
-    }
-  });
+app.get('/loguit', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
 });
 
 // 404 pagina
