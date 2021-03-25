@@ -11,7 +11,7 @@
   - [Licentie](#Licentie)
 
 ## Wat is CMD-JOBS?
-> **CMD-JOBS**
+CMD-JOBS is een online vacature-bureau waar we voor jou de perfecte baan vinden! Door te filteren op jouw intresses, zorgen wij ervoor dat je alleen maar vacatures te zien krijgt die bij jou passen!
 
 ## Functies
 |                                                            |     |
@@ -19,8 +19,9 @@
 | 🔐⠀Maak een account en login!                              | ✔   |
 | 🙋‍♀️ Maak je eigen profiel                                | ✔   |
 | 💬 Bekijk en sla vacatures op die jouw interesseren!⠀      | ✔   |
-|                                                            | ✔   |
-| .⠀**en nog veel meer!**                                    | ✔   |
+| ---------------------------------------------------------- | --- |
+|                                                            |     |
+
 
 ## Documentatie
 De documentatie van deze app is te vinden in de [wiki](https://github.com/CMD-JOBS/CMD-JOBS/wiki) van **CMD-JOBS**.
@@ -52,7 +53,12 @@ npm start
 ```
 
 ## Makers
-De makers van **CMD-JOBS** zijn: [*Ashley Keuning*](https://github.com/ashleyKeuning), [*Dylan Troff*](https://github.com/DylanTroff), [*Jorn Veltrop*](https://github.com/jornveltrop), [*Robbin Jansen*](https://github.com/robbinux), [*Yunus Emre Alkan*](https://github.com/YunusEmreCMD)
+De makers van **CMD-JOBS** zijn: 
+- 🙋🏻‍♀️[*Ashley Keuning*](https://github.com/ashleyKeuning), 
+- 🙋🏼‍♂️[*Dylan Troff*](https://github.com/DylanTroff), 
+- 🙋🏻‍♂️[*Jorn Veltrop*](https://github.com/jornveltrop), 
+- 🙋🏼‍♂️[*Robbin Jansen*](https://github.com/robbinux), 
+- 🙋🏻‍♂️[*Yunus Emre Alkan*](https://github.com/YunusEmreCMD)
 
 ## Bijdragen
 Als je wilt bijdragen aan deze app kun je dat doen door middel van een [Issue](https://github.com/CMD-JOBS/CMD-JOBS/issues).
