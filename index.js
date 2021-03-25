@@ -350,8 +350,6 @@ app.post('/profiel', async (req, res) => {
     }, (error, data) => {
         if (error) {
           console.log(error);
-        } else {
-          console.log(data);
         }
       }
   );
