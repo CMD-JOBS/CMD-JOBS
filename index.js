@@ -376,12 +376,19 @@ app.get('/resultaten', checkAuthenticated, async (req, res) => {
     .where('opleidingsNiveau').equals(req.session.user.opleidingsNiveau)
     .where('functie').equals(req.session.user.functie)
     .where('dienstVerband').equals(req.session.user.dienstverband)
-    .where('bedrijfsgrootte').equals(req.session.user.bedrijfsgrootte)
+    /*.where('bedrijfsgrootte').equals(req.session.user.bedrijfsgrootte)*/
     .lean()
     .exec((err, vacatures) => {
       if (err) {
         console.log(err);
       } else {
+        if (vacatures.length === 0) {
+          console.log(vacatures.length);
+          let errors = [];
+          errors.push({message:"Helaas er zijn geen vacatures voor jouw rare zoek opdracht je blijft dus werkeloos. We laten via robbert zijn pushmeldingen weten als er nieuwe vacatures zijn"});
+          console.log(errors)
+          res.render('resultaten', { title: 'Een lijst met resultaten', vacatures, errors});
+        } 
         res.render('resultaten', { title: 'Een lijst met resultaten', vacatures});
       }
     });

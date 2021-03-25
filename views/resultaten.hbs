@@ -4,6 +4,12 @@
 
     <h1>Resultaten</h1>
 
+    {{#if errors}}
+        {{#each errors}}
+            <strong>{{this.message}}</strong>
+        {{/each}}
+    {{/if}}
+
     {{#each vacatures}}
     <div>
         <h2>{{vacatureTitel}}</h2>
