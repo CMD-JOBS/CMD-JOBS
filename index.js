@@ -439,12 +439,14 @@ app.post('/opgeslagenvacatures', async (req, res) => {
   const huidigeUserData = req.session.user;
   const huidigeUserID = huidigeUserData._id;
 
-  await userModel.findOneAndUpdate({_id: huidigeUserID}, {
-    $addToSet: { opgeslagen: req.body.vacatureID }
+  await userModel.updateOne({_id: huidigeUserID}, {
+    $pull: { opgeslagen: req.body.vacatureID }
     }, (error, data) => {
         if (error) {
           console.log(error);
-        };
+        } else {
+          console.log(huidigeUserID, req.body.vacatureID);
+        }
       }
   );
   await userModel.findOne({ _id: huidigeUserID })
