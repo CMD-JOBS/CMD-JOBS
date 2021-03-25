@@ -16,3 +16,10 @@ function textareaBewerken() {
     bewerktVerzendKnop.classList.toggle("laat-bewerkt-verzend-knop-zien");
 }
 bewerkKnop.addEventListener("click", textareaBewerken); 
+
+
+var card = document.getElementById('meer-details');
+card.addEventListener( 'click', function() {
+//   card.classList.toggle('is-flipped');
+  console.log(hoi);
+});

@@ -3,25 +3,45 @@
 <main class="resultaten">
 
     <h1>Resultaten</h1>
+    <section class="flex-resultaten">
+        {{#each vacatures}}
+        <div class="card voorkant">
+            <h2>{{vacatureTitel}}</h2>
+            <h3>{{bedrijfsNaam}}</h3>
+            <h4>{{plaats}}</h4>
+            <h4 class="salaris"></h4>{{salaris}}</h4>
 
-    {{#each vacatures}}
-    <div>
-        <h2>{{vacatureTitel}}</h2>
-        <h3>{{bedrijfsNaam}}</h3>
-        <h4>{{plaats}}</h4>
-        <h4 class="salaris"></h4>{{salaris}},- per maand</h4>
-
-        {{!-- <p class="description">{{vacatureInformatie}}</p> --}}
+            <h4 class="description">{{vacatureInformatie}}</h4>
+            {{!-- <h4 class="description">{{vacatureInformatie}}</h4> --}}
 
 
-        {{!-- <div class="opslaanButton"> --}}
-            <form action="/resultaten" method="POST">
-                <button type="submit" name="vacatureID" value={{_id}}>hoi</button>
-            </form>
-            {{!--
+            {{!-- <div class="opslaanButton"> --}}
+                {{!-- <form action="/resultaten" method="POST">
+                    <button type="submit" name="vacatureID" value={{_id}}>hoi</button>
+                </form> --}}
+                <section id="meer-details">
+                    <p>Meer details</p>
+                </section>
+                {{!--
+            </div> --}}
+        </div>
+
+        {{!-- <div class="card achterkant">
+            <h2>hoi</h2>
         </div> --}}
-    </div>
+        {{/each}}
+    </section>
 
-    {{/each}}
+
+    {{!-- <p class="description">{{vacatureInformatie}}</p>
+    <h3>Werkzaamheden</h3>
+    <p>{{ werkzaamheden}}</p>
+    <h3>Kwalificaties</h3>
+    <p>{{eisen}}</p>
+    <h3>Csontact</h3>
+    <p>{{adress}}</p>
+    <p>{{eMail}}</p>
+    <p>{{telefoonNummer}}</p> --}}
+
 </main>
 {{> navigatie-footer}}

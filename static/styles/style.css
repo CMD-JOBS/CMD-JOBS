@@ -86,37 +86,116 @@ body {
     height: 2em;
 }
 /* Resultaten - Cards */
-.resultaten {
-    padding-top: 4em;
-    display: flex;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    flex-direction: row;
+
+.resultaten{
     background-image: url(/images/cmd-jobs-achtergrond-10.png);
-    /* background-color: #FFF021; */
-    /* background-color: #fff02163; */
     background-size: contain;
     height: calc(100vh - 10em);
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.flex-resultaten {
+    display: flex;
+    flex-direction: row;
+    /* background-color: #FFF021; */
+    /* background-color: #fff02163; */
 }
 ::-webkit-scrollbar {
     display: none;
 }
-.resultaten div {
-    height: 500px;
+
+.resultaten h1 {
+    margin: 0;
+    padding: 0.5em 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#meer-details{
+    margin: 0.5em auto;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    width: calc(100% - 2em);
+}
+
+.resultaten p {
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    padding: 1em 0;
+    border-radius: 0.25em;
+    border: none;
+    outline: none;
+    border-radius: 2em;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.card {
+    height: 625px;
     min-width: 350px;
     /* margin: auto; */
-    background-color: #F4F4F4;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     border-radius: 1em;
     margin-right: 2em;
     transition: 0.25s;
+    padding: 1em;
+    position: relative;
+    margin-bottom: 1em;
+    /* transition: transform 1s;
+    transform-style: preserve-3d; */
+    overflow-y: scroll;
 }
+
 .resultaten div:first-child {
     margin-left: 4em;
 }
-.resultaten div:hover {
-    transform: translateY(-5%)
-}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .voorkant {
+    /* position: absolute; */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: white;
+  }
+  
+  .achterkant {
+    background: #FAD649;
+    transform: rotateY(180deg);
+    color: black;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* profielToevoegen page */
