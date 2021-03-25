@@ -12,7 +12,7 @@
     
         {{#each vacatures}}
 
-        <div>
+        <div class="card">
 
             <h2>{{vacatureTitel}}</h2>
             <h3>{{bedrijfsNaam}}</h3>
@@ -21,22 +21,16 @@
 
 
 
-            <h4 class="description">{{vacatureInformatie}}</h4>
-            {{!-- <h4 class="description">{{vacatureInformatie}}</h4> --}}
+            <p class="description">{{vacatureInformatie}}</p>
+            {{!-- <p class="description">{{vacatureInformatie}}</p> --}}
 
      
 
 
-            {{!-- <div class="opslaanButton"> --}}
-                {{!-- <form action="/resultaten" method="POST">
-                    <button type="submit" name="vacatureID" value={{_id}}>hoi</button>
-                </form> --}}
+                <form id="meer-details" action="/resultaten" method="POST">
+                    <button type="submit" name="vacatureID" value={{_id}}>Opslaan</button>
+                </form>
                 
-
-                <section class="meer-details">
-
-                    <p>Meer details</p>
-                </section>
         </div>
 
         {{/each}}

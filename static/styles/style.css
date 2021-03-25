@@ -91,7 +91,6 @@ body {
     background-image: url(/images/cmd-jobs-achtergrond-10.png);
     background-size: contain;
     height: calc(100vh - 10em);
-    margin-bottom: 10em;
 }
 
 .flex-resultaten {
@@ -118,24 +117,26 @@ body {
 }
 
 #meer-details{
-    margin: 0.5em auto;
+    margin: 0.5em auto 1em;
     text-align: center;
-    position: sticky;
+    position: absolute;
     bottom: 0;
     width: calc(100% - 2em);
+    bottom: 0;
 }
 
-.resultaten p {
+#meer-details button {
     background-color: black;
     color: white;
     font-weight: 600;
-    padding: 1em 0;
+    padding: 1.25em 0;
     border-radius: 0.25em;
     border: none;
     outline: none;
     border-radius: 2em;
     font-size: 16px;
     cursor: pointer;
+    width: 100%;
 }
 
 .card {
@@ -147,84 +148,24 @@ body {
     margin-right: 2em;
     transition: 0.25s;
     padding: 1em;
-    position: relative;
+    position: absolute;
     margin-bottom: 1em;
     /* transition: transform 1s;
     transform-style: preserve-3d; */
     overflow-y: scroll;
+    background-color: white;
+    position: relative;
 }
 
 .resultaten div:first-child {
     margin-left: 4em;
 }
 
-.card.is-flipped {
-    transform: rotateY(180deg);
-  }
-  
-  .voorkant {
-    /* position: absolute; */
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    background-color: white;
-  }
-  
-  .achterkant {
-    background: #FAD649;
-    transform: rotateY(180deg);
-    color: black;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .resultaten h1 {
     margin: 0;
     padding: 0.5em 0;
     margin: 0 auto;
     text-align: center;
-}
-
-.meer details{
-    margin: 2.5em auto;
-}
-
-.resultaten p {
-    width: 50%;
-    background-color: black;
-    color: white;
-    font-weight: 600;
-    padding: 1em 0;
-    border-radius: 0.25em;
-    border: none;
-    outline: none;
-    border-radius: 2em;
-    font-size: 16px;
-    cursor: pointer;
 }
 
 

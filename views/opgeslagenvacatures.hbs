@@ -10,8 +10,9 @@
         {{/each}}
     {{/if}}
 
+    <section class="flex-resultaten">
     {{#each opgeslagenVacatures}}
-    <div>
+    <div class="card">
         <h2>{{vacatureTitel}}</h2>
         <h3>{{bedrijfsNaam}}</h3>
         <h4>{{plaats}}</h4>
@@ -21,7 +22,7 @@
 
 
         {{!-- <div class="opslaanButton"> --}}
-            <form action="/opgeslagenvacatures" method="POST">
+            <form id="meer-details" action="/opgeslagenvacatures" method="POST">
                 <button type="submit" name="vacatureID" value={{_id}}>verwijder</button>
             </form>
             {{!--
@@ -29,5 +30,6 @@
     </div>
 
     {{/each}}
+    </section>
 </main>
 {{> navigatie-footer}}

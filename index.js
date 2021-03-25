@@ -16,7 +16,7 @@ const flash = require('connect-flash');
 const session = require('express-session'); 
 const bcrypt = require('bcryptjs');
 const port = 3000;
-// const sass = require('node-sass');
+const sass = require('node-sass');
 
 // Aangeven waar onze statishce files zich bevinden  
 app.use(express.static('static'));
