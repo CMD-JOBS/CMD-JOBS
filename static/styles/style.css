@@ -90,16 +90,12 @@ body {
 .resultaten{
     background-image: url(/images/cmd-jobs-achtergrond-10.png);
     background-size: contain;
-<<<<<<< HEAD
     height: calc(100vh - 10em);
-=======
-    height: 100vh;
     margin-bottom: 10em;
 }
 
 .flex-resultaten {
     display: flex;
->>>>>>> 9b3ed2fb1d46028a1294a4e9b6c4f5b3c0d25a3f
     overflow-x: scroll;
     overflow-y: hidden;
 }
@@ -151,14 +147,11 @@ body {
     margin-right: 2em;
     transition: 0.25s;
     padding: 1em;
-<<<<<<< HEAD
     position: relative;
     margin-bottom: 1em;
     /* transition: transform 1s;
     transform-style: preserve-3d; */
     overflow-y: scroll;
-=======
->>>>>>> 9b3ed2fb1d46028a1294a4e9b6c4f5b3c0d25a3f
 }
 
 .resultaten div:first-child {
