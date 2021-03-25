@@ -16,9 +16,9 @@
 ## Functies
 |                                                            |     |
 | ---------------------------------------------------------- | --- |
-| 🙋‍♂️⠀Login & maak een profiel                             | ✔   |
-|                                                            | ✔   |
-| 💬⠀                                                        | ✔   |
+| 🔐⠀Maak een account en login!                              | ✔   |
+| 🙋‍♀️ Maak je eigen profiel                                | ✔   |
+| 💬 Bekijk en sla vacatures op die jouw interesseren!⠀      | ✔   |
 |                                                            | ✔   |
 | .⠀**en nog veel meer!**                                    | ✔   |
 
