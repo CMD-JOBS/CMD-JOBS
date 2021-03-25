@@ -297,7 +297,7 @@ app.post('/registreren', async (req, res) => {
 });
 
 app.get('/profielToevoegen', checkAuthenticated,(req, res) => {
-  res.render('profielToevoegen')
+  res.render('profielToevoegen');
 });
 
 //
