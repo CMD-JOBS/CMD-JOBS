@@ -4,6 +4,12 @@
 
     <h1>Opgeslagen vacatures</h1>
 
+    {{#if errors}}
+        {{#each errors}}
+            <strong>{{this.message}}</strong>
+        {{/each}}
+    {{/if}}
+
     {{#each opgeslagenVacatures}}
     <div>
         <h2>{{vacatureTitel}}</h2>
@@ -16,7 +22,7 @@
 
         {{!-- <div class="opslaanButton"> --}}
             <form action="/resultaten" method="POST">
-                <button type="submit" name="vacatureID" value={{_id}}>opslaan</button>
+                <button type="submit" name="vacatureID" value={{_id}}>verwijder</button>
             </form>
             {{!--
         </div> --}}

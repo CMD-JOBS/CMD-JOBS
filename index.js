@@ -318,14 +318,12 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
     }, (error, data) => {
         if (error) {
           console.log(error);
-        } else {
-          console.log(data);
         }
       }
   );
   await userModel.findOne({ _id: huidigeUserID })
       .then(user => {
-        console.log(user);
+        //Fill session with user data
         req.session.user = user
       })
       .catch(err => console.log(err));
@@ -398,21 +396,17 @@ app.post('/resultaten', async (req, res) => {
   const huidigeUserData = req.session.user;
   const huidigeUserID = huidigeUserData._id;
 
-  console.log(req.body.vacatureID)
-
   await userModel.findOneAndUpdate({_id: huidigeUserID}, {
     $addToSet: { opgeslagen: req.body.vacatureID }
     }, (error, data) => {
         if (error) {
           console.log(error);
-        } else {
-          console.log(data);
-        }
+        };
       }
   );
   await userModel.findOne({ _id: huidigeUserID })
       .then(user => {
-        console.log(user);
+        //Fill session with user data
         req.session.user = user
       })
       .catch(err => console.log(err));
@@ -429,6 +423,12 @@ app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
     if (err) {
       console.log(err);
     } else {
+      if (opgeslagenVacatures.length === 0) {
+        //Als er geen opgeslagen vacatures zijn
+        let errors = [];
+        errors.push({message:"Helaas je hebt nog geen vacatures opgeslagen"});
+        res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', opgeslagenVacatures, errors});
+      } 
       res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', opgeslagenVacatures});
     }
   });
@@ -436,52 +436,24 @@ app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
 
 // het submitten van de button
 app.post('/opgeslagenvacatures', async (req, res) => {
-  const objectID = new ObjectID('6058ba04e8d259e2d0e7def7');
-  const opgeslagenVacatures = new ObjectID(req.body.userid); // is de button van de like button
+  const huidigeUserData = req.session.user;
+  const huidigeUserID = huidigeUserData._id;
 
-  await opgeslagenCollection.updateOne(
-
-    /*
-     * het update de database, door de push, door het te pushen wordt er er een
-     *  object in de array gezet in de likes profile
-     */
-    { _id: objectID },
-    { $push: { opgeslagen: opgeslagenVacatures } }, // push is om meer objecten in de array.
+  await userModel.findOneAndUpdate({_id: huidigeUserID}, {
+    $addToSet: { opgeslagen: req.body.vacatureID }
+    }, (error, data) => {
+        if (error) {
+          console.log(error);
+        };
+      }
   );
-
-  opgeslagenCollection.findOne({ _id: objectID }, (err, opslaanObject) => {
-    if (err) {
-      console.log(err);
-    } else {
-      vacaturesCollection
-        .find({ _id: { $in: opslaanObject.opgeslagen } }) // de collectie likes komen in de pagina van de savedprofiles
-        .toArray((err, users) => {
-          if (err) {
-            console.log(err);
-          } else {
-            res.render('opgeslagenvacatures', {
-              // dit is aan andere route
-              title: 'opgeslagen vacatures',
-              users,
-            });
-          }
-        });
-
-      /*
-       * als het in de savedprofile pagina staat, of in de likes collectie
-       * wordt het verwijdert ui te de recommendation pagina
-       */
-      vacaturesCollection
-        .find({ _id: { $in: opslaanObject.opgeslagen } })
-        .toArray((err, users) => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log(users);
-          }
-        });
-    }
-  });
+  await userModel.findOne({ _id: huidigeUserID })
+      .then(user => {
+        //Fill session with user data
+        req.session.user = user
+      })
+      .catch(err => console.log(err));
+  res.redirect('/opgeslagenvacatures');
 });
 
 // 404 pagina
