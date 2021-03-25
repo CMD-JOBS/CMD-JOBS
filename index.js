@@ -372,7 +372,12 @@ app.get('/resultaten', checkAuthenticated, async (req, res) => {
   if (userData.voornaam == undefined) {
     res.redirect('/profielToevoegen');
   } else {
-    vacaturesCollection.find({}).lean()
+    vacaturesCollection.find({})
+    .where('opleidingsNiveau').equals(req.session.user.opleidingsNiveau)
+    .where('functie').equals(req.session.user.functie)
+    .where('dienstVerband').equals(req.session.user.dienstverband)
+    .where('bedrijfsgrootte').equals(req.session.user.bedrijfsgrootte)
+    .lean()
     .exec((err, vacatures) => {
       if (err) {
         console.log(err);
