@@ -359,7 +359,6 @@ app.post('/profiel', async (req, res) => {
   );
   await userModel.findOne({ _id: huidigeUserID })
       .then(user => {
-        console.log(user);
         req.session.user = user
       })
       .catch(err => console.log(err));
