@@ -4,15 +4,15 @@
 
     <h1>Resultaten</h1>
     {{#if errors}}
-        {{#each errors}}
-            <strong>{{this.message}}</strong>
-        {{/each}}
+    {{#each errors}}
+    <strong>{{this.message}}</strong>
+    {{/each}}
     {{/if}}
     <section class="flex-resultaten">
-    
+
         {{#each vacatures}}
 
-        <div>
+        <div class="card">
 
             <h2>{{vacatureTitel}}</h2>
             <h3>{{bedrijfsNaam}}</h3>
@@ -21,25 +21,25 @@
 
 
 
-            <h4 class="description">{{vacatureInformatie}}</h4>
+            {{!-- <h4 class="description">{{vacatureInformatie}}</h4> --}}
             {{!-- <h4 class="description">{{vacatureInformatie}}</h4> --}}
 
-     
+
 
 
             {{!-- <div class="opslaanButton"> --}}
                 {{!-- <form action="/resultaten" method="POST">
                     <button type="submit" name="vacatureID" value={{_id}}>hoi</button>
                 </form> --}}
-                
+
 
                 <section class="meer-details">
 
                     <p>Meer details</p>
                 </section>
-        </div>
+            </div>
 
-        {{/each}}
+            {{/each}}
     </section>
 
 
@@ -54,6 +54,6 @@
     <p>{{telefoonNummer}}</p> --}}
 
 
-    
+
 </main>
 {{> navigatie-footer}}
