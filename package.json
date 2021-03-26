@@ -27,7 +27,7 @@
     "node-sass": "^5.0.0"
   },
   "scripts": {
-    "start": "nodemon index.js & node-sass static/styles/main.scss static/styles/output/main.css", 
+    "start": "nodemon index.js & node-sass static/styles/main.scss static/styles/output/main.css -w", 
     "test": "test-commando"
   },
   "repository": {
