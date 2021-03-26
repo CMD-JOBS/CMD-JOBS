@@ -1,0 +1,155 @@
+/* Profiel pagina */
+
+.profiel-pagina {
+    font-family: sans-serif;
+    overflow-y: scroll;
+}
+
+.profiel-foto {
+    text-align: center;
+    background-image: url(/images/cmd-jobs-achtergrond-10.png);
+    background-size: cover;
+    padding: 2.5em 0 1.5em;
+}
+
+.profiel-foto img {
+    height: 7.5em;
+    width: 7.5em;
+    object-fit: cover;
+    /* background-color: #FFF021; */
+    background-color: rgb(123, 184, 123);
+    border-radius: 50%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.profiel-foto h1 {
+    margin: 0;
+    margin-top: 1em;
+    padding: 0;
+    font-size: 22px;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-weight: Bolder;
+}
+
+
+#bewerk-knop{
+    background-color: black;
+    display: inline;
+    padding: 1.25em;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 3em;
+    margin-top: 7.5em;
+}
+
+/* #bewerk-knop p{
+    display: inline;
+    margin-top: 1em;
+} */
+
+#bewerk-knop svg {
+    height: 1.5em;
+    vertical-align: middle;
+    fill: white;
+    transition: 0.25s;
+}
+
+#bewerk-knop:hover {
+    transition: 0.25s;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Profiel Form */
+
+.profiel-gegevens {
+    margin: 2em;
+    margin-bottom: 7.5em;
+}
+
+.profiel-pagina label {
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline;
+    padding-right: 1em;
+    vertical-align: middle;
+}
+
+textarea {
+    margin: 1em 0;
+    margin-bottom: 0;
+    width: calc(100% - 0.5em);
+    resize: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    pointer-events: none;
+    padding: 0;
+    border-radius: 0%;
+}
+
+.profiel-gegevens div:not(:first-child) {
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profiel-gegevens p {
+    margin-top: 1.5em;
+    font-size: 18px;
+}
+
+select {
+    border: none;
+    outline: none;
+    width: 50%;
+    pointer-events: none;
+    padding-left: 0.3em;
+    border-radius: 0.25em;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#bewerkt-verzend-knop {
+    margin: 2.5em auto;
+    width: 50%;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    padding: 1em 0;
+    border-radius: 0.25em;
+    border: none;
+    outline: none;
+    border-radius: 2em;
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
+}
+
+.bewerk-textarea {
+    border: 1px solid black;
+    outline: unset;
+    pointer-events: unset;
+    padding: 0.25em;
+    border-radius: 0.25em;
+}
+
+.bewerk-select {
+    border: 1px solid black;
+    outline: unset;
+    pointer-events: unset;
+    border-radius: 0.25em;
+    -webkit-appearance:auto;
+    appearance:auto;
+}
+
+.laat-bewerkt-verzend-knop-zien{
+    display: block !important;
+}

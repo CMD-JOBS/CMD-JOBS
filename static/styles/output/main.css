@@ -1,0 +1,452 @@
+/* Footer met navigatie */
+.navigatie-footer {
+  background-color: #FFF021;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5em;
+  /* box-shadow: 0px 0 20px rgba(0, 0, 0, 0.5); */ }
+  .navigatie-footer svg {
+    height: 2em; }
+
+/* Header met logo */
+.logo-header {
+  background-color: #FFF021;
+  text-align: center; }
+  .logo-header img {
+    height: 5em;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle; }
+
+button, input[type=submit] {
+  margin: 2.5em auto;
+  width: 50%;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  padding: 1em 0;
+  border-radius: 0.25em;
+  border: none;
+  outline: none;
+  border-radius: 2em;
+  font-size: 16px;
+  cursor: pointer; }
+  button:hover, input[type=submit]:hover {
+    width: 55%;
+    font-size: 17px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px; }
+
+body {
+  margin: 0;
+  padding: 0em;
+  font-family: "Open Sans"; }
+
+/* Homepagina */
+.homepagina {
+  background-color: #FFF021;
+  height: 100vh;
+  text-align: center; }
+  .homepagina img {
+    height: 20em;
+    margin: 7.5em auto; }
+  .homepagina form {
+    position: relative;
+    top: -10em;
+    display: block;
+    text-decoration: none;
+    width: 50%;
+    color: black;
+    margin: 0 auto;
+    font-weight: 600;
+    transition: 0.25s; }
+  .homepagina label {
+    display: block; }
+  .homepagina p {
+    display: block;
+    position: relative;
+    top: -10em; }
+
+/* Resultaten - Cards */
+.resultaten {
+  background-image: url(/images/cmd-jobs-achtergrond-10.png);
+  background-size: contain;
+  height: calc(100vh - 10em); }
+
+.flex-resultaten {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  /* background-color: #FFF021; */
+  /* background-color: #fff02163; */ }
+
+::-webkit-scrollbar {
+  display: none; }
+
+.resultaten h1 {
+  margin: 0;
+  padding: 0.5em 0;
+  margin: 0 auto;
+  text-align: center; }
+
+#meer-details {
+  margin: 0.5em auto;
+  text-align: center;
+  position: sticky;
+  bottom: 0; }
+  #meer-details button {
+    margin-bottom: 0; }
+
+.card {
+  height: 625px;
+  min-width: 350px;
+  /* margin: auto; */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 1em;
+  margin-right: 2em;
+  transition: 0.25s;
+  padding: 1em;
+  position: absolute;
+  margin-bottom: 1em;
+  /* transition: transform 1s;
+    transform-style: preserve-3d; */
+  overflow-y: scroll;
+  background-color: white;
+  position: relative; }
+
+.resultaten div:first-child {
+  margin-left: 4em; }
+
+.resultaten h1 {
+  margin: 0;
+  padding: 0.5em 0;
+  margin: 0 auto;
+  text-align: center; }
+
+/* profielToevoegen page */
+.profielToevoegen {
+  color: black;
+  background-color: #FFF021;
+  padding: 1em;
+  overflow-x: hidden;
+  height: 100%; }
+  .profielToevoegen form {
+    margin: 0em;
+    display: flex;
+    width: 200vw;
+    transition: transform .25s ease;
+    transform: translateX(0); }
+  .profielToevoegen fieldset {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-inline-size: initial; }
+
+.pFoto {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  color: white; }
+  .pFoto > span {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    font-size: .9em;
+    margin-left: 1.5em;
+    background-color: black;
+    padding: .6em 1.2em;
+    border-radius: 2.4em;
+    cursor: pointer; }
+    .pFoto > span img {
+      height: 1em; }
+  .pFoto p {
+    display: inline-block;
+    height: fit-content;
+    margin: 0;
+    margin-left: 1em;
+    text-decoration: underline; }
+  .pFoto div {
+    position: relative;
+    height: 6em;
+    width: 6em;
+    border-radius: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .pFoto div > img {
+      height: 6em;
+      width: 6em;
+      object-fit: cover;
+      border-radius: 5em;
+      transition: opacity ease .4s; }
+    .pFoto div span {
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 6em;
+      height: 6em;
+      border-radius: 5em;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity ease .2s;
+      cursor: pointer; }
+      .pFoto div span > img {
+        position: absolute;
+        height: 2.3em;
+        pointer-events: none; }
+      .pFoto div span:hover {
+        opacity: 1;
+        transition: opacity ease .4s; }
+
+.profielToevoegen input[name="pFoto"] {
+  display: flex;
+  opacity: 0;
+  margin-top: -20px; }
+
+.profielToevoegen input[type=text] {
+  width: 80%;
+  padding: .8em 1em;
+  display: block;
+  border: none;
+  border-radius: 1em;
+  color: black;
+  background-color: white;
+  font-weight: 500;
+  outline-color: grey; }
+
+input[type=number],
+textarea,
+select {
+  width: 80%;
+  padding: .8em 1em;
+  display: block;
+  border: none;
+  border-radius: 1em;
+  color: black;
+  background-color: white;
+  font-weight: 500;
+  outline-color: grey; }
+
+.profielToevoegen input[type=text]::placeholder,
+input[type=number]::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: grey;
+  font-weight: 500; }
+
+.profielToevoegen textarea {
+  resize: vertical;
+  font-family: "Open Sans"; }
+
+.profielToevoegen input[type=submit] {
+  display: flex;
+  font-size: 1em;
+  transform: translateX(-1em);
+  margin: auto;
+  margin-top: 2em;
+  background-color: black;
+  color: white;
+  padding: .8em 1.5em;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color .25s ease, color .25s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+.profielToevoegen input[type=number] {
+  width: 3em; }
+
+.profielToevoegen label {
+  display: flex;
+  margin-top: 1em;
+  margin-bottom: .2em; }
+
+.profielToevoegen > div {
+  width: 100%;
+  display: flex; }
+
+.profielToevoegen > a {
+  display: inline-block;
+  font-size: 1em;
+  margin-top: 1em;
+  background-color: black;
+  color: white;
+  padding: .8em 1.5em;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color .25s ease, color .25s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+.profielToevoegen legend {
+  font-weight: bold;
+  font-size: 1.5em; }
+
+.profielToevoegen .volgendeForm {
+  transition: transform .25s ease;
+  transform: translateX(-100vw); }
+
+.profielToevoegen section:first-of-type {
+  display: flex; }
+  .profielToevoegen section:first-of-type input {
+    width: auto; }
+  .profielToevoegen section:first-of-type div:first-of-type {
+    margin-right: 1em; }
+
+.profielToevoegen select[name="Dienstverband"] {
+  width: 35%; }
+
+select[name="Bedrijfsgrootte"] {
+  width: 35%; }
+
+/* Slider rondjes */
+.profielToevoegen > div:last-of-type {
+  position: relative;
+  display: flex;
+  margin-top: 1em;
+  justify-content: center;
+  width: 100%; }
+  .profielToevoegen > div:last-of-type span {
+    cursor: pointer;
+    width: .8em;
+    height: .8em;
+    margin: .2em;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.4); }
+  .profielToevoegen > div:last-of-type .formActive {
+    background-color: black;
+    transform: scale(1.3); }
+
+.error {
+  background-color: #ff5e00 !important; }
+
+/* Profiel pagina */
+.profiel-pagina {
+  font-family: sans-serif;
+  overflow-y: scroll; }
+
+.profiel-foto {
+  text-align: center;
+  background-image: url(/images/cmd-jobs-achtergrond-10.png);
+  background-size: cover;
+  padding: 2.5em 0 1.5em; }
+  .profiel-foto img {
+    height: 7.5em;
+    /* background-color: #FFF021; */
+    background-color: #7bb87b;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+  .profiel-foto h1 {
+    margin: 0;
+    margin-top: 1em;
+    padding: 0;
+    font-size: 22px;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-weight: Bolder; }
+
+#bewerk-knop {
+  background-color: black;
+  display: inline;
+  padding: 1.25em;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 3em;
+  margin-top: 7.5em; }
+  #bewerk-knop svg {
+    height: 1.5em;
+    vertical-align: middle;
+    fill: white;
+    transition: 0.25s; }
+  #bewerk-knop:hover {
+    transition: 0.25s;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2); }
+
+/* #bewerk-knop p{
+      display: inline;
+      margin-top: 1em;
+  } */
+/* Profiel Form */
+.profiel-gegevens {
+  margin: 2em;
+  margin-bottom: 7.5em; }
+
+.profiel-pagina label {
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  font-size: 16px;
+  display: inline;
+  padding-right: 1em;
+  vertical-align: middle; }
+
+.profiel-pagina textarea {
+  margin: 1em 0;
+  margin-bottom: 0;
+  width: calc(100% - 0.5em);
+  resize: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  pointer-events: none;
+  padding: 0; }
+
+.profiel-gegevens div:not(:first-child) {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: space-between; }
+
+.profiel-gegevens p {
+  margin-top: 1.5em;
+  font-size: 18px; }
+
+.profiel-pagina select {
+  border: none;
+  outline: none;
+  width: 50%;
+  pointer-events: none;
+  padding-left: 0.3em;
+  border-radius: 0.25em;
+  -webkit-appearance: none;
+  appearance: none; }
+
+.bewerk-textarea {
+  border: 1px solid black;
+  outline: unset;
+  pointer-events: unset;
+  padding: 0.25em;
+  border-radius: 0.25em; }
+
+.bewerk-select {
+  border: 1px solid black;
+  outline: unset;
+  pointer-events: unset;
+  border-radius: 0.25em;
+  -webkit-appearance: auto;
+  appearance: auto; }
+
+#bewerkt-verzend-knop {
+  display: none; }
+
+.laat-bewerkt-verzend-knop-zien {
+  display: block !important; }
+
+.branch {
+  margin: 0; }
