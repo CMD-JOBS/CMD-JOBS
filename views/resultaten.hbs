@@ -10,25 +10,52 @@
             <strong>{{this.message}}</strong>
         {{/each}}
     {{/if}}
+    <section class="flex-resultaten">
+    
+        {{#each vacatures}}
 
-    {{#each vacatures}}
-    <div>
-        <h2>{{vacatureTitel}}</h2>
-        <h3>{{bedrijfsNaam}}</h3>
-        <h4>{{plaats}}</h4>
-        <h4 class="salaris"></h4>{{salaris}},- per maand</h4>
+        <div>
 
-        <p class="description">{{vacatureInformatie}}</p>
+            <h2>{{vacatureTitel}}</h2>
+            <h3>{{bedrijfsNaam}}</h3>
+            <h4>{{plaats}}</h4>
+            <h4 class="salaris"></h4>{{salaris}}</h4>
 
 
-        {{!-- <div class="opslaanButton"> --}}
-            <form action="/resultaten" method="POST">
-                <button type="submit" name="vacatureID" value={{_id}}>opslaan</button>
-            </form>
-            {{!--
-        </div> --}}
-    </div>
 
-    {{/each}}
+            <h4 class="description">{{vacatureInformatie}}</h4>
+            {{!-- <h4 class="description">{{vacatureInformatie}}</h4> --}}
+
+     
+
+
+            {{!-- <div class="opslaanButton"> --}}
+                {{!-- <form action="/resultaten" method="POST">
+                    <button type="submit" name="vacatureID" value={{_id}}>hoi</button>
+                </form> --}}
+                
+
+                <section class="meer-details">
+
+                    <p>Meer details</p>
+                </section>
+        </div>
+
+        {{/each}}
+    </section>
+
+
+    {{!-- <p class="description">{{vacatureInformatie}}</p>
+    <h3>Werkzaamheden</h3>
+    <p>{{ werkzaamheden}}</p>
+    <h3>Kwalificaties</h3>
+    <p>{{eisen}}</p>
+    <h3>Contact</h3>
+    <p>{{adress}}</p>
+    <p>{{eMail}}</p>
+    <p>{{telefoonNummer}}</p> --}}
+
+
+    
 </main>
 {{> navigatie-footer}}
