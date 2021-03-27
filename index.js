@@ -148,7 +148,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  bedrijfsgrootte: {
+  bedrijfsGrootte: {
     type: String,
     required: false
   },
@@ -313,8 +313,8 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
       biografie: req.body.biografie, 
       functie: req.body.functie, 
       dienstverband: req.body.dienstverband,
-      bedrijfsgrootte: req.body.bedrijfsgrootte
-    }, (error, data) => {
+      bedrijfsGrootte: req.body.bedrijfsGrootte
+    }, (error) => {
         if (error) {
           console.log(error);
         }
@@ -351,7 +351,7 @@ app.post('/profiel', async (req, res) => {
       biografie: req.body.biografie, 
       functie: req.body.functie, 
       dienstverband: req.body.dienstverband,
-      bedrijfsgrootte: req.body.bedrijfsgrootte
+      bedrijfsGrootte: req.body.bedrijfsGrootte
     }, (error, data) => {
         if (error) {
           console.log(error);
@@ -388,7 +388,7 @@ app.get('/resultaten', checkAuthenticated, async (req, res) => {
     .where('opleidingsNiveau').equals(req.session.user.opleidingsNiveau)
     .where('functie').equals(req.session.user.functie)
     .where('dienstVerband').equals(req.session.user.dienstverband)
-    /*.where('bedrijfsgrootte').equals(req.session.user.bedrijfsgrootte)*/
+    .where('bedrijfsGrootte').equals(req.session.user.bedrijfsGrootte)
     
     // Met lean zetten we vervolgens de gefilterde vacatures om in Javascript objects
     .lean()
@@ -406,8 +406,10 @@ app.get('/resultaten', checkAuthenticated, async (req, res) => {
           errors.push({message:"Helaas er zijn geen vacatures voor jou"});
           res.render('resultaten', { title: 'Een lijst met resultaten', errors});
         } 
-        // Rendert resultaat
-        res.render('resultaten', { title: 'Een lijst met resultaten', vacatures});
+        else {
+          // Rendert resultaat
+          res.render('resultaten', { title: 'Een lijst met resultaten', vacatures});
+        }
       }
     });
   }
@@ -463,8 +465,10 @@ app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
         errors.push({message:"Helaas je hebt nog geen vacatures opgeslagen"});
         res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', errors});
       } 
-      // Rendert resultaat
-      res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', opgeslagenVacatures});
+      else {
+        // Rendert resultaat
+        res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', opgeslagenVacatures});
+      }
     }
   });
 });
