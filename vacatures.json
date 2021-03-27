@@ -1,23 +1,178 @@
 [
     {
-        "vacatureTitel": "UX designer",
-        "bedrijfsNaam": "Sony ",
-        "plaats": "Haarlem",
-        "salaris": "3000",
-        "vacatureInformatie": "meer informatie over de vacature"
-    },
-    {
-        "vacatureTitel": "Frontend developer",
-        "bedrijfsNaam": "Resoluut ",
+        "vacatureTitel": "Full-stack Developer",
+        "bedrijfsNaam": "STRANGELOVE",
         "plaats": "Amsterdam",
-        "salaris": "3500",
-        "vacatureInformatie": "meer informatie over de vacature"
+        "opleidingsNiveau": "Universiteit",
+        "dienstVerband": "Fulltime",
+        "bedrijfsGrootte": "10 tot 50",
+        "functie": "Frontend Development",
+        "vacatureInformatie": "Je dagen zullen behoorlijk divers zijn, aangezien je klanten adviseert over technische oplossingen, ons team begeleidt en hen helpt om te groeien, technische architectuur en infrastructuur te ontwikkelen en te verbeteren en applicaties te bouwen door elegante code te schrijven. Je bent klaar om dingen naar een hoger niveau te tillen bij Strangelove!",
+        "link": "https://strangelove.homerun.co"
     },
     {
         "vacatureTitel": "Visual Designer",
-        "bedrijfsNaam": "Bravroure ",
+        "bedrijfsNaam": "Informaat",
+        "plaats": "Hilversum",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Fulltime",
+        "bedrijfsGrootte": "Boven de 50",
+        "functie": "Visual Interface Design",
+        "vacatureInformatie": "Wij zijn een true experience designbureau. Met hart en hoofd ontwerpen wij digitale diensten die waardevol, authentiek en geloofwaardig zijn. Het resultaat? Een scherpe (digitale) strategie en een krachtig ontwerp die tot in details zijn uitgewerkt.",
+        "link": "https://informaat.nl/nl/vacatures/visual-designer/"
+    },
+    {
+        "vacatureTitel": "UX Designer",
+        "bedrijfsNaam": "Informaat",
+        "plaats": "Hilversum",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Parttime",
+        "bedrijfsGrootte": "Boven de 50",
+        "functie": "UX Design",
+        "vacatureInformatie": "Wij zijn een true experience designbureau. Met hart en hoofd ontwerpen wij digitale diensten die waardevol, authentiek en geloofwaardig zijn. Het resultaat? Een scherpe (digitale) strategie en een krachtig ontwerp die tot in details zijn uitgewerkt.",
+        "link": "https://informaat.nl/nl/vacatures/ux-designer/"
+    },
+    {
+        "vacatureTitel": "Digital Designer (UX/UI)",
+        "bedrijfsNaam": "B.made",
+        "plaats": "Rotterdam",
+        "opleidingsNiveau": "MBO",
+        "dienstVerband": "Fulltime",
+        "bedrijfsGrootte": "10 tot 50",
+        "functie": "UX Design",
+        "vacatureInformatie": "B.made is een digital communication agency waar beleving en emotie belangrijke speerpunten zijn binnen de organisatie. Onze organisatie, gevestigd in Rotterdam, gebruikt zijn technische kennis om merken tot leven te laten komen middels spraakmakende communicatie binnen alle mogelijke kanalen. Om dit doel te verwezenlijken en de belevingen naar het volgende niveau te tillen, is design ongekend belangrijk. Maar goed, van de meerwaarde van design hoeven we jou natuurlijk niet te overtuigen. Om deze expertise binnen ons Create team uit te bouwen, willen wij ons versterken met nog een specialist op dit gebied",
+        "link": "https://www.bmade.nl/vacatures/vacature-ux-designer/"
+    },
+    {
+        "vacatureTitel": "Content marketeer",
+        "bedrijfsNaam": "Resoluut",
         "plaats": "Amsterdam",
-        "salaris": "3020",
-        "vacatureInformatie": "meer informatie over de vacature"
-    }
+        "opleidingsNiveau": "Universiteit",
+        "dienstVerband": "Fulltime",
+        "bedrijfsGrootte": "10 tot 50",
+        "functie": "Content Management",
+        "vacatureInformatie": "Of zoals we het zelf noemen: een marketing-kanon. 💣 Weer een fantastisch idee? Hier maak jij werk van! En dat mag ook wel, want uiteindelijk ben jij verantwoordelijk voor de content- en marketing -strategie van maar liefst vier specialistische design-labels. Beginnen jouw handen al te jeuken? Lees gauw verder!",
+        "link": "https://makerstreet.recruitee.com/o/contentmarketing-specialist"
+    },
+    {
+        "vacatureTitel": "Freelancer: Azure DevOps engineer",
+        "bedrijfsNaam": "INFO",
+        "plaats": "Amsterdam",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Freelance",
+        "bedrijfsGrootte": "Boven de 50",
+        "functie": "Backend Development",
+        "vacatureInformatie": "We zijn op zoek naar een DevOps engineer met ervaring met Cloud-native Azure building-blocks als Azure API Management, Azure DevOps, Azure Functions, Azure Application Insights, Azure Cognitive Search, Azure Logic Apps, Azure Event Grid, SQL Azure Database en Azure PostgreSQL Database",
+        "link": "https://info.nl/vacatures/"
+    },
+    {
+        "vacatureTitel": "Digital Marketing Consultant",
+        "bedrijfsNaam": "Valtech",
+        "plaats": "Amsterdam",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Fulltime",
+        "bedrijfsGrootte": "Boven de 50",
+        "functie": "Project Management",
+        "vacatureInformatie": "Wanted for our Marketing Services team: an enthusiastic Digital Marketing Consultant who loves campaigns. Someone who oversees the bigger picture, advises customers and colleagues and makes roadmaps - but at the same time also likes to get his or her hands dirty. Are you up for a challenge and want to take the lead in setting up campaigns for brands such as Philips, DSM, Wavin, ASML? Time to apply!.",
+        "link": "https://www.valtech.com/nl-nl/carriere/vacatures/digital-marketing-consultant-1113228/"
+    },
+    {
+        "vacatureTitel": "Senior UX Reseacher",
+        "bedrijfsNaam": "Hike One",
+        "plaats": "Amsterdam",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Fulltime",
+        "bedrijfsGrootte": "Boven de 50",
+        "functie": "Research",
+        "vacatureInformatie": "Collaborating closely with our clients, you are in a position to build thriving relationships. Your excellent communication skills guide them throughout the project and facilitate decision making, keeping their best interest in mind.",
+        "link": "https://hikeone.homerun.co/senior-ux-reseacher/en/apply?&&step=1"
+    },
+    {
+        "vacatureTitel": "Backend Developer",
+        "bedrijfsNaam": "Connect Holland",
+        "plaats": "Rotterdam",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Parttime",
+        "bedrijfsGrootte": "0 tot 10",
+        "functie": "Backend Development",
+        "vacatureInformatie": "Wil jij werken bij de meest innovatieve Digital Agency van Rotterdam? Niet voor niets is onze missie: Staying ahead of the curve in a digital world. Wij denken en bouwen mee aan de digitale toekomst van onze opdrachtgevers en de maatschappij, dat is onze ambitie. Wij maken digitale producten met impact waar gebruikers echt blij van worden. Van conversie-gedreven websites tot zeer geavanceerde (cloud) applicaties, altijd gebruikmakend van de nieuwste technologie. Ook helpen wij organisaties met het (her)inrichten van hun gehele digitale ecosysteem met het doel voorop te blijven lopen. Zeker in een tijd als deze waar technologische ontwikkeling elkaar in razend tempo opvolgen is stilstand per definitie achteruitgang",
+        "link": "https://connectholland.homerun.co/backend-developer/nl"
+    },
+    {
+        "vacatureTitel": "User Experience Designer Intern",
+        "bedrijfsNaam": "The Valley",
+        "plaats": "Amsterdam",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Stage",
+        "bedrijfsGrootte": "Boven de 50",
+        "functie": "UX Design",
+        "vacatureInformatie": "As a UX Trainee, user-centered design, responsive and adaptive design and conversion optimization are your focus points. For the most part you work with the UX Designers, Visual Designers and Developers in multidisciplinary teams. You translate customers' wishes and clients’ goals into user-friendly and appealing interaction designs or prototypes. On top of that, you support usability testing.",
+        "link": "https://the-valley.homerun.co/internships-in-the-valley/en"
+    },
+    {
+        "vacatureTitel": "Stage webdevelopment",
+        "bedrijfsNaam": "Yard",
+        "plaats": "Utrecht",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Stage",
+        "bedrijfsGrootte": "10 tot 50",
+        "functie": "Frontend Development",
+        "vacatureInformatie": "Wij zoeken slimme, gezellige stagiairs met passie voor online. Wil je bijdragen aan online project met maatschappeljike impact en veel veleren? Aarzel dan niet en neem contact op.",
+        "link": "https://www.yard.nl"
+    },
+    {
+        "vacatureTitel": "Digital Project Manager",
+        "bedrijfsNaam": "Digital Natives",
+        "plaats": "Amsterdam",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Fulltime",
+        "bedrijfsGrootte": "10 tot 50",
+        "functie": "Project Management",
+        "vacatureInformatie": "Wij zoeken een digital projectmanager, iemand die de beste balans vindt tussen kwaliteit, doorlooptijd en budget. De projectmanager waar klanten zoals onder andere Voordekunst, Gemeente Amsterdam en Kijkwijzer, het scrumteam én de wereld een stukje beter van worden.",
+        "link": "https://digital-natives.homerun.co"
+    },
+    {
+        "vacatureTitel": "Internship Interaction Design",
+        "bedrijfsNaam": "Hike One",
+        "plaats": "Amsterdam",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Stage",
+        "bedrijfsGrootte": "Boven de 50",
+        "functie": "Interaction Design",
+        "vacatureInformatie": "You are one badass of a designer of course, why else would you be reading this description on this application page. You seize the moment and enjoy looking complex problems right in the face without flinching. You show a strong passion for digital product design and not just a willingness but more an appetite to learn new things. You have dozens of ideas bouncing around in your head that you are dying to figure with your design prowess. Above all you are an easy-going structured individual who realizes the benefits of a healthy work life balance, and enjoyed a fun, yet competitive, game of table soccer.",
+        "link": "https://hikeone.homerun.co/internship-interaction-design/en/apply?&&step=1"
+    },
+    {
+        "vacatureTitel": "Technical Lead",
+        "bedrijfsNaam": "Gravity",
+        "plaats": "Amersfoort",
+        "opleidingsNiveau": "HBO",
+        "dienstVerband": "Parttime",
+        "bedrijfsGrootte": "10 tot 50",
+        "functie": "Backend Development",
+        "vacatureInformatie": "Tech Lead bij Gravity: Je bent een brug tussen techniek en business en hebt de lead in de technische aspecten binnen digitale concepten. Op basis van jouw kennis en ervaring geef je sturing aan digitale projecten, zowel gevraagd als ongevraagd. Innovatie en nieuwe trends hou je daarbij nauwlettend in de gaten. Ook zorg je dat de belangen van Gravity, het team en de klant in balans zijn.",
+        "link": "https://werkenbij.gravity.nl/vacature/tech-lead/"
+    },
+    {
+        "vacatureTitel": "Business Analyst",
+        "bedrijfsNaam": "RB2",
+        "plaats": "Purmerend",
+        "opleidingsNiveau": "MBO",
+        "dienstVerband": "Fulltime",
+        "bedrijfsGrootte": "10 tot 50",
+        "functie": "Research",
+        "vacatureInformatie": "Bij rb2 houden we ervan om technologische uitdagingen aan te gaan. En dat doen we graag samen. De vrienden die in 2006 de basis legden voor ons bedrijf, werden samengebracht door technologie. Nog steeds zijn we innovators, uitvinders, developers en managers die als veelzijdige vriendengroep op zoek gaan naar nieuwe uitdagingen. Gedreven door de gedeelde ambitie om samen meer mogelijk te maken. nnWij springen graag snel in op nieuwe omstandigheden en wensen van de klant. Agile en flexibel werken zijn daarom belangrijk voor ons. Dat weten onze klanten inmiddels ook. En dus halen we regelmatig gave en ambitieuze nieuwe klussen binnen. Inspirerende projecten, waarbij je echt wordt uitgedaagd om nieuwe oplossingen te bedenken. En die van de grond af aan op te bouwen. nnSamen, maar met alle ruimte voor individueel initiatief en persoonlijke ontwikkeling. Wij geven iedereen graag volop de tijd en ruimte om te groeien. Ook omdat we weten dat onze mensen dat aankunnen. En lukt dat even niet, dan staan we met zijn allen voor hen klaar. We zijn immers niet voor niets een vriendengroep. Kom snel eens kijken in ons toffe kantoor in Purmerend!",
+        "link": "https://www.rb2.nl/vacatures/business-analyst"
+    },
+    {
+        "vacatureTitel": "Front-end developer",
+        "bedrijfsNaam": "STIMMT",
+        "plaats": "Enschede",
+        "opleidingsNiveau": "Universiteit",
+        "dienstVerband": "Freelance",
+        "bedrijfsGrootte": "10 tot 50",
+        "functie": "Frontend Development",
+        "vacatureInformatie": "De manier waarop klanten dagelijks je website ervaren, bepaalt hoe ze naar je organisatie kijken. Een website die optimaal voorziet in de behoeften van de doelgroep, stimuleert een positieve beleving op het imago van een organisatie. Stimmt staat klaar om binnen organisaties nieuw leven in te blazen met vernieuwende oplossingen die beter aansluiten op de digitale wereld. Want digital is wat wij doen. Een dedicated team van denkers en doeners, professionals die kloppende oplossingen ontwikkelen voor de toekomst. Dat is onze specialiteit. Op basis van inzichten uit strategie, user experience en design gebruiken we toonaangevende technologie om positieve impact te maken voor onze klanten en haar gebruikers. Dat doen wij volgens een strakke structuur. Onze voorwaarde voor het beste digitale maatwerk. We zijn pas tevreden als het klopt, aan alle kanten.",
+        "link": "https://www.spielwork.com/stimmt/front-end-developer-3/?vacancy"
+    },
 ]
