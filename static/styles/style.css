@@ -655,4 +655,8 @@ main.registreren form div{
 
 main.registreren form button{
     margin: 2em 0;
+    background-color: black;
+    color: #ffff;
+    padding: 1em 2em;
+    border-radius: 2em;
 }
