@@ -77,7 +77,12 @@ body {
     background-color: #FFF021;
     text-align: center;
 }
-.logo-header img {
+
+.logo-header img.logoff{
+    height: 4em;
+}
+
+.logo-header img.logo {
     height: 5em;
     margin: 0;
     padding: 0;
