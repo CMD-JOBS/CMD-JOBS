@@ -1,26 +1,27 @@
-<h1>Registreren</h1>
-<form action="/registreren" method="POST">
+<main class="registreren">
+    <img src="images/cmd-jobs-logo.png" alt="CMD JOBS Logo">
+    <h1>Registreren</h1>
+    <form action="/registreren" method="POST">
 
-<!-- -->
-{{#if errors}}
-    {{#each errors}}
+
+        {{#if errors}}
+        {{#each errors}}
         <strong>{{this.message}}</strong>
-    {{/each}}
-{{/if}}
+        {{/each}}
+        {{/if}}
+        <div>
+            <label for="email">E-mail</label>
+            <input type="email" name="email" placeholder="example@mail.com" id="email" required>
+        </div>
+        <div>
+            <label for="password">Wachtwoord</label>
+            <input type="password" name="password" placeholder="Minimaal 6 karakters" id="password" required>
+        </div>
+        <div>
+            <label for="password2">Bevestig wachtwoord</label>
+            <input type="password" name="password2" placeholder="Minimaal 6 karakters" id="password2" required>
+        </div>
+        <button type="submit">Registreren</button>
+    </form>
 
-<div>
-    <label for="email">E-mail</label>
-    <input type="email" name="email" id="email" required>   
-</div>
-<div>
-    <label for="password">Wachtwoord</label>
-    <input type="password" name="password" id="password" required>   
-</div>
-<div>
-    <label for="password2">Bevestig wachtwoord</label>
-    <input type="password" name="password2" id="password2" required>
-</div>
-<button type="submit">Registreren</button>
-</form>
-
-<a href="/">Login</a>
+</main>
