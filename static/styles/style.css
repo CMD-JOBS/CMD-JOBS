@@ -625,7 +625,7 @@ body {
     display: block !important;
 }
 
-/* REGISTREREN PAGINA */
+/* --------------- REGISTREREN PAGINA ------------ */
 main.registreren{
     background-color: #FFF021;
     height: 100vh;
@@ -640,6 +640,7 @@ main.registreren h1{
     margin: 0 0 2em 0;
 }
 
+/* form */
 main.registreren form{
     display: flex;
     flex-direction: column;
@@ -653,10 +654,29 @@ main.registreren form div{
     flex-direction: column;
 }
 
+main.registreren input{
+    padding: 1em;
+    margin: 0.2em 0 1em 0;
+    border: none;
+    border-radius: 1em;
+    color: #000;
+    font-weight: 500;
+    outline-color: #808080;
+}
+
+/* form button style */
 main.registreren form button{
     margin: 2em 0;
     background-color: black;
     color: #ffff;
     padding: 1em 2em;
     border-radius: 2em;
+    border: none;
+    font-weight: bold;
+}
+
+main.registreren form button:hover{
+    background-color: #ffff;
+    color: black;
+    transition: 0.5s;
 }
