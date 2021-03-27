@@ -1,7 +1,18 @@
+html{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 414px;
+    height: 736px;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: "Open Sans";
+    width: 414px;
+    height: 736px;
 }
 
  /* Header met logo */
@@ -18,7 +29,7 @@ body {
 /* Footer met navigatie */
 .navigatie-footer {
     background-color: #FFF021;
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
@@ -102,7 +113,6 @@ body {
 
 .profiel-gegevens {
     margin: 2em;
-    margin-bottom: 7.5em;
 }
 
 .profiel-pagina label {
