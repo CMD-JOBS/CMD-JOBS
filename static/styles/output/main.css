@@ -24,7 +24,7 @@
 
 button, input[type=submit] {
   margin: 2.5em auto;
-  width: 50%;
+  min-width: 50%;
   background-color: black;
   color: white;
   font-weight: 600;
@@ -34,9 +34,11 @@ button, input[type=submit] {
   outline: none;
   border-radius: 2em;
   font-size: 16px;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: 0.25s;
+  text-align: center; }
   button:hover, input[type=submit]:hover {
-    width: 55%;
+    padding: 1em 4em;
     font-size: 17px;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px; }
 
@@ -89,7 +91,6 @@ body {
   display: none; }
 
 .resultaten h1 {
-  margin: 0;
   padding: 0.5em 0;
   margin: 0 auto;
   text-align: center; }
@@ -221,7 +222,7 @@ body {
   font-weight: 500;
   outline-color: grey; }
 
-input[type=number],
+.profielToevoegen input[type=number],
 textarea,
 select {
   width: 80%;
@@ -238,7 +239,7 @@ select {
 input[type=number]::placeholder,
 textarea::placeholder,
 select::placeholder {
-  color: grey;
+  color: gray;
   font-weight: 500; }
 
 .profielToevoegen textarea {
@@ -333,120 +334,3 @@ select[name="Bedrijfsgrootte"] {
 
 .error {
   background-color: #ff5e00 !important; }
-
-/* Profiel pagina */
-.profiel-pagina {
-  font-family: sans-serif;
-  overflow-y: scroll; }
-
-.profiel-foto {
-  text-align: center;
-  background-image: url(/images/cmd-jobs-achtergrond-10.png);
-  background-size: cover;
-  padding: 2.5em 0 1.5em; }
-  .profiel-foto img {
-    height: 7.5em;
-    /* background-color: #FFF021; */
-    background-color: #7bb87b;
-    border-radius: 50%;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
-  .profiel-foto h1 {
-    margin: 0;
-    margin-top: 1em;
-    padding: 0;
-    font-size: 22px;
-    font-weight: 100;
-    text-transform: uppercase;
-    font-weight: Bolder; }
-
-#bewerk-knop {
-  background-color: black;
-  display: inline;
-  padding: 1.25em;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-right: 3em;
-  margin-top: 7.5em; }
-  #bewerk-knop svg {
-    height: 1.5em;
-    vertical-align: middle;
-    fill: white;
-    transition: 0.25s; }
-  #bewerk-knop:hover {
-    transition: 0.25s;
-    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2); }
-
-/* #bewerk-knop p{
-      display: inline;
-      margin-top: 1em;
-  } */
-/* Profiel Form */
-.profiel-gegevens {
-  margin: 2em;
-  margin-bottom: 7.5em; }
-
-.profiel-pagina label {
-  margin-bottom: 0.5em;
-  font-weight: 600;
-  font-size: 16px;
-  display: inline;
-  padding-right: 1em;
-  vertical-align: middle; }
-
-.profiel-pagina textarea {
-  margin: 1em 0;
-  margin-bottom: 0;
-  width: calc(100% - 0.5em);
-  resize: none;
-  font-family: sans-serif;
-  font-size: 14px;
-  border: none;
-  outline: none;
-  pointer-events: none;
-  padding: 0; }
-
-.profiel-gegevens div:not(:first-child) {
-  margin-top: 1.5em;
-  display: flex;
-  justify-content: space-between; }
-
-.profiel-gegevens p {
-  margin-top: 1.5em;
-  font-size: 18px; }
-
-.profiel-pagina select {
-  border: none;
-  outline: none;
-  width: 50%;
-  pointer-events: none;
-  padding-left: 0.3em;
-  border-radius: 0.25em;
-  -webkit-appearance: none;
-  appearance: none; }
-
-.bewerk-textarea {
-  border: 1px solid black;
-  outline: unset;
-  pointer-events: unset;
-  padding: 0.25em;
-  border-radius: 0.25em; }
-
-.bewerk-select {
-  border: 1px solid black;
-  outline: unset;
-  pointer-events: unset;
-  border-radius: 0.25em;
-  -webkit-appearance: auto;
-  appearance: auto; }
-
-#bewerkt-verzend-knop {
-  display: none; }
-
-.laat-bewerkt-verzend-knop-zien {
-  display: block !important; }
-
-.branch {
-  margin: 0; }

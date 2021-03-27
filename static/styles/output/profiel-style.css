@@ -80,6 +80,7 @@ body {
     right: 0;
     margin-right: 3em;
     margin-top: 7.5em;
+    cursor: pointer;
 }
 
 /* #bewerk-knop p{
@@ -155,7 +156,7 @@ select {
 
 #bewerkt-verzend-knop {
     margin: 2.5em auto;
-    width: 50%;
+    min-width: 50%;
     background-color: black;
     color: white;
     font-weight: 600;
@@ -167,6 +168,13 @@ select {
     font-size: 16px;
     cursor: pointer;
     display: none;
+    transition: 0.25s;
+}
+
+#bewerkt-verzend-knop:hover {
+    padding: 1em 4em;
+    font-size: 17px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
 }
 
 .bewerk-textarea {
@@ -188,4 +196,8 @@ select {
 
 .laat-bewerkt-verzend-knop-zien {
     display: block !important;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

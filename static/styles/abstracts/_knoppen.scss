@@ -1,6 +1,6 @@
 button, input[type=submit] {
     margin: 2.5em auto;
-    width: 50%;
+    min-width: 50%;
     background-color: black;
     color: white;
     font-weight: 600;
@@ -11,9 +11,11 @@ button, input[type=submit] {
     border-radius: 2em;
     font-size: 16px;
     cursor: pointer;
+    transition: 0.25s;
+    text-align: center;
 
     &:hover {
-        width: 55%;
+        padding: 1em 4em;
         font-size: 17px;
         box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
     }
