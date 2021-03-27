@@ -155,6 +155,22 @@ body {
     cursor: pointer;
 }
 
+.card .topcardwrapper{
+    margin: 0 !important;
+}
+
+.card a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em;
+}
+
+.card a img{
+    width: 3em;
+}
+
 .card {
     height: 430px;
     min-width: 300px;
@@ -170,7 +186,7 @@ body {
     margin-bottom: 1em;
     /* transition: transform 1s;
     transform-style: preserve-3d; */
-    overflow-y: scroll;
+    overflow-y: none;
 =======
 >>>>>>> 9b3ed2fb1d46028a1294a4e9b6c4f5b3c0d25a3f
 }
@@ -248,10 +264,10 @@ body {
     cursor: pointer;
 }
 
-.resultaten a{
-    background-image: url("/images/savebutton.svg");
-}
+.resultaten .topcardwrapper{
+    display: flex;
 
+}
 
 /* profielToevoegen page */
 
