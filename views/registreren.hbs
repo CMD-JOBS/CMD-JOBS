@@ -3,6 +3,7 @@
     <h1>Registreren</h1>
     <form action="/registreren" method="POST">
 
+
         {{#if errors}}
         {{#each errors}}
         <strong>{{this.message}}</strong>
@@ -22,7 +23,5 @@
         </div>
         <button type="submit">Registreren</button>
     </form>
-
-
 
 </main>

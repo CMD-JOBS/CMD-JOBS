@@ -351,10 +351,14 @@ background-color: white;
     padding: 1em;
     overflow-x: hidden;
     height: 100%;
+    min-height: 100vh;
 }
 
 .profielToevoegen form {
     margin: 0em;
+}
+
+.form-split {
     display: flex;
     width: 200vw;
     transition: transform .25s ease;
@@ -408,6 +412,10 @@ background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#visable-flex {
+    display: flex;
 }
 
 .pFoto div > img {
@@ -503,11 +511,11 @@ background-color: white;
 
 .profielToevoegen > div {
     width: 100%;
-    display: flex;
+    display: none;
 }
 
 .profielToevoegen > a {
-    display: inline-block;
+    display: none;
     font-size: 1em;
     margin-top: 1em;
     background-color: black;
@@ -522,6 +530,10 @@ background-color: white;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+#visable-inline-block {
+    display: inline-block;
 }
 
 .profielToevoegen legend {
@@ -554,7 +566,7 @@ background-color: white;
 
 .profielToevoegen > div:last-of-type {
     position: relative;
-    display: flex;
+    display: none;
     margin-top: 1em;
     justify-content: center;
     width: 100%;
