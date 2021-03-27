@@ -5,7 +5,9 @@
     <h1>Resultaten</h1>
     {{#if errors}}
     {{#each errors}}
-    <strong>{{this.message}}</strong>
+    <div class="error2">
+        <strong>{{this.message}}</strong>
+    </div>
     {{/each}}
     {{/if}}
     <section class="flex-resultaten">

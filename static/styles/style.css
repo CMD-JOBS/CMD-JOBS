@@ -11,34 +11,33 @@ body {
 }
 .homepagina img {
     height: 20em;
-    margin: 7.5em auto;
+    margin: 5.5em auto;
  }
-
 
 .homepagina button {
     display: block;
     text-decoration: none;
     appearance: none;
     border: none;
-    width: 50%;
     color: white;
     background-color: black;
     cursor: pointer;
-    margin: 1em auto;
-    padding: 0.75em 0;
+    margin: 2em auto;
+    padding: 0.8em 3.5em;
     border-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
     transition: 0.25s;
+    font-size: 16px;
 }
 .homepagina button:hover {
-    width: 55%;
+    padding: 0.9em 3.6em;
     font-size: 17px;
      box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
  }
 
  .homepagina form{
      position: relative;
-     top: -10em;
+     top: -9em;
      display: block;
      text-decoration: none;
      width: 50%;
@@ -46,17 +45,46 @@ body {
      margin: 0 auto;
      font-weight: 600;
      transition: 0.25s;
+     font-size: 15px;
+     justify-content: center;
+     align-content: center;
+     text-align: center;
  }
 
  .homepagina label{
-     display: block;
+    display: block;
+    margin:0.2em;
+    text-align: left;
+ }
+
+ .homepagina div{
+    margin:0.7em auto;
+ }
+ .homepagina input{
+    padding: 9px 20px 9px 20px;
+    font-size: 16px;
  }
 
  .homepagina p{
      display: block;
      position: relative;
      top: -10em;
- }
+     margin-top:3em;}
+
+   
+     .homepagina>strong{
+        color:tomato;
+         position:absolute;
+         top:19em;
+         left:21%;
+         margin:0.5em auto;
+       padding:0em 1em;
+       font-weight: bold;
+       font-size:18px;
+      font-style: italic;
+
+     }
+ 
 
 /* registreer pagina  */
 
@@ -79,7 +107,7 @@ body {
     background-color: black;
     cursor: pointer;
     margin: 2.3em auto;
-    padding: 1em 3em;
+    padding: 0.8em 3.5em;
     border-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
     transition: 0.25s;
@@ -87,7 +115,7 @@ body {
 
 }
 .registreren button:hover {
-    width: 55%;
+    padding: 0.9em 3.6em;
     font-size: 17px;
      box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
  }
@@ -101,7 +129,10 @@ body {
      margin: 0 auto;
      font-weight: 600;
      transition: 0.25s;
-     top:-4.5em;
+     top:-4.8em;
+     justify-content: center;
+     align-content: center;
+     text-align: center;
  }
  .registreren div{
     margin:0.7em auto;
@@ -112,14 +143,14 @@ body {
  }
  .registreren label{
      display: block;
-     margin:0.15em;
+     margin:0.2em;
      text-align: left;
  }
 
  .registreren h1{
     display: block;
     position: relative;
-    top: -2.5em;
+    top: -2.8em;
 }
 
  /* Header met logo */
@@ -149,13 +180,25 @@ body {
     height: 2em;
 }
 /* Resultaten - Cards */
+.resultaten div.error2 strong{
+    text-align: center;
+    font-size: 20px;
+    margin:2em auto;
+    display:block;
+    padding: 2em;
+    color:tomato;
+}
 
+ div.error2 {
+    background-color: white;
+    margin:7em 2em;
+    border:tomato solid 1px;
+}
 .resultaten{
     background-image: url(/images/cmd-jobs-achtergrond-10.png);
     background-size: contain;
 
     height: calc(100vh - 10em);
-=======
     height: 100vh;
     margin-bottom: 10em;
 }
