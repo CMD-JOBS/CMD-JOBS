@@ -17,9 +17,16 @@ body {
 
  /* Header met logo */
  .logo-header {
+    display: flex;
+    justify-content: space-between;
     background-color: #FFF021;
     text-align: center;
 }
+.logo-header img.logoff{
+    height: 3em;
+    padding: 1em;
+}
+
 .logo-header img {
     height: 5em;
     margin: 0;
