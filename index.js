@@ -15,8 +15,12 @@ const localStrategy = require('passport-local').Strategy;
 const flash = require('connect-flash');
 const session = require('express-session'); 
 const bcrypt = require('bcryptjs');
+const helmet = require("helmet");
 const port = 3000;
 // const sass = require('node-sass');
+
+//Helmet voor HTTP security 
+app.use(helmet());
 
 // Aangeven waar onze statishce files zich bevinden  
 app.use(express.static('static'));
@@ -255,7 +259,7 @@ app.post('/registreren', async (req, res) => {
 
   //Wachtwoord lengte instellen
   if(password.length < 6) {
-    errors.push({message: 'wachtwoord te kort'})
+    errors.push({message: 'Wachtwoord te kort'})
   }
 
   await userModel.findOne({ email: email })
