@@ -1,9 +1,3 @@
-
-
-
-
-//BRONNEN CODE!!!!!!!!!!!!!!!!!
-
 //Set-up progressive enhanchement 
 const profileForm = document.querySelector('.profielToevoegen form');
 const buttonVolgende = document.querySelector('#buttonVolgende');
