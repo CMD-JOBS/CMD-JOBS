@@ -645,4 +645,14 @@ main.registreren form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 0 2em 0;
+}
+
+main.registreren form div{
+    display: flex;
+    flex-direction: column;
+}
+
+main.registreren form button{
+    margin: 2em 0;
 }
