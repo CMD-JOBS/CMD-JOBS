@@ -624,3 +624,15 @@ body {
 .laat-bewerkt-verzend-knop-zien{
     display: block !important;
 }
+
+/* REGISTREREN PAGINA */
+main.registreren{
+    background-color: #FFF021;
+    height: 100vh;
+    width: 100vw;
+}
+
+main.registreren h1{
+    margin: 0;
+}
+}
