@@ -630,9 +630,13 @@ main.registreren{
     background-color: #FFF021;
     height: 100vh;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 main.registreren h1{
     margin: 0;
 }
-}
+
