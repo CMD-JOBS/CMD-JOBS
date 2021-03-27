@@ -637,6 +637,12 @@ main.registreren{
 }
 
 main.registreren h1{
-    margin: 0;
+    margin: 0 0 2em 0;
 }
 
+main.registreren form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
