@@ -248,6 +248,10 @@ body {
     cursor: pointer;
 }
 
+.resultaten a{
+    background-image: url("/images/savebutton.svg");
+}
+
 
 /* profielToevoegen page */
 
