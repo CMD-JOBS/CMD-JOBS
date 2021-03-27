@@ -2,10 +2,9 @@ button, input[type=submit] {
     margin: 2.5em auto;
     min-width: 50%;
     background-color: black;
-    color: white;
+    color: $tekstkleur-knop;
     font-weight: 600;
     padding: 1em 0;
-    border-radius: 0.25em;
     border: none;
     outline: none;
     border-radius: 2em;
