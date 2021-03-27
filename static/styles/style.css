@@ -87,7 +87,11 @@ body {
  
 
 /* registreer pagina  */
-
+.registreren strong{
+    color:tomato;
+    font-style: italic;
+    display:block;
+}
 .registreren {
     background-color: #FFF021;
     height: 100vh;
