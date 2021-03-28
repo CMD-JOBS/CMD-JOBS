@@ -1,33 +1,68 @@
  /* ------------------------------------------------------------------- */
-/*                                   Colors                             */
-/* ------------------------------------------------------------------- */
- 
+ /*     (Achtergrond) Kleuren                                           */
+ /* ------------------------------------------------------------------- */
+
+ // Hoofdkleur
+ $hoofdkleur: #FFF021;
+
  // HTML achtergrond kleur
  $achtergrondkleur-html: #525252;
- 
- // Achtergrond kleur
-$achtergrondkleur-app: #FFF021;
 
-// Tekstkleur
-$tekstkleur: black;
+ // Body achtergrond kleur
+ $achtergrondkleur-body: white;
 
-// Tekstkleur van de knoppen
-$tekstkleur-knop: white;
+ // Achtergrondkleur van de knoppen
+ $achtergrondkleur-knop: black;
 
-// Tekstkleur van de knoppen
-$achtergrondkleur-knop: black;
+ // Achtergrondkleur van de cards
+ $achtergrondkleur-cards: white;
 
-// Tekstkleur van de placeholders
-$tekstkleur-placeholder: gray;
+ // Achtergrondkleur van de errors op de resulaten -opgeslagen pagina
+ $achtergrondkleur-error: white;
 
-// Tekstkleur van de errors
-$tekstkleur-error: tomato;
+ // Tekstkleur voor tekst
+ $tekstkleur: black;
+
+ // Tekstkleur van de knoppen
+ $tekstkleur-knop: white;
+
+ // Tekstkleur van de placeholders
+ $tekstkleur-placeholder: gray;
+
+ // Tekstkleur van de errors
+ $tekstkleur-error: tomato;
+
+ // Achtergrond foto op resultaten pagina
+ $achtergrond-foto: url(/images/cmd-jobs-achtergrond-10.png);
+
 
 
  /* ------------------------------------------------------------------- */
-/*                                   Fonts                             */
-/* ------------------------------------------------------------------- */
+ /*     Fonts                                                           */
+ /* ------------------------------------------------------------------- */
 
-// Gebruikte font
-$font: "Open Sans";
+ // Gebruikte font
+ $font: "Open Sans";
 
+ // Tekst dikgedrukt
+ $dikgedrukt: 600;
+
+ // Font grootte errors bij inlog -registreer pagina
+ $font-grootte-errors-klein: 18px;
+
+ // Font grootte errors op resultaten -opgeslagen pagina
+ $font-grootte-errors-groot: 20px;
+
+ // Font grootte form tekst
+ $font-grootte-form: 15px;
+
+ // Font grootte form tekst
+ $font-grootte-knop: 16px;
+
+
+
+
+
+ // EXTRA
+
+ $cursor-knop: pointer;

@@ -3,15 +3,14 @@ button, .card a {
     text-decoration: none;
     appearance: none;
     border: none;
-    color: white;
-    background-color: black;
-    cursor: pointer;
+    color: $tekstkleur-knop;
+    background-color: $achtergrondkleur-knop;
+    cursor: $cursor-knop;
     margin: 0.5em auto;
     padding: 0.8em 3.5em;
     border-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
-    transition: 0.25s;
-    font-size: 16px;
+    font-size: $font-grootte-knop;
     text-align: center;
 
     &:hover {

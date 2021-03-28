@@ -2,8 +2,23 @@ strong {
     color: $tekstkleur-error;
     margin: 0.5em auto 2em;
     padding: 0em 1em;
-    font-weight: bold;
-    font-size: 18px;
+    font-weight: $dikgedrukt;
+    font-size: $font-grootte-errors-klein;
     font-style: italic;
     display: block;
 }
+
+.resultaten div.error2 strong {
+    text-align: center;
+    font-size: $font-grootte-errors-groot;
+    margin: 2em auto;
+    display: block;
+    padding: 2em;
+    color: $tekstkleur-error;
+  }
+  
+  div.error2 {
+    background-color: $achtergrondkleur-error;
+    margin: 7em 2em;
+    border: $tekstkleur-error solid 1px;
+  }

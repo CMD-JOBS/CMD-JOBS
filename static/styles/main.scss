@@ -5,7 +5,7 @@
 /* Homepagina */
 
 .homepagina {
-  background-color: $achtergrondkleur-app;
+  background-color: $hoofdkleur;
   height: 100vh;
   text-align: center;
   width: 414px;
@@ -27,15 +27,7 @@
   }
 
   input {
-    padding: 1em;
-    display: block;
-    border: none;
-    border-radius: 1em;
-    color: $tekstkleur;
-    background-color: white;
-    font-weight: 500;
-    outline-color: grey;
-    margin: 0.5em 0;
+    @extend .inputvelden;
   }
 
   p {
@@ -55,7 +47,7 @@
     margin-bottom: 0.5em;
   }
 
-  background-color: $achtergrondkleur-app;
+  background-color: $hoofdkleur;
   height: 100vh;
   text-align: center;
 
@@ -69,15 +61,7 @@
   }
 
   input {
-    padding: 1em;
-    display: block;
-    border: none;
-    border-radius: 1em;
-    color: $tekstkleur;
-    background-color: white;
-    font-weight: 500;
-    outline-color: grey;
-    margin: 0.5em 0;
+    @extend .inputvelden;
   }
 
   label {
@@ -94,23 +78,8 @@
 
 /* Resultaten - Cards */
 
-.resultaten div.error2 strong {
-  text-align: center;
-  font-size: 20px;
-  margin: 2em auto;
-  display: block;
-  padding: 2em;
-  color: tomato;
-}
-
-div.error2 {
-  background-color: white;
-  margin: 7em 2em;
-  border: tomato solid 1px;
-}
-
 .resultaten {
-  background-image: url(/images/cmd-jobs-achtergrond-10.png);
+  background-image: $achtergrond-foto;
   background-size: contain;
   width: 414px;
   height: 571px;
@@ -155,10 +124,9 @@ div.error2 {
   }
 
   form {
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    @extend .flex-center;
     margin: 0 1em;
   }
 
@@ -175,7 +143,7 @@ div.error2 {
   margin-right: 2em;
   transition: 0.25s;
   padding: 1em;
-  background-color: #ffff;
+  background-color: $achtergrondkleur-cards;
   position: relative;
   margin-bottom: 1em;
   overflow-y: none;
@@ -221,7 +189,7 @@ div.error2 {
 
 .profielToevoegen {
   color: $tekstkleur;
-  background-color: $achtergrondkleur-app;
+  background-color: $hoofdkleur;
   padding: 1em 1em 0 1em;
   overflow-x: hidden;
   height: 656px;
@@ -247,14 +215,12 @@ div.error2 {
 }
 
 .pFoto {
-  display: flex;
   width: fit-content;
-  align-items: center;
+  @extend .flex-center;
   color: $tekstkleur-knop;
 
   >span {
-    display: flex;
-    align-items: center;
+    @extend .flex-center;
     height: fit-content;
     font-size: .9em;
     margin-left: 1.5em;
@@ -281,8 +247,7 @@ div.error2 {
     height: 6em;
     width: 6em;
     border-radius: 5em;
-    display: flex;
-    align-items: center;
+    @extend .flex-center;
     justify-content: center;
   }
 }
@@ -306,9 +271,8 @@ div.error2 {
     height: 6em;
     border-radius: 5em;
     position: absolute;
-    display: flex;
     justify-content: center;
-    align-items: center;
+    @extend .flex-center;
     opacity: 0;
     transition: opacity ease .2s;
     cursor: pointer;
@@ -514,9 +478,8 @@ select[name="Bedrijfsgrootte"] {
 
 
 /* --------------- REGISTREREN PAGINA ------------ */
-
 main.registreren {
-  background-color: $achtergrondkleur-app;
+  background-color: $hoofdkleur;
   width: 414px;
   height: 736px;
   display: flex;
@@ -525,10 +488,9 @@ main.registreren {
   align-items: center;
 
   form {
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    @extend .flex-center;
 
     div {
       display: flex;
@@ -563,7 +525,7 @@ main.registreren {
   height: 7.5em;
   width: 7.5em;
   object-fit: cover;
-  background-color: $achtergrondkleur-app;
+  background-color: $hoofdkleur;
   border-radius: 50%;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
