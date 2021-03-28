@@ -414,8 +414,7 @@ body {
     display: flex;
     font-size: 1em;
     transform: translateX(-1em);
-    margin: auto;
-    margin-top: 2em;
+    margin: 2em 0 0 1em;
     background-color: black;
     color: white;
     padding: .8em 1.5em;
