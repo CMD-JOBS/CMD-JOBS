@@ -41,7 +41,7 @@ npm install
 
 Stel jouw database gegevens in
 ```js
-    .
+DB_URI=mongodb+srv://FillIN
 ```
 
 <img src="images/database-structure.jpg" height="330px" alt="Database structure">
