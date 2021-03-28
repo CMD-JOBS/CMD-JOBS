@@ -1,4 +1,3 @@
-
 {{> logo-header}}
 
 <main class="resultaten">
@@ -20,35 +19,22 @@
             <div class="topcardwrapper">
                 <h2>{{vacatureTitel}}</h2>
                 <form action="/resultaten" method="POST">
-                    <button class="savebutton" type="submit" name="vacatureID" value={{_id}}><img id="heart" class="saveimage" src="images/savebutton.svg" alt="save"></button>
+                    <button class="savebutton" type="submit" name="vacatureID" value={{_id}}><img id="heart"
+                            class="saveimage" src="images/savebutton.svg" alt="save"></button>
                 </form>
                 {{!-- <a id="savebutton" class="savebutton" href=""><img id="heart" class="saveimage" src="images/savebutton.svg" alt="save"></a> --}}
             </div>
-            
+
             <h3>{{bedrijfsNaam}}</h3>
             <h4>{{plaats}}</h4>
-            <h4 class="salaris"></h4>{{salaris}}</h4>
+            <p class="description">{{vacatureInformatie}}</p>
 
-
-
-
-            <h4 class="description">{{vacatureInformatie}}</h4>
-
-
-
-
-            {{!-- <div class="opslaanButton"> --}}
-                
-
-                <section class="meer-details">
-
-                    <p>Meer details</p>
-                </section>
+            <a href="{{link}}" target="_blank">Contact</a>
         </div>
         {{/each}}
     </section>
 
-<script src="/scripts/resultatenpagina.js"></script>
-    
+    <script src="/scripts/resultatenpagina.js"></script>
+
 </main>
 {{> navigatie-footer}}

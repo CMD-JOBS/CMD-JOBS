@@ -1,4 +1,4 @@
-button {
+button, .card a {
     display: block;
     text-decoration: none;
     appearance: none;
@@ -12,6 +12,7 @@ button {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
     transition: 0.25s;
     font-size: 16px;
+    text-align: center;
 
     &:hover {
       padding: 0.9em 3.6em;
