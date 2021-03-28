@@ -18,8 +18,11 @@
         <div class="card">
 
             <div class="topcardwrapper">
-            <h2>{{vacatureTitel}}</h2>
-            <a id="savebutton" class="savebutton" href=""><img id="heart" class="saveimage" src="images/savebutton.svg" alt="save"></a>
+                <h2>{{vacatureTitel}}</h2>
+                <form action="/resultaten" method="POST">
+                    <button class="savebutton" type="submit" name="vacatureID" value={{_id}}><img id="heart" class="saveimage" src="images/savebutton.svg" alt="save"></button>
+                </form>
+                {{!-- <a id="savebutton" class="savebutton" href=""><img id="heart" class="saveimage" src="images/savebutton.svg" alt="save"></a> --}}
             </div>
             
             <h3>{{bedrijfsNaam}}</h3>
@@ -28,23 +31,21 @@
 
 
 
-            {{!-- <h4 class="description">{{vacatureInformatie}}</h4> --}}
-            {{!-- <h4 class="description">{{vacatureInformatie}}</h4> --}}
+
+            <h4 class="description">{{vacatureInformatie}}</h4>
 
 
 
 
             {{!-- <div class="opslaanButton"> --}}
-                {{!-- <form action="/resultaten" method="POST">
-                    <button type="submit" name="vacatureID" value={{_id}}>hoi</button>
-                </form> --}}
+                
 
                 <section class="meer-details">
 
                     <p>Meer details</p>
-                </section> --}}
+                </section>
         </div>
-            {{/each}}
+        {{/each}}
     </section>
 
 <script src="/scripts/resultatenpagina.js"></script>
