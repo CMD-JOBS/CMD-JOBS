@@ -18,7 +18,7 @@ CMD-JOBS is een online vacature-bureau waar we voor jou de perfecte baan vinden!
 | ---------------------------------------------------------- | --- |
 | 🔐⠀Maak een account.                                       | ✔   |
 | 🔑 ⠀Login!                                                 | ✔   |
-| 🙋‍⠀♀️ Maak en bewerk je eigen profiel                      | ✔   |
+| 🙋‍♀️⠀Maak en bewerk je eigen profiel                       | ✔   |
 | 💬 ⠀Bekijk en sla vacatures op die jouw interesseren!⠀     | ✔   |
 |                                                            |     |
 
