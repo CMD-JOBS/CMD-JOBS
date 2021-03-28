@@ -34,14 +34,14 @@ git clone https://github.com/CMD-JOBS/CMD-JOBS.git
 <br>
 
 Installeer de bijbehorende packages
-```git
+```js
 npm install
 ```
 <br>
 
 Stel jouw database gegevens in
 ```js
-DB_URI=mongodb+srv://FillIN
+DB_URI= mongo link
 ```
 
 <img src="images/database-structure.jpg" height="330px" alt="Database structure">
@@ -50,7 +50,7 @@ DB_URI=mongodb+srv://FillIN
 <br>
 
 Als je de database hebt ingesteld, start je de server:
-```git
+```js
 npm start
 ```
 
