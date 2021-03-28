@@ -12,24 +12,34 @@
     {{/each}}
     {{/if}}
 
+    <section class="flex-resultaten">
     {{#each opgeslagenVacatures}}
-    <div>
-        <h2>{{vacatureTitel}}</h2>
-        <h3>{{bedrijfsNaam}}</h3>
-        <h4>{{plaats}}</h4>
-        <h4 class="salaris"></h4>{{salaris}},- per maand</h4>
+    <div class="card">
 
-        <p class="description">{{vacatureInformatie}}</p>
+            <div class="topcardwrapper">
+                <h2>{{vacatureTitel}}</h2>
+                <form action="/resultaten" method="POST">
+                    <button class="savebutton" type="submit" name="vacatureID" value={{_id}}><img id="heart" class="saveimage" src="images/savebutton.svg" alt="save"></button>
+                </form>
+                {{!-- <a id="savebutton" class="savebutton" href=""><img id="heart" class="saveimage" src="images/savebutton.svg" alt="save"></a> --}}
+            </div>
+            
+            <h3>{{bedrijfsNaam}}</h3>
+            <h4>{{plaats}}</h4>
+            <h4 class="salaris"></h4>{{salaris}}</h4>
+            <h4 class="description">{{vacatureInformatie}}</h4>
 
+            {{!-- <div class="opslaanButton"> --}}
+                <section class="meer-details">
 
-        {{!-- <div class="opslaanButton"> --}}
-            <form action="/opgeslagenvacatures" method="POST">
-                <button type="submit" name="vacatureID" value={{_id}}>verwijder</button>
-            </form>
-            {{!--
-        </div> --}}
-    </div>
+                    <p>Meer details</p>
+                </section>
+        </div>
 
     {{/each}}
+    </section>
+<script src="/scripts/resultatenpagina.js"></script>
+
 </main>
+
 {{> navigatie-footer}}
