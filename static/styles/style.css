@@ -476,7 +476,7 @@ body {
     margin-top: -20px;
 }
 
-.profielToevoegen input[type=text], input[type=number], textarea, select {
+.profielToevoegen input[type=text], .profielToevoegen input[type=number], .profielToevoegen textarea, .profielToevoegen select {
     padding: .8em 1em;
     display: block;
     border: none;
@@ -487,7 +487,7 @@ body {
     outline-color: grey;
 }
 
-.profielToevoegen input[type=text]::placeholder, input[type=number]::placeholder, textarea::placeholder, select::placeholder {
+.profielToevoegen input[type=text]::placeholder, .profielToevoegen input[type=number]::placeholder, .profielToevoegen textarea::placeholder, .profielToevoegen select::placeholder {
     color: grey;
     font-weight: 500;
 }
