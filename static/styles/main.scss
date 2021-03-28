@@ -5,12 +5,14 @@
 // @import "./views/profiel";
 
 html {
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 414px;
   height: 736px;
+  background-color: #525252;
+  margin: 5em auto 0 auto;
 }
 
 body {
@@ -20,6 +22,7 @@ body {
   width: 414px;
   height: 736px;
   position: relative;
+  background-color: white;
 }
 
 /* Homepagina */
@@ -62,7 +65,7 @@ body {
   }
 
   input {
-    padding: .8em 1em;
+    padding: 1em;
     display: block;
     border: none;
     border-radius: 1em;
@@ -129,7 +132,7 @@ body {
   }
 
   input {
-    padding: .8em 1em;
+    padding: 1em;
     display: block;
     border: none;
     border-radius: 1em;
@@ -397,7 +400,7 @@ div.error2 {
 
     &[type=text],
     &[type=number] {
-      padding: .8em 1em;
+      padding: 1em;
       display: block;
       border: none;
       border-radius: 1em;
@@ -410,7 +413,7 @@ div.error2 {
 
   textarea,
   select {
-    padding: .8em 1em;
+    padding: 1em;
     display: block;
     border: none;
     border-radius: 1em;
@@ -423,7 +426,6 @@ div.error2 {
     pointer-events: unset;
     -webkit-appearance: auto;
     appearance: auto;
-
   }
 
   input {
@@ -445,7 +447,7 @@ div.error2 {
     // resize: vertical;
     font-family: "Open Sans";
 
-    margin: 1em 0;
+    margin: 0;
     margin-bottom: 0;
     resize: none;
     outline: initial;
@@ -625,8 +627,7 @@ main.registreren {
   height: 7.5em;
   width: 7.5em;
   object-fit: cover;
-  /* background-color: #FFF021; */
-  background-color: rgb(123, 184, 123);
+  background-color: #FFF021;
   border-radius: 50%;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }

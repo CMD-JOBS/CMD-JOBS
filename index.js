@@ -56,30 +56,6 @@ app.use(passport.session());
 app.use(flash());
 
 //passport
-passport.use(
-  new localStrategy({ usernameField: 'email' }, (email, password, done)=>{
-    // Match user
-    userModel.findOne({ email: email})
-    .then(user => {
-      if(!user){
-        return done(null, false, {message: 'Email bestaat nog niet'})
-      }
-
-      // Match Password
-      bcrypt.compare(password, user.password, (err, isMatch) => {
-        if(err) throw err;
-        if(isMatch){
-        req.session.user = user
-          return done(null, user);
-        } else{
-          return done(null, false, {message:'Wachtwoord fout'})
-        }
-      });
-    })
-    .catch(err => console.log(err));
-  })
-);
-
 passport.serializeUser((user, done) =>{
   done(null, user.id);
 });
@@ -340,7 +316,7 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
 app.get('/profiel', checkAuthenticated, (req, res) => {
   // User data wordt opgehaald uit de session om mee te geven aan de profiel render 
   const profiel = req.session.user;
-  res.render('profiel', { layout: 'profielMain', profiel });
+  res.render('profiel', { profiel });
 });
 
 // Profiel pagina updaten

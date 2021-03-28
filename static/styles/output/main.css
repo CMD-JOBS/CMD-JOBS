@@ -38,7 +38,7 @@ button, .card a {
   color: white;
   background-color: black;
   cursor: pointer;
-  margin: 2em auto;
+  margin: 0.5em auto;
   padding: 0.8em 3.5em;
   border-radius: 2em;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
@@ -51,12 +51,14 @@ button, .card a {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px; }
 
 html {
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 414px;
-  height: 736px; }
+  height: 736px;
+  background-color: #525252;
+  margin: 5em auto 0 auto; }
 
 body {
   margin: 0;
@@ -64,7 +66,8 @@ body {
   font-family: "Open Sans";
   width: 414px;
   height: 736px;
-  position: relative; }
+  position: relative;
+  background-color: white; }
 
 /* Homepagina */
 .homepagina {
@@ -96,7 +99,7 @@ body {
   .homepagina div {
     margin: 0.7em auto; }
   .homepagina input {
-    padding: .8em 1em;
+    padding: 1em;
     display: block;
     border: none;
     border-radius: 1em;
@@ -147,7 +150,7 @@ body {
   .registreren div {
     margin: 0.3em auto; }
   .registreren input {
-    padding: .8em 1em;
+    padding: 1em;
     display: block;
     border: none;
     border-radius: 1em;
@@ -355,7 +358,7 @@ div.error2 {
   margin-top: -20px; }
 
 .profielToevoegen input[type=text], .profielToevoegen input[type=number] {
-  padding: .8em 1em;
+  padding: 1em;
   display: block;
   border: none;
   border-radius: 1em;
@@ -366,7 +369,7 @@ div.error2 {
 
 .profielToevoegen textarea,
 .profielToevoegen select {
-  padding: .8em 1em;
+  padding: 1em;
   display: block;
   border: none;
   border-radius: 1em;
@@ -391,7 +394,7 @@ div.error2 {
 
 .profielToevoegen textarea {
   font-family: "Open Sans";
-  margin: 1em 0;
+  margin: 0;
   margin-bottom: 0;
   resize: none;
   outline: initial;
@@ -528,8 +531,7 @@ main.registreren {
   height: 7.5em;
   width: 7.5em;
   object-fit: cover;
-  /* background-color: #FFF021; */
-  background-color: #7bb87b;
+  background-color: #FFF021;
   border-radius: 50%;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
 
