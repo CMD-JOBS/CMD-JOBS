@@ -20,7 +20,16 @@ const port = 3000;
 // const sass = require('node-sass');
 
 //Helmet voor HTTP security 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "img-src": ["*", "blob:"],
+      },
+    },
+  })
+);
 
 // Aangeven waar onze statishce files zich bevinden  
 app.use(express.static('static'));

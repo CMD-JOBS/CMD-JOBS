@@ -6,6 +6,7 @@ const formActive1 = document.querySelector('.profielToevoegen > div:last-of-type
 const formActive2 = document.querySelector('.profielToevoegen > div:last-of-type span:last-of-type');
 const pFoto = document.querySelector('#pFoto');
 
+
 // #1 Split up form fields
 function splitForm() {
     profileForm.classList.add("form-split");
@@ -36,10 +37,54 @@ formActive2.addEventListener('click', volgendeForm);
 
 
 
-// #3 Preview uploaded profielFoto
-function setPreviewProfielFoto() {
-    profielFoto.src=URL.createObjectURL(event.target.files[0]);
+// #3 Preview & validate uploaded profielFoto
+
+function fileValidation() {
+
+      
+    var filePath = fileInput.value;
+  
+    // Allowing file type
+    var allowedExtensions = 
+            /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      
+    if (!allowedExtensions.exec(filePath)) {
+        alert('Invalid file type');
+        fileInput.value = '';
+        return false;
+    } 
+    else 
+    {
+      
+        // Image preview
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById(
+                    'imagePreview').innerHTML = 
+                    '<img src="' + e.target.result
+                    + '"/>';
+            };
+              
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
 }
+
+function setPreviewProfielFoto() {
+    const filePath = pFoto.value;
+    const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    
+    if (!allowedExtensions.exec(filePath)) {
+        alert('Je moet een foto bestand uploaden');
+        filePath = '';
+        return false;
+    } 
+    else 
+    {
+        profielFoto.src=URL.createObjectURL(event.target.files[0]);
+    }
+};
 
 pFoto.addEventListener('change', setPreviewProfielFoto);
 
@@ -53,7 +98,7 @@ const opleidingsNiveauField = document.querySelector('select[name="opleidingsNiv
 const biografieField = document.querySelector('textarea[name="biografie"]');
 const functieField = document.querySelector('select[name="functie"]');
 const dienstverbandField = document.querySelector('select[name="dienstverband"]');
-const bedrijfsgrootteField = document.querySelector('select[name="bedrijfsgrootte"]');
+const bedrijfsgrootteField = document.querySelector('select[name="bedrijfsGrootte"]');
 
 Array.prototype.slice.call(document.querySelectorAll("[required]")).forEach(function(input){
     input.addEventListener('invalid',function(e){
@@ -84,7 +129,7 @@ Array.prototype.slice.call(document.querySelectorAll("[required]")).forEach(func
         else if (this.name == 'dienstverband') {
             dienstverbandField.classList.add('error');
         }
-        else if (this.name == 'bedrijfsgrootte') {
+        else if (this.name == 'bedrijfsGrootte') {
             bedrijfsgrootteField.classList.add('error');
         }
     })
