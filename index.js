@@ -20,7 +20,16 @@ const port = 3000;
 // const sass = require('node-sass');
 
 //Helmet voor HTTP security 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "img-src": ["*", "blob:"],
+      },
+    },
+  })
+);
 
 // Aangeven waar onze statishce files zich bevinden  
 app.use(express.static('static'));
@@ -185,16 +194,8 @@ const vacaturesSchema = new mongoose.Schema({
   }
 });
 
-const opgeslagenSchema = new mongoose.Schema({
-  opgeslagen: {
-    type: Array,
-    required: false
-  }
-});
-
 const userModel = mongoose.model('users', userSchema);
 const vacaturesCollection = mongoose.model('vacatures', vacaturesSchema);
-const opgeslagenCollection = mongoose.model('opgeslagen', opgeslagenSchema);
 const uri = process.env.DB_URI;
 
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
