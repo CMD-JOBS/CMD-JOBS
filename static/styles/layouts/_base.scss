@@ -1,0 +1,20 @@
+html {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 414px;
+    height: 736px;
+    background-color: $achtergrondkleur-html;
+    margin: 5em auto 0 auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans";
+    width: 414px;
+    height: 736px;
+    position: relative;
+    background-color: white;
+}

@@ -1,34 +1,30 @@
-/* Footer met navigatie */
-.navigatie-footer {
-  background-color: #FFF021;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  padding: 1.5em;
-  /* box-shadow: 0px 0 20px rgba(0, 0, 0, 0.5); */ }
-  .navigatie-footer svg {
-    height: 2em; }
+/* ------------------------------------------------------------------- */
+/*                                   Colors                             */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/*                                   Fonts                             */
+/* ------------------------------------------------------------------- */
+strong {
+  color: tomato;
+  margin: 0.5em auto 2em;
+  padding: 0em 1em;
+  font-weight: bold;
+  font-size: 18px;
+  font-style: italic;
+  display: block; }
 
-/* Header met logo */
-.logo-header {
-  display: flex;
-  justify-content: space-between;
-  background-color: #FFF021;
-  text-align: center; }
-  .logo-header a {
-    display: flex;
-    align-items: center; }
-  .logo-header img.logoff {
-    height: 3em;
-    padding: 1em; }
-  .logo-header img.logo {
-    height: 5em;
-    margin: 0;
-    padding: 0;
-    vertical-align: middle; }
+form {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  width: 50%;
+  color: black;
+  margin: 0 auto;
+  font-weight: 600;
+  transition: 0.25s;
+  font-size: 15px;
+  justify-content: center;
+  align-content: center; }
 
 button, .card a {
   display: block;
@@ -69,6 +65,37 @@ body {
   position: relative;
   background-color: white; }
 
+.logo-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #FFF021;
+  text-align: center; }
+  .logo-header a {
+    display: flex;
+    align-items: center; }
+  .logo-header img.logoff {
+    height: 3em;
+    padding: 1em; }
+  .logo-header img.logo {
+    height: 5em;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle; }
+
+/* Footer met navigatie */
+.navigatie-footer {
+  background-color: #FFF021;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5em;
+  /* box-shadow: 0px 0 20px rgba(0, 0, 0, 0.5); */ }
+  .navigatie-footer svg {
+    height: 2em; }
+
 /* Homepagina */
 .homepagina {
   background-color: #FFF021;
@@ -79,19 +106,6 @@ body {
   .homepagina img {
     height: 10em;
     margin: 5em 0 1em 0; }
-  .homepagina form {
-    position: relative;
-    display: block;
-    text-decoration: none;
-    width: 50%;
-    color: black;
-    margin: 0 auto;
-    font-weight: 600;
-    transition: 0.25s;
-    font-size: 15px;
-    justify-content: center;
-    align-content: center;
-    text-align: center; }
   .homepagina label {
     display: block;
     margin: 0.2em;
@@ -111,16 +125,6 @@ body {
   .homepagina p {
     display: block;
     margin-top: 3em; }
-  .homepagina strong {
-    color: tomato;
-    top: 19em;
-    left: 21%;
-    margin: 0.5em auto 2em;
-    padding: 0em 1em;
-    font-weight: bold;
-    font-size: 18px;
-    font-style: italic;
-    display: block; }
 
 /* registreer pagina  */
 .registreren {
@@ -128,25 +132,12 @@ body {
   height: 100vh;
   text-align: center; }
   .registreren strong {
-    color: tomato;
-    font-style: italic;
-    display: block; }
+    margin: 0; }
+  .registreren strong:last-of-type {
+    margin-bottom: 0.5em; }
   .registreren img {
     height: 7.5em;
     margin: 0; }
-  .registreren form {
-    position: relative;
-    display: block;
-    text-decoration: none;
-    width: 50%;
-    color: black;
-    margin: 0 auto;
-    font-weight: 600;
-    transition: 0.25s;
-    font-size: 15px;
-    justify-content: center;
-    align-content: center;
-    text-align: center; }
   .registreren div {
     margin: 0.3em auto; }
   .registreren input {
@@ -261,8 +252,7 @@ div.error2 {
   .resultaten button:hover {
     padding: 0.5em;
     font-size: initial;
-    box-shadow: none;
-    fill: black; }
+    box-shadow: none; }
 
 .resultaten .topcardwrapper {
   display: flex; }
@@ -569,7 +559,9 @@ main.registreren {
 /* Profiel Form */
 .profiel-gegevens {
   margin: 2em;
-  padding-bottom: 5em; }
+  padding-bottom: 5em;
+  width: auto;
+  text-align: initial; }
 
 .profiel-pagina label {
   margin-bottom: 0.5em;
@@ -601,6 +593,10 @@ textarea {
   margin-top: 1.5em;
   font-size: 18px; }
 
+.profiel-gegevens p {
+  margin-top: 1.5em;
+  font-size: 18px; }
+
 select {
   border: none;
   outline: none;
@@ -627,7 +623,8 @@ select {
   appearance: auto; }
 
 #bewerkt-verzend-knop {
-  display: none; }
+  display: none;
+  margin-top: 1.5em; }
 
 .laat-bewerkt-verzend-knop-zien {
   display: block !important; }

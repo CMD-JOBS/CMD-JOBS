@@ -1,8 +1,12 @@
+ /* ------------------------------------------------------------------- */
+/*                                   Colors                             */
+/* ------------------------------------------------------------------- */
+ 
+ // HTML achtergrond kleur
+ $achtergrondkleur-html: #525252;
+ 
  // Achtergrond kleur
-$achtergrondkleur: #FFF021;
-
-// Gebruikte font
-$font: "Open Sans";
+$achtergrondkleur-app: #FFF021;
 
 // Tekstkleur
 $tekstkleur: black;
@@ -10,5 +14,20 @@ $tekstkleur: black;
 // Tekstkleur van de knoppen
 $tekstkleur-knop: white;
 
+// Tekstkleur van de knoppen
+$achtergrondkleur-knop: black;
+
 // Tekstkleur van de placeholders
 $tekstkleur-placeholder: gray;
+
+// Tekstkleur van de errors
+$tekstkleur-error: tomato;
+
+
+ /* ------------------------------------------------------------------- */
+/*                                   Fonts                             */
+/* ------------------------------------------------------------------- */
+
+// Gebruikte font
+$font: "Open Sans";
+

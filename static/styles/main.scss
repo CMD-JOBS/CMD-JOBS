@@ -1,34 +1,11 @@
-@import "./abstracts/variables";
-@import "./abstracts/footer";
-@import "./abstracts/header";
-@import "./abstracts/knoppen";
-// @import "./views/profiel";
-
-html {
-  display: block;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 414px;
-  height: 736px;
-  background-color: #525252;
-  margin: 5em auto 0 auto;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Open Sans";
-  width: 414px;
-  height: 736px;
-  position: relative;
-  background-color: white;
-}
+@import "./abstracts/abstracts";
+@import "./components/components";
+@import "./layouts/layouts";
 
 /* Homepagina */
 
 .homepagina {
-  background-color: #FFF021;
+  background-color: $achtergrondkleur-app;
   height: 100vh;
   text-align: center;
   width: 414px;
@@ -37,21 +14,6 @@ body {
   img {
     height: 10em;
     margin: 5em 0 1em 0;
-  }
-
-  form {
-    position: relative;
-    display: block;
-    text-decoration: none;
-    width: 50%;
-    color: black;
-    margin: 0 auto;
-    font-weight: 600;
-    transition: 0.25s;
-    font-size: 15px;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
   }
 
   label {
@@ -69,7 +31,7 @@ body {
     display: block;
     border: none;
     border-radius: 1em;
-    color: black;
+    color: $tekstkleur;
     background-color: white;
     font-weight: 500;
     outline-color: grey;
@@ -80,51 +42,26 @@ body {
     display: block;
     margin-top: 3em;
   }
-
-  strong {
-    color: tomato;
-    top: 19em;
-    left: 21%;
-    margin: 0.5em auto 2em;
-    padding: 0em 1em;
-    font-weight: bold;
-    font-size: 18px;
-    font-style: italic;
-    display: block;
-  }
 }
 
 /* registreer pagina  */
 
 .registreren {
   strong {
-    color: tomato;
-    font-style: italic;
-    display: block;
+    margin: 0;
   }
 
-  background-color: #FFF021;
+  strong:last-of-type {
+    margin-bottom: 0.5em;
+  }
+
+  background-color: $achtergrondkleur-app;
   height: 100vh;
   text-align: center;
 
   img {
     height: 7.5em;
     margin: 0;
-  }
-
-  form {
-    position: relative;
-    display: block;
-    text-decoration: none;
-    width: 50%;
-    color: black;
-    margin: 0 auto;
-    font-weight: 600;
-    transition: 0.25s;
-    font-size: 15px;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
   }
 
   div {
@@ -136,7 +73,7 @@ body {
     display: block;
     border: none;
     border-radius: 1em;
-    color: black;
+    color: $tekstkleur;
     background-color: white;
     font-weight: 500;
     outline-color: grey;
@@ -272,7 +209,6 @@ div.error2 {
       padding: 0.5em;
       font-size: initial;
       box-shadow: none;
-      fill: black;
     }
   }
 
@@ -284,8 +220,8 @@ div.error2 {
 /* profielToevoegen page */
 
 .profielToevoegen {
-  color: black;
-  background-color: #FFF021;
+  color: $tekstkleur;
+  background-color: $achtergrondkleur-app;
   padding: 1em 1em 0 1em;
   overflow-x: hidden;
   height: 656px;
@@ -314,7 +250,7 @@ div.error2 {
   display: flex;
   width: fit-content;
   align-items: center;
-  color: white;
+  color: $tekstkleur-knop;
 
   >span {
     display: flex;
@@ -322,7 +258,7 @@ div.error2 {
     height: fit-content;
     font-size: .9em;
     margin-left: 1.5em;
-    background-color: black;
+    background-color: $achtergrondkleur-knop;
     padding: .6em 1.2em;
     border-radius: 2.4em;
     cursor: pointer;
@@ -404,7 +340,7 @@ div.error2 {
       display: block;
       border: none;
       border-radius: 1em;
-      color: black;
+      color: $tekstkleur;
       background-color: white;
       font-weight: 500;
       outline-color: grey;
@@ -417,7 +353,7 @@ div.error2 {
     display: block;
     border: none;
     border-radius: 1em;
-    color: black;
+    color: $tekstkleur;
     background-color: white;
     font-weight: 500;
     outline-color: grey;
@@ -462,8 +398,8 @@ div.error2 {
       font-size: 1em;
       transform: translateX(-1em);
       margin: 2em 0 0 1em;
-      background-color: black;
-      color: white;
+      background-color: $achtergrondkleur-knop;
+      color: $tekstkleur-knop;
       padding: .8em 1.5em;
       border: none;
       border-radius: 2em;
@@ -496,8 +432,8 @@ div.error2 {
       display: none;
       font-size: 1em;
       margin-top: 1em;
-      background-color: black;
-      color: white;
+      background-color: $achtergrondkleur-knop;
+      color: $tekstkleur-knop;
       padding: .8em 1.5em;
       border: none;
       border-radius: 2em;
@@ -580,7 +516,7 @@ select[name="Bedrijfsgrootte"] {
 /* --------------- REGISTREREN PAGINA ------------ */
 
 main.registreren {
-  background-color: #FFF021;
+  background-color: $achtergrondkleur-app;
   width: 414px;
   height: 736px;
   display: flex;
@@ -627,7 +563,7 @@ main.registreren {
   height: 7.5em;
   width: 7.5em;
   object-fit: cover;
-  background-color: #FFF021;
+  background-color: $achtergrondkleur-app;
   border-radius: 50%;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -644,7 +580,7 @@ main.registreren {
 
 
 #bewerk-knop {
-  background-color: black;
+  background-color: $achtergrondkleur-knop;
   display: block;
   padding: 1.1em 1.25em;
   border-radius: 50%;
@@ -659,7 +595,7 @@ main.registreren {
   height: 1.5em;
   width: 1.2em;
   vertical-align: middle;
-  fill: white;
+  fill: $tekstkleur-knop;
   transition: 0.25s;
 }
 
@@ -678,6 +614,8 @@ main.registreren {
 .profiel-gegevens {
   margin: 2em;
   padding-bottom: 5em;
+  width: auto;
+  text-align: initial;
 }
 
 .profiel-pagina label {
@@ -714,6 +652,11 @@ textarea {
   font-size: 18px;
 }
 
+.profiel-gegevens p {
+  margin-top: 1.5em;
+  font-size: 18px;
+}
+
 select {
   border: none;
   outline: none;
@@ -727,7 +670,7 @@ select {
 
 
 .bewerk-textarea {
-  border: 1px solid black;
+  border: 1px solid $tekstkleur;
   outline: unset;
   pointer-events: unset;
   padding: 0.25em;
@@ -735,7 +678,7 @@ select {
 }
 
 .bewerk-select {
-  border: 1px solid black;
+  border: 1px solid $tekstkleur;
   outline: unset;
   pointer-events: unset;
   border-radius: 0.25em;
@@ -745,6 +688,7 @@ select {
 
 #bewerkt-verzend-knop {
   display: none;
+  margin-top: 1.5em;
 }
 
 .laat-bewerkt-verzend-knop-zien {
