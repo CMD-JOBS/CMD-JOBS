@@ -1,0 +1,27 @@
+  /* Header met logo */
+
+  .logo-header {
+      display: flex;
+      justify-content: space-between;
+      background-color: #FFF021;
+      text-align: center;
+
+      a {
+          display: flex;
+          align-items: center;
+      }
+
+      img {
+          &.logoff {
+              height: 3em;
+              padding: 1em;
+          }
+
+          &.logo {
+              height: 5em;
+              margin: 0;
+              padding: 0;
+              vertical-align: middle;
+          }
+      }
+  }
