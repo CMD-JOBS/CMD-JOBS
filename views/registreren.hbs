@@ -1,13 +1,15 @@
 <main class="registreren">
-    <img src="images/cmd-jobs-logo.png" alt="CMD JOBS Logo">
+    <img src="images/logo-cmdjobs.svg" alt="CMD JOBS Logo">
     <h1>Registreren</h1>
-    <form action="/registreren" method="POST">
 
         {{#if errors}}
         {{#each errors}}
         <strong>{{this.message}}</strong>
         {{/each}}
         {{/if}}
+
+    <form action="/registreren" method="POST">
+
         <div>
             <label for="email">E-mail</label>
             <input type="email" name="email" placeholder="example@mail.com" id="email" required>
@@ -24,6 +26,6 @@
     </form>
 
 
-<a href="/">Login</a>
+    <p>Heb je al een account? <a href="/">Login</a></p>
 
 </main>

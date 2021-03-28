@@ -32,13 +32,12 @@ body {
   height: 736px;
 
   img {
-    height: 20em;
-    margin: 5.5em auto;
+    height: 10em;
+    margin: 5em 0 1em 0;
   }
 
   form {
     position: relative;
-    top: -9em;
     display: block;
     text-decoration: none;
     width: 50%;
@@ -63,27 +62,32 @@ body {
   }
 
   input {
-    padding: 9px 20px 9px 20px;
-    font-size: 16px;
+    padding: .8em 1em;
+    display: block;
+    border: none;
+    border-radius: 1em;
+    color: black;
+    background-color: white;
+    font-weight: 500;
+    outline-color: grey;
+    margin: 0.5em 0;
   }
 
   p {
     display: block;
-    position: relative;
-    top: -10em;
     margin-top: 3em;
   }
 
-  >strong {
+  strong {
     color: tomato;
-    position: absolute;
     top: 19em;
     left: 21%;
-    margin: 0.5em auto;
+    margin: 0.5em auto 2em;
     padding: 0em 1em;
     font-weight: bold;
     font-size: 18px;
     font-style: italic;
+    display: block;
   }
 }
 
@@ -101,8 +105,8 @@ body {
   text-align: center;
 
   img {
-    height: 12em;
-    margin: 3.5em auto;
+    height: 7.5em;
+    margin: 0;
   }
 
   form {
@@ -114,19 +118,26 @@ body {
     margin: 0 auto;
     font-weight: 600;
     transition: 0.25s;
-    top: -4.8em;
+    font-size: 15px;
     justify-content: center;
     align-content: center;
     text-align: center;
   }
 
   div {
-    margin: 0.7em auto;
+    margin: 0.3em auto;
   }
 
   input {
-    padding: 9px 20px 9px 20px;
-    font-size: 15px;
+    padding: .8em 1em;
+    display: block;
+    border: none;
+    border-radius: 1em;
+    color: black;
+    background-color: white;
+    font-weight: 500;
+    outline-color: grey;
+    margin: 0.5em 0;
   }
 
   label {
@@ -137,8 +148,7 @@ body {
 
   h1 {
     display: block;
-    position: relative;
-    top: -2.8em;
+    margin: 0.5em 0;
   }
 }
 
@@ -576,16 +586,11 @@ main.registreren {
   justify-content: center;
   align-items: center;
 
-  h1 {
-    margin: 0 0 2em 0;
-  }
-
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 0 2em 0;
 
     div {
       display: flex;

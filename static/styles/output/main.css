@@ -74,11 +74,10 @@ body {
   width: 414px;
   height: 736px; }
   .homepagina img {
-    height: 20em;
-    margin: 5.5em auto; }
+    height: 10em;
+    margin: 5em 0 1em 0; }
   .homepagina form {
     position: relative;
-    top: -9em;
     display: block;
     text-decoration: none;
     width: 50%;
@@ -97,23 +96,28 @@ body {
   .homepagina div {
     margin: 0.7em auto; }
   .homepagina input {
-    padding: 9px 20px 9px 20px;
-    font-size: 16px; }
+    padding: .8em 1em;
+    display: block;
+    border: none;
+    border-radius: 1em;
+    color: black;
+    background-color: white;
+    font-weight: 500;
+    outline-color: grey;
+    margin: 0.5em 0; }
   .homepagina p {
     display: block;
-    position: relative;
-    top: -10em;
     margin-top: 3em; }
-  .homepagina > strong {
+  .homepagina strong {
     color: tomato;
-    position: absolute;
     top: 19em;
     left: 21%;
-    margin: 0.5em auto;
+    margin: 0.5em auto 2em;
     padding: 0em 1em;
     font-weight: bold;
     font-size: 18px;
-    font-style: italic; }
+    font-style: italic;
+    display: block; }
 
 /* registreer pagina  */
 .registreren {
@@ -125,8 +129,8 @@ body {
     font-style: italic;
     display: block; }
   .registreren img {
-    height: 12em;
-    margin: 3.5em auto; }
+    height: 7.5em;
+    margin: 0; }
   .registreren form {
     position: relative;
     display: block;
@@ -136,23 +140,29 @@ body {
     margin: 0 auto;
     font-weight: 600;
     transition: 0.25s;
-    top: -4.8em;
+    font-size: 15px;
     justify-content: center;
     align-content: center;
     text-align: center; }
   .registreren div {
-    margin: 0.7em auto; }
+    margin: 0.3em auto; }
   .registreren input {
-    padding: 9px 20px 9px 20px;
-    font-size: 15px; }
+    padding: .8em 1em;
+    display: block;
+    border: none;
+    border-radius: 1em;
+    color: black;
+    background-color: white;
+    font-weight: 500;
+    outline-color: grey;
+    margin: 0.5em 0; }
   .registreren label {
     display: block;
     margin: 0.2em;
     text-align: left; }
   .registreren h1 {
     display: block;
-    position: relative;
-    top: -2.8em; }
+    margin: 0.5em 0; }
 
 /* Resultaten - Cards */
 .resultaten div.error2 strong {
@@ -488,14 +498,11 @@ main.registreren {
   flex-direction: column;
   justify-content: center;
   align-items: center; }
-  main.registreren h1 {
-    margin: 0 0 2em 0; }
   main.registreren form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin: 0 0 2em 0; }
+    align-items: center; }
     main.registreren form div {
       display: flex;
       flex-direction: column; }
