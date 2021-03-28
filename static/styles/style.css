@@ -1,13 +1,26 @@
+html{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 414px;
+    height: 736px;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: "Open Sans";
+    width: 414px;
+    height: 736px;
 }
 /* Homepagina */
 .homepagina {
     background-color: #FFF021;
     height: 100vh;
     text-align: center;
+    width: 414px;
+    height: 736px;
 }
 .homepagina img {
     height: 20em;
@@ -159,10 +172,23 @@ body {
 
  /* Header met logo */
 .logo-header {
+    display: flex;
+    justify-content: space-between;
     background-color: #FFF021;
     text-align: center;
 }
-.logo-header img {
+
+.logo-header a{
+    display: flex;
+    align-items: center;
+}
+
+.logo-header img.logoff{
+    height: 3em;
+    padding: 1em;
+}
+
+.logo-header img.logo {
     height: 5em;
     margin: 0;
     padding: 0;
@@ -171,7 +197,7 @@ body {
 /* Footer met navigatie */
 .navigatie-footer {
     background-color: #FFF021;
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
@@ -201,10 +227,8 @@ body {
 .resultaten{
     background-image: url(/images/cmd-jobs-achtergrond-10.png);
     background-size: contain;
-
-    height: calc(100vh - 10em);
-    height: 100vh;
-    margin-bottom: 10em;
+    width: 414px;
+    height: 571px;
 }
 
 .flex-resultaten {
@@ -251,26 +275,39 @@ body {
     cursor: pointer;
 }
 
+.card .topcardwrapper{
+    margin: 0 !important;
+}
+
+.card a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em;
+}
+
+.card a img{
+    width: 3em;
+}
+
 .card {
-    height: 625px;
-    min-width: 350px;
+    height: 430px;
+    min-width: 300px;
     /* margin: auto; */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     border-radius: 1em;
     margin-right: 2em;
     transition: 0.25s;
     padding: 1em;
-
+    background-color: #ffff;
     position: relative;
     margin-bottom: 1em;
-    /* transition: transform 1s;
-    transform-style: preserve-3d; */
-    overflow-y: scroll;
-background-color: white;
+    overflow-y: none;
 }
 
 .resultaten div:first-child {
-    margin-left: 4em;
+    margin-left: 2em;
 }
 
 .card.is-flipped {
@@ -278,7 +315,6 @@ background-color: white;
   }
   
   .voorkant {
-    /* position: absolute; */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     background-color: white;
@@ -289,33 +325,6 @@ background-color: white;
     transform: rotateY(180deg);
     color: black;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .resultaten h1 {
     margin: 0;
@@ -342,16 +351,20 @@ background-color: white;
     cursor: pointer;
 }
 
+.resultaten .topcardwrapper{
+    display: flex;
+
+}
 
 /* profielToevoegen page */
 
 .profielToevoegen {
     color: black;
     background-color: #FFF021;
-    padding: 1em;
+    padding: 1em 1em 0 1em;
     overflow-x: hidden;
-    height: 100%;
-    min-height: 100vh;
+    height: 656px;
+
 }
 
 .profielToevoegen form {
@@ -459,7 +472,6 @@ background-color: white;
 }
 
 .profielToevoegen input[type=text], input[type=number], textarea, select {
-    width: 80%;
     padding: .8em 1em;
     display: block;
     border: none;
@@ -484,8 +496,7 @@ background-color: white;
     display: flex;
     font-size: 1em;
     transform: translateX(-1em);
-    margin: auto;
-    margin-top: 2em;
+    margin: 2em 0 0 1em;
     background-color: black;
     color: white;
     padding: .8em 1.5em;
@@ -548,10 +559,11 @@ background-color: white;
 
 .profielToevoegen section:first-of-type {
     display: flex;
+
 }
 
 .profielToevoegen section:first-of-type input {
-    width: auto;
+    width: 10em;
 }
 
 .profielToevoegen section:first-of-type div:first-of-type {
@@ -743,4 +755,60 @@ background-color: white;
 
 .laat-bewerkt-verzend-knop-zien{
     display: block !important;
+}
+
+/* --------------- REGISTREREN PAGINA ------------ */
+main.registreren{
+    background-color: #FFF021;
+    width: 414px;
+    height: 736px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main.registreren h1{
+    margin: 0 0 2em 0;
+}
+
+/* form */
+main.registreren form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 2em 0;
+}
+
+main.registreren form div{
+    display: flex;
+    flex-direction: column;
+}
+
+main.registreren input{
+    padding: 1em;
+    margin: 0.2em 0 1em 0;
+    border: none;
+    border-radius: 1em;
+    color: #000;
+    font-weight: 500;
+    outline-color: #808080;
+}
+
+/* form button style */
+main.registreren form button{
+    margin: 2em 0;
+    background-color: black;
+    color: #ffff;
+    padding: 1em 2em;
+    border-radius: 2em;
+    border: none;
+    font-weight: bold;
+}
+
+main.registreren form button:hover{
+    background-color: #ffff;
+    color: black;
+    transition: 0.5s;
 }

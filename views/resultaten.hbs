@@ -17,7 +17,11 @@
 
         <div class="card">
 
+            <div class="topcardwrapper">
             <h2>{{vacatureTitel}}</h2>
+            <a id="savebutton" class="savebutton" href=""><img id="heart" class="saveimage" src="images/savebutton.svg" alt="save"></a>
+            </div>
+            
             <h3>{{bedrijfsNaam}}</h3>
             <h4>{{plaats}}</h4>
             <h4 class="salaris"></h4>{{salaris}}</h4>
@@ -35,16 +39,15 @@
                     <button type="submit" name="vacatureID" value={{_id}}>hoi</button>
                 </form> --}}
 
-
                 <section class="meer-details">
 
                     <p>Meer details</p>
-                </section>
-            </div>
-
+                </section> --}}
+        </div>
             {{/each}}
     </section>
 
+<script src="/scripts/resultatenpagina.js"></script>
+    
 </main>
-
 {{> navigatie-footer}}
