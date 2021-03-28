@@ -1,15 +1,18 @@
+
 {{> logo-header}}
 
 <main class="resultaten">
 
     <h1>Resultaten</h1>
     {{#if errors}}
-        {{#each errors}}
-            <strong>{{this.message}}</strong>
-        {{/each}}
+    {{#each errors}}
+    <div class="error2">
+        <strong>{{this.message}}</strong>
+    </div>
+    {{/each}}
     {{/if}}
     <section class="flex-resultaten">
-    
+
         {{#each vacatures}}
 
         <div class="card">
@@ -25,40 +28,26 @@
 
 
 
-            <h4 class="description">{{vacatureInformatie}}</h4>
+            {{!-- <h4 class="description">{{vacatureInformatie}}</h4> --}}
             {{!-- <h4 class="description">{{vacatureInformatie}}</h4> --}}
 
-     
+
 
 
             {{!-- <div class="opslaanButton"> --}}
                 {{!-- <form action="/resultaten" method="POST">
                     <button type="submit" name="vacatureID" value={{_id}}>hoi</button>
                 </form> --}}
-                
-{{!-- 
+
                 <section class="meer-details">
 
                     <p>Meer details</p>
                 </section> --}}
         </div>
-
-        {{/each}}
+            {{/each}}
     </section>
-
-
-    {{!-- <p class="description">{{vacatureInformatie}}</p>
-    <h3>Werkzaamheden</h3>
-    <p>{{ werkzaamheden}}</p>
-    <h3>Kwalificaties</h3>
-    <p>{{eisen}}</p>
-    <h3>Contact</h3>
-    <p>{{adress}}</p>
-    <p>{{eMail}}</p>
-    <p>{{telefoonNummer}}</p> --}}
 
 <script src="/scripts/resultatenpagina.js"></script>
     
 </main>
 {{> navigatie-footer}}
-

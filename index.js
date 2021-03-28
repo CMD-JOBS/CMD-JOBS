@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== 'production'){
   require('dotenv').config()
 };
 
-// requires
+// Requires
 const express = require('express');
 const hbs = require('express-handlebars');
 const slug = require('slug');
@@ -15,8 +15,21 @@ const localStrategy = require('passport-local').Strategy;
 const flash = require('connect-flash');
 const session = require('express-session'); 
 const bcrypt = require('bcryptjs');
+const helmet = require("helmet");
 const port = 3000;
 // const sass = require('node-sass');
+
+//Helmet voor HTTP security 
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "img-src": ["*", "blob:"],
+      },
+    },
+  })
+);
 
 // Aangeven waar onze statishce files zich bevinden  
 app.use(express.static('static'));
@@ -78,7 +91,6 @@ passport.deserializeUser((id, done) => {
 });
 
 //Authenticate check
-
 function checkAuthenticated (req, res, next) {
   if(req.isAuthenticated()){
   return next()
@@ -149,7 +161,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  bedrijfsgrootte: {
+  bedrijfsGrootte: {
     type: String,
     required: false
   },
@@ -182,16 +194,8 @@ const vacaturesSchema = new mongoose.Schema({
   }
 });
 
-const opgeslagenSchema = new mongoose.Schema({
-  opgeslagen: {
-    type: Array,
-    required: false
-  }
-});
-
 const userModel = mongoose.model('users', userSchema);
 const vacaturesCollection = mongoose.model('vacatures', vacaturesSchema);
-const opgeslagenCollection = mongoose.model('opgeslagen', opgeslagenSchema);
 const uri = process.env.DB_URI;
 
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -256,7 +260,7 @@ app.post('/registreren', async (req, res) => {
 
   //Wachtwoord lengte instellen
   if(password.length < 6) {
-    errors.push({message: 'wachtwoord te kort'})
+    errors.push({message: 'Wachtwoord te kort'})
   }
 
   await userModel.findOne({ email: email })
@@ -297,7 +301,7 @@ app.post('/registreren', async (req, res) => {
 });
 
 app.get('/profielToevoegen', checkAuthenticated,(req, res) => {
-  res.render('profielToevoegen')
+  res.render('profielToevoegen');
 });
 
 //
@@ -314,8 +318,8 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
       biografie: req.body.biografie, 
       functie: req.body.functie, 
       dienstverband: req.body.dienstverband,
-      bedrijfsgrootte: req.body.bedrijfsgrootte
-    }, (error, data) => {
+      bedrijfsGrootte: req.body.bedrijfsGrootte
+    }, (error) => {
         if (error) {
           console.log(error);
         }
@@ -331,70 +335,99 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
 });
 
 
+// Feature Yunus Emre
 // Profiel pagina
 app.get('/profiel', checkAuthenticated, (req, res) => {
+  // User data wordt opgehaald uit de session om mee te geven aan de profiel render 
   const profiel = req.session.user;
   res.render('profiel', { layout: 'profielMain', profiel });
 });
 
+// Profiel pagina updaten
 app.post('/profiel', async (req, res) => {
+  // Haalt data van ingelogde gebruiker op
   const huidigeUserData = req.session.user;
   const huidigeUserID = huidigeUserData._id;
 
+  // Zoekt in Mongo naar ingelogde gebruiker
   await userModel.findOneAndUpdate({_id: huidigeUserID}, {
+      // Updaten van profiel
       opleidingsNiveau: req.body.opleidingsNiveau, 
       biografie: req.body.biografie, 
       functie: req.body.functie, 
       dienstverband: req.body.dienstverband,
-      bedrijfsgrootte: req.body.bedrijfsgrootte
+      bedrijfsGrootte: req.body.bedrijfsGrootte
     }, (error, data) => {
         if (error) {
           console.log(error);
         }
       }
   );
+
+ // Vult session met de nieuwe user data
   await userModel.findOne({ _id: huidigeUserID })
       .then(user => {
         req.session.user = user
       })
       .catch(err => console.log(err));
+
   res.redirect('/profiel');
 });
+// !Einde feature Yunus Emre
 
-// ashley werkt in deze route 
+// Feature Ashley & Robbin 
+// Filteren vacatures op basis profiel van ingelogde user
 app.get('/resultaten', checkAuthenticated, async (req, res) => {
   const userData = req.session.user;
+
+  // Checken of ingelogde gebruiker een profiel heeft
   if (userData.voornaam == undefined) {
+    // Blijkt geen profiel te hebben dus redirect naar profielToevoegen
     res.redirect('/profielToevoegen');
-  } else {
+  } 
+  
+  // Ingelogde user blijkt profiel te hebben
+  else {
     await vacaturesCollection.find({})
+    //  Filteren op profiel van ingelogde gebruiker
     .where('opleidingsNiveau').equals(req.session.user.opleidingsNiveau)
     .where('functie').equals(req.session.user.functie)
     .where('dienstVerband').equals(req.session.user.dienstverband)
-    /*.where('bedrijfsgrootte').equals(req.session.user.bedrijfsgrootte)*/
+    .where('bedrijfsGrootte').equals(req.session.user.bedrijfsGrootte)
+    
+    // Met lean zetten we vervolgens de gefilterde vacatures om in Javascript objects
     .lean()
+    // Execute zorgt ervoor dat de gefilterde vacatures in een callback worden meegegeven
     .exec((err, vacatures) => {
       if (err) {
         console.log(err);
-      } else {
+      } 
+      
+      else {
+        //  Checkt of er uberhaupt een resultaat is op basis van voorkeuren
         if (vacatures.length === 0) {
-          console.log(vacatures.length);
+          //  Als er geen vacatures zijn wordt er een error aangemaakt
           let errors = [];
           errors.push({message:"Helaas er zijn geen vacatures voor jou"});
-          console.log(errors)
-          res.render('resultaten', { title: 'Een lijst met resultaten', vacatures, errors});
+          res.render('resultaten', { title: 'Een lijst met resultaten', errors});
         } 
-        res.render('resultaten', { title: 'Een lijst met resultaten', vacatures});
+        else {
+          // Rendert resultaat
+          res.render('resultaten', { title: 'Een lijst met resultaten', vacatures});
+        }
       }
     });
   }
 });
 
+// Vacatures opslaan
 app.post('/resultaten', async (req, res) => {
   const huidigeUserData = req.session.user;
   const huidigeUserID = huidigeUserData._id;
-
+  
+  // Zoekt in mongo naar de ingelogde gebruiker
   await userModel.findOneAndUpdate({_id: huidigeUserID}, {
+    // Voegt aangeklikte vacature toe aan de opgeslagen array van de user
     $addToSet: { opgeslagen: req.body.vacatureID }
     }, (error, data) => {
         if (error) {
@@ -402,69 +435,90 @@ app.post('/resultaten', async (req, res) => {
         };
       }
   );
+
+  //Vult session met de nieuwe user data
   await userModel.findOne({ _id: huidigeUserID })
       .then(user => {
-        //Fill session with user data
-        req.session.user = user
+        req.session.user = user;
       })
       .catch(err => console.log(err));
+
   res.redirect('/resultaten');
 });
 
+
+// Opgeslagen vacatures ophalen
 app.get('/opgeslagenvacatures',checkAuthenticated, async (req, res) => {
   const huidigeUserData = req.session.user;
-  const huidigeUserID = huidigeUserData._id;
   const huidigeUserOpgeslagen = huidigeUserData.opgeslagen;
 
-  await vacaturesCollection.find({'_id': { $in: huidigeUserOpgeslagen }}).lean()
+  // Zoekt vacatures die in de user zijn opgeslagen array staan
+  await vacaturesCollection.find({'_id': { $in: huidigeUserOpgeslagen }})
+  // Met lean zetten we vervolgens de gefilterde vacatures om in Javascript objects
+  .lean()
+  // Execute zorgt ervoor dat de opgeslagen vacatures in een callback worden meegegeven
   .exec((err, opgeslagenVacatures) => {
     if (err) {
       console.log(err);
-    } else {
+    } 
+
+    else {
+      // Checkt of er uberhaupt opgeslagen vacatures zijn
       if (opgeslagenVacatures.length === 0) {
-        //Als er geen opgeslagen vacatures zijn
+        //Als er geen opgeslagen vacatures zijn wordt er een error aangemaakt
         let errors = [];
         errors.push({message:"Helaas je hebt nog geen vacatures opgeslagen"});
-        res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', opgeslagenVacatures, errors});
+        res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', errors});
       } 
-      res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', opgeslagenVacatures});
+      else {
+        // Rendert resultaat
+        res.render('opgeslagenvacatures', { title: 'Een lijst met resultaten', opgeslagenVacatures});
+      }
     }
   });
 });
 
-// het submitten van de button
+// Opgeslagen vacatures verwijderen
 app.post('/opgeslagenvacatures', async (req, res) => {
   const huidigeUserData = req.session.user;
   const huidigeUserID = huidigeUserData._id;
 
+  // Haalt de ingelogde user op uyit Mongo
   await userModel.updateOne({_id: huidigeUserID}, {
+    // Verwijdert aangeklikt vacature
     $pull: { opgeslagen: req.body.vacatureID }
     }, (error, data) => {
         if (error) {
           console.log(error);
-        } else {
-          console.log(huidigeUserID, req.body.vacatureID);
         }
       }
   );
+
+  //  Vult session met de nieuwe user data
   await userModel.findOne({ _id: huidigeUserID })
       .then(user => {
-        //Fill session with user data
-        req.session.user = user
+        req.session.user = user;
       })
       .catch(err => console.log(err));
+
   res.redirect('/opgeslagenvacatures');
 });
 
+// !Einde feature Ashley & Robbin 
+
+
+//Loguit
 app.get('/loguit', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 });
 
+
 // 404 pagina
 app.use(function (req, res, next) {
   res.status(404).send("Sorry ik heb niks kunnen vinden");
 });
+
 
 // Geeft de port terug die gebruikt wordt
 app.listen(port, () => {

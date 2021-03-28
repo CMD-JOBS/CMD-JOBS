@@ -5,9 +5,11 @@
     <h1>Opgeslagen vacatures</h1>
 
     {{#if errors}}
-        {{#each errors}}
-            <strong>{{this.message}}</strong>
-        {{/each}}
+    {{#each errors}}
+    <div class="error2">
+        <strong>{{this.message}}</strong>
+    </div>
+    {{/each}}
     {{/if}}
 
     {{#each opgeslagenVacatures}}
