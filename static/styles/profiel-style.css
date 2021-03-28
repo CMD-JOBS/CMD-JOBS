@@ -36,13 +36,14 @@ body {
 /* Footer met navigatie */
 .navigatie-footer {
     background-color: #FFF021;
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    top: 650px;
     left: 0;
     right: 0;
     display: flex;
     justify-content: space-around;
-    padding: 1.5em;
+    padding: 1.5em 0;
+    width: 414px;
     /* box-shadow: 0px 0 20px rgba(0, 0, 0, 0.5); */
 }
 .navigatie-footer svg {
@@ -50,10 +51,10 @@ body {
 }
 
 /* Profiel pagina */
-
 .profiel-pagina {
     font-family: sans-serif;
     overflow-y: scroll;
+    height: 656px;
 }
 
 .profiel-foto {
@@ -90,11 +91,9 @@ body {
     padding: 1.25em;
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 3em;
-    margin-top: 7.5em;
+    position: sticky;
+    top: 300px;
+    left: 320px;
 }
 
 /* #bewerk-knop p{
@@ -119,7 +118,7 @@ body {
 /* Profiel Form */
 
 .profiel-gegevens {
-    margin: 2em;
+    margin: 2em 2em 10em 2em;
 }
 
 .profiel-pagina label {

@@ -287,9 +287,9 @@ body {
 .profielToevoegen {
     color: black;
     background-color: #FFF021;
-    padding: 1em;
+    padding: 1em 1em 0 1em;
     overflow-x: hidden;
-    height: 100vh;
+    height: 656px;
 }
 
 .profielToevoegen form {
@@ -390,7 +390,6 @@ body {
 }
 
 .profielToevoegen input[type=text], input[type=number], textarea, select {
-    width: 80%;
     padding: .8em 1em;
     display: block;
     border: none;
@@ -475,10 +474,11 @@ body {
 
 .profielToevoegen section:first-of-type {
     display: flex;
+
 }
 
 .profielToevoegen section:first-of-type input {
-    /* width: auto; */
+    width: 10em;
 }
 
 .profielToevoegen section:first-of-type div:first-of-type {
