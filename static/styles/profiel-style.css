@@ -37,13 +37,13 @@ body {
 .navigatie-footer {
     background-color: #FFF021;
     position: absolute;
-    top: 650px;
+    top: 651px;
     left: 0;
     right: 0;
     display: flex;
     justify-content: space-around;
-    padding: 1.5em 0;
-    width: 414px;
+    padding: 1.5em;
+    width: calc(414px - 3em);
     /* box-shadow: 0px 0 20px rgba(0, 0, 0, 0.5); */
 }
 .navigatie-footer svg {
@@ -103,6 +103,7 @@ body {
 
 #bewerk-knop svg {
     height: 1.5em;
+    width: 1.2em;
     vertical-align: middle;
     fill: white;
     transition: 0.25s;
