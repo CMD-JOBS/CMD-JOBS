@@ -44,7 +44,7 @@ Stel jouw database gegevens in
     .
 ```
 
-<img src="images/database-structure.jpg" height="400px" alt="Database structure">
+<img src="images/database-structure.jpg" height="330px" alt="Database structure">
 
 
 <br>
