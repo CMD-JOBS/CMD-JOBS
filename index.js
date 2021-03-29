@@ -260,7 +260,7 @@ app.post('/registreren', async (req, res) => {
         email,
         password
       });
-    //hashedPassword
+    // hashedPassword
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(newUser.password, salt,(err, hash)=>{
         if(err) throw err;
@@ -278,7 +278,7 @@ app.post('/registreren', async (req, res) => {
         }
 });
 
-// Feature Jorn
+// Feature Jorn 
 // Profiel Toevoegen route
 app.get('/profielToevoegen', checkAuthenticated,(req, res) => {
   res.render('profielToevoegen');
@@ -290,7 +290,7 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
   const huidigeUserData = req.session.user;
   const huidigeUserID = huidigeUserData._id;
 
-  //Update user profiel
+  // Update user profiel
   await userModel.findOneAndUpdate({_id: huidigeUserID}, {
       profielFoto: pFotoPath, 
       voornaam: req.body.vNaam, 
