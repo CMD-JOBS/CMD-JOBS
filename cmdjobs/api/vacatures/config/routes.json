@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/vacatures",
+      "handler": "vacatures.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vacatures/count",
+      "handler": "vacatures.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vacatures/:id",
+      "handler": "vacatures.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/vacatures",
+      "handler": "vacatures.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/vacatures/:id",
+      "handler": "vacatures.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/vacatures/:id",
+      "handler": "vacatures.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

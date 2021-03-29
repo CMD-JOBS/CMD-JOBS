@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "strapi_tests",
+  "info": {
+    "name": "StrapiTest"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Age": {
+      "type": "integer"
+    },
+    "Country": {
+      "type": "string"
+    }
+  }
+}

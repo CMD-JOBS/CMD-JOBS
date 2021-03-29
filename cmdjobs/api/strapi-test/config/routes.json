@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/strapi-tests",
+      "handler": "strapi-test.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/strapi-tests/count",
+      "handler": "strapi-test.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/strapi-tests/:id",
+      "handler": "strapi-test.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/strapi-tests",
+      "handler": "strapi-test.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/strapi-tests/:id",
+      "handler": "strapi-test.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/strapi-tests/:id",
+      "handler": "strapi-test.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

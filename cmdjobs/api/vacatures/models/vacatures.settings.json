@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vacatures",
+  "info": {
+    "name": "vacatures"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "vacatureTitel": {
+      "type": "string"
+    },
+    "bedrijfsNaam": {
+      "type": "string"
+    },
+    "plaats": {
+      "type": "string"
+    },
+    "opleidingsNiveau": {
+      "type": "string"
+    },
+    "dienstVerband": {
+      "type": "string"
+    },
+    "bedrijfsGrootte": {
+      "type": "string"
+    },
+    "functie": {
+      "type": "string"
+    },
+    "vacatureInformatie": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}
