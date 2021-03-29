@@ -1,11 +1,11 @@
 .logo-header {
-    display: flex;
+    @include display-flex;
     justify-content: space-between;
     background-color: $hoofdkleur;
     text-align: center;
 
     a {
-        display: flex;
+        @include display-flex;
         align-items: center;
     }
 

@@ -51,6 +51,8 @@ form {
   margin: 0.5em 0; }
 
 .flex-center, .card form, .pFoto, .pFoto > span, .pFoto div, .pFoto div span, main.registreren, main.registreren form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   align-items: center; }
 
@@ -93,11 +95,15 @@ body {
   background-color: white; }
 
 .logo-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-between;
   background-color: #FFF021;
   text-align: center; }
   .logo-header a {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     align-items: center; }
   .logo-header img.logoff {
@@ -116,6 +122,8 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-around;
   padding: 1.5em;
@@ -173,9 +181,10 @@ body {
   height: 571px; }
 
 .flex-resultaten {
-  display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: row;
   padding: 0 3em; }
@@ -215,7 +224,12 @@ body {
   .card h2 {
     margin: 0; }
   .card form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin: 0 1em; }
   .card a img {
@@ -247,6 +261,8 @@ body {
     box-shadow: none; }
 
 .resultaten .topcardwrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; }
 
 /* profielToevoegen page */
@@ -260,6 +276,8 @@ body {
     margin: 0em; }
 
 .form-split {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 200vw;
   transition: transform .25s ease;
@@ -296,9 +314,13 @@ body {
     height: 6em;
     width: 6em;
     border-radius: 5em;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center; }
 
 #visable-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; }
 
 .pFoto div > img {
@@ -314,6 +336,8 @@ body {
   height: 6em;
   border-radius: 5em;
   position: absolute;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   opacity: 0;
   transition: opacity ease .2s;
@@ -327,6 +351,8 @@ body {
     transition: opacity ease .4s; }
 
 .profielToevoegen input[name="pFoto"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   opacity: 0;
   margin-top: -20px; }
@@ -352,6 +378,8 @@ body {
   width: 22em; }
 
 .profielToevoegen input[type=submit] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-size: 1em;
   transform: translateX(-1em);
@@ -362,7 +390,7 @@ body {
   border: none;
   border-radius: 2em;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   transition: background-color .25s ease, color .25s ease;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -372,6 +400,8 @@ body {
   width: 3em; }
 
 .profielToevoegen label {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 1em;
   margin-bottom: .2em; }
@@ -390,7 +420,7 @@ body {
   border: none;
   border-radius: 2em;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
   transition: background-color .25s ease, color .25s ease;
   -webkit-appearance: none;
@@ -401,7 +431,7 @@ body {
   display: inline-block; }
 
 .profielToevoegen legend {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.5em; }
 
 .profielToevoegen .volgendeForm {
@@ -409,6 +439,8 @@ body {
   transform: translateX(-100vw); }
 
 .profielToevoegen section:first-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; }
   .profielToevoegen section:first-of-type input {
     width: 10em; }
@@ -426,6 +458,8 @@ select[name="Bedrijfsgrootte"] {
   position: relative;
   display: none;
   margin-top: 1em;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 100%; }
   .profielToevoegen > div:last-of-type span {
@@ -447,13 +481,28 @@ main.registreren {
   background-color: #FFF021;
   width: 414px;
   height: 736px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center; }
   main.registreren form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center; }
     main.registreren form div {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column; }
 
 .logo-header img.logoff {
@@ -488,7 +537,7 @@ main.registreren {
   font-size: 22px;
   font-weight: 100;
   text-transform: uppercase;
-  font-weight: Bolder; }
+  font-weight: 600; }
 
 #bewerk-knop {
   background-color: black;
@@ -542,6 +591,8 @@ textarea {
 
 .profiel-gegevens div:not(:first-child) {
   margin-top: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-between; }
 

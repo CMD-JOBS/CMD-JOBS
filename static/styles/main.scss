@@ -86,10 +86,9 @@
 }
 
 .flex-resultaten {
-  display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-  display: flex;
+  @include display-flex;
   flex-direction: row;
   padding: 0 3em;
 }
@@ -124,8 +123,8 @@
   }
 
   form {
-    flex-direction: column;
-    justify-content: center;
+    @include flex-direction-column;
+    @include justify-content;
     @extend .flex-center;
     margin: 0 1em;
   }
@@ -181,7 +180,7 @@
   }
 
   .topcardwrapper {
-    display: flex;
+    @include display-flex;
   }
 }
 
@@ -200,7 +199,7 @@
 }
 
 .form-split {
-  display: flex;
+  @include display-flex;
   width: 200vw;
   transition: transform .25s ease;
   transform: translateX(0);
@@ -248,12 +247,12 @@
     width: 6em;
     border-radius: 5em;
     @extend .flex-center;
-    justify-content: center;
+    @include justify-content;
   }
 }
 
 #visable-flex {
-  display: flex;
+  @include display-flex;
 }
 
 .pFoto div {
@@ -271,7 +270,7 @@
     height: 6em;
     border-radius: 5em;
     position: absolute;
-    justify-content: center;
+    @include justify-content;
     @extend .flex-center;
     opacity: 0;
     transition: opacity ease .2s;
@@ -293,7 +292,7 @@
 .profielToevoegen {
   input {
     &[name="pFoto"] {
-      display: flex;
+      @include display-flex;
       opacity: 0;
       margin-top: -20px;
     }
@@ -327,7 +326,7 @@
 
   input {
     &[type=submit] {
-      display: flex;
+      @include display-flex;
       font-size: 1em;
       transform: translateX(-1em);
       margin: 2em 0 0 1em;
@@ -337,7 +336,7 @@
       border: none;
       border-radius: 2em;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: $dikgedrukt;
       transition: background-color .25s ease, color .25s ease;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -350,7 +349,7 @@
   }
 
   label {
-    display: flex;
+    @include display-flex;
     margin-top: 1em;
     margin-bottom: .2em;
   }
@@ -371,7 +370,7 @@
       border: none;
       border-radius: 2em;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: $dikgedrukt;
       text-decoration: none;
       transition: background-color .25s ease, color .25s ease;
       -webkit-appearance: none;
@@ -387,7 +386,7 @@
 
 .profielToevoegen {
   legend {
-    font-weight: bold;
+    font-weight: $dikgedrukt;
     font-size: 1.5em;
   }
 
@@ -397,7 +396,7 @@
   }
 
   section:first-of-type {
-    display: flex;
+    @include display-flex;
 
     input {
       width: 10em;
@@ -423,7 +422,7 @@ select[name="Bedrijfsgrootte"] {
   position: relative;
   display: none;
   margin-top: 1em;
-  justify-content: center;
+  @include justify-content;
   width: 100%;
 
   span {
@@ -452,17 +451,17 @@ main.registreren {
   width: 414px;
   height: 736px;
   @extend .flex-center;
-  flex-direction: column;
-  justify-content: center;
+  @include flex-direction-column;
+  @include justify-content;
 
   form {
-    flex-direction: column;
-    justify-content: center;
+    @include flex-direction-column;
+    @include justify-content;
     @extend .flex-center;
 
     div {
-      display: flex;
-      flex-direction: column;
+      @include display-flex;
+      @include flex-direction-column;
     }
   }
 }
@@ -505,7 +504,7 @@ main.registreren {
   font-size: 22px;
   font-weight: 100;
   text-transform: uppercase;
-  font-weight: Bolder;
+  font-weight: $dikgedrukt;
 }
 
 
@@ -534,11 +533,6 @@ main.registreren {
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-
-
 /* Profiel Form */
 
 .profiel-gegevens {
@@ -550,7 +544,7 @@ main.registreren {
 
 .profiel-pagina label {
   margin-bottom: 0.5em;
-  font-weight: 600;
+  font-weight: $dikgedrukt;
   font-size: 16px;
   display: inline;
   padding-right: 1em;
@@ -573,7 +567,7 @@ textarea {
 
 .profiel-gegevens div:not(:first-child) {
   margin-top: 1.5em;
-  display: flex;
+  @include display-flex;
   justify-content: space-between;
 }
 
