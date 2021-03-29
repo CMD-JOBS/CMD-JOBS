@@ -54,6 +54,17 @@ Als je de database hebt ingesteld, start je de server:
 npm start
 ```
 
+### 🚀 (optioneel) open Strapi CMS
+Om Strapi te starten moet je de volgende command gebruiken:
+```
+user@LAPTOP-SRF1LL8U:~/CMD-JOBS$ cd cmdjobs/
+user@LAPTOP-SRF1LL8U:~/CMD-JOBS/cmdjobs$ npm run develop
+```
+Als dit is gelukt kan je in je webbrowser verbinden met de CMS door naar [http://localhost:1337/admin](http://localhost:1337/admin) te gaan.
+
+Hier kan je een account aanmaken als administrator.
+
+
 ## Makers
 De makers van **CMD-JOBS** zijn: 
 - 🙋🏻‍♀️⠀[*Ashley Keuning*](https://github.com/ashleyKeuning), 
