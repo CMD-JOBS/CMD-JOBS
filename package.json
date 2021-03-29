@@ -29,7 +29,7 @@
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "start": "nodemon index.js & node-sass static/styles/main.scss static/styles/output/main.css -w", 
+    "start": "nodemon index.js & node-sass static/styles/main.scss static/styles/output/main.css -w",
     "test": "test-commando"
   },
   "repository": {
