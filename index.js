@@ -99,7 +99,7 @@ const upload = multer({
 });
 
 
-//Database connectie functie
+//Database schema's
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -170,10 +170,12 @@ const vacaturesSchema = new mongoose.Schema({
   }
 });
 
+//Collections
 const userModel = mongoose.model('users', userSchema);
 const vacaturesCollection = mongoose.model('vacatures', vacaturesSchema);
 const uri = process.env.DB_URI;
 
+//Connect Database
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => console.log('MongoDB connectie :)'))
 .catch(err => console.log(err));
@@ -276,16 +278,19 @@ app.post('/registreren', async (req, res) => {
         }
 });
 
+// Feature Jorn
+// Profiel Toevoegen route
 app.get('/profielToevoegen', checkAuthenticated,(req, res) => {
   res.render('profielToevoegen');
 });
 
-//
+// Post Profiel Toevoegen route
 app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
   const pFotoPath = 'uploads/' + req.file.filename;
   const huidigeUserData = req.session.user;
   const huidigeUserID = huidigeUserData._id;
 
+  //Update user profiel
   await userModel.findOneAndUpdate({_id: huidigeUserID}, {
       profielFoto: pFotoPath, 
       voornaam: req.body.vNaam, 
