@@ -300,27 +300,14 @@
 
     &[type=text],
     &[type=number] {
-      padding: 1em;
-      display: block;
-      border: none;
-      border-radius: 1em;
-      color: $tekstkleur;
-      background-color: white;
-      font-weight: 500;
-      outline-color: grey;
+      @extend .inputvelden;
+      margin: 0;
     }
   }
 
   textarea,
   select {
-    padding: 1em;
-    display: block;
-    border: none;
-    border-radius: 1em;
-    color: $tekstkleur;
-    background-color: white;
-    font-weight: 500;
-    outline-color: grey;
+    @extend .inputvelden;
     outline: initial;
     width: initial;
     pointer-events: unset;
@@ -328,32 +315,14 @@
     appearance: auto;
   }
 
-  input {
-
-    &[type=text]::placeholder,
-    &[type=number]::placeholder {
-      color: grey;
-      font-weight: 500;
-    }
-  }
-
-  textarea::placeholder,
-  select::placeholder {
-    color: grey;
-    font-weight: 500;
-  }
-
   textarea {
-    // resize: vertical;
-    font-family: "Open Sans";
-
+    font-family: $font;
     margin: 0;
     margin-bottom: 0;
     resize: none;
     outline: initial;
     pointer-events: unset;
     width: 22em;
-    // padding: 0;
   }
 
   input {
@@ -473,7 +442,7 @@ select[name="Bedrijfsgrootte"] {
 }
 
 .error {
-  background-color: #ff5e00 !important;
+  background-color: $tekstkleur-error !important;
 }
 
 
@@ -482,10 +451,9 @@ main.registreren {
   background-color: $hoofdkleur;
   width: 414px;
   height: 736px;
-  display: flex;
+  @extend .flex-center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 
   form {
     flex-direction: column;

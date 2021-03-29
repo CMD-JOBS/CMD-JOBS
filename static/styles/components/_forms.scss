@@ -18,9 +18,8 @@ form {
     border: none;
     border-radius: 1em;
     color: $tekstkleur;
-    background-color: white;
-    font-weight: 500;
-    outline-color: grey;
+    background-color: $achtergrondkleur-input;
+    outline-color: $uitlijnkleur-input;
     margin: 0.5em 0;
 }
 

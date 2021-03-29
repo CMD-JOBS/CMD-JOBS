@@ -39,18 +39,18 @@ form {
   justify-content: center;
   align-content: center; }
 
-.inputvelden, .homepagina input, .registreren input {
+.inputvelden, .homepagina input, .registreren input, .profielToevoegen input[type=text], .profielToevoegen input[type=number], .profielToevoegen textarea,
+.profielToevoegen select {
   padding: 1em;
   display: block;
   border: none;
   border-radius: 1em;
   color: black;
   background-color: white;
-  font-weight: 500;
-  outline-color: grey;
+  outline-color: gray;
   margin: 0.5em 0; }
 
-.flex-center, .card form, .pFoto, .pFoto > span, .pFoto div, .pFoto div span, main.registreren form {
+.flex-center, .card form, .pFoto, .pFoto > span, .pFoto div, .pFoto div span, main.registreren, main.registreren form {
   display: flex;
   align-items: center; }
 
@@ -332,39 +332,15 @@ body {
   margin-top: -20px; }
 
 .profielToevoegen input[type=text], .profielToevoegen input[type=number] {
-  padding: 1em;
-  display: block;
-  border: none;
-  border-radius: 1em;
-  color: black;
-  background-color: white;
-  font-weight: 500;
-  outline-color: grey; }
+  margin: 0; }
 
 .profielToevoegen textarea,
 .profielToevoegen select {
-  padding: 1em;
-  display: block;
-  border: none;
-  border-radius: 1em;
-  color: black;
-  background-color: white;
-  font-weight: 500;
-  outline-color: grey;
   outline: initial;
   width: initial;
   pointer-events: unset;
   -webkit-appearance: auto;
   appearance: auto; }
-
-.profielToevoegen input[type=text]::placeholder, .profielToevoegen input[type=number]::placeholder {
-  color: grey;
-  font-weight: 500; }
-
-.profielToevoegen textarea::placeholder,
-.profielToevoegen select::placeholder {
-  color: grey;
-  font-weight: 500; }
 
 .profielToevoegen textarea {
   font-family: "Open Sans";
@@ -464,17 +440,15 @@ select[name="Bedrijfsgrootte"] {
     transform: scale(1.3); }
 
 .error {
-  background-color: #ff5e00 !important; }
+  background-color: tomato !important; }
 
 /* --------------- REGISTREREN PAGINA ------------ */
 main.registreren {
   background-color: #FFF021;
   width: 414px;
   height: 736px;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center; }
+  justify-content: center; }
   main.registreren form {
     flex-direction: column;
     justify-content: center; }
