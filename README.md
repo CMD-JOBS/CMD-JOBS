@@ -9,6 +9,7 @@
   - [Makers](#Makers)
   - [Bijdragen](#Bijdragen)
   - [Licentie](#Licentie)
+  - [Bronnen](#Bronnen)
 
 ## Wat is CMD-JOBS?
 CMD-JOBS is een online vacature-bureau waar we voor jou de perfecte baan vinden! Door te filteren op jouw intresses, zorgen wij ervoor dat je alleen maar vacatures te zien krijgt die bij jou passen!
