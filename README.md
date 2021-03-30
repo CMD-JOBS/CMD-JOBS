@@ -82,3 +82,7 @@ Zie ook:
 
 ## Licentie
 Dit project valt onder de MIT [license](https://github.com/CMD-JOBS/CMD-JOBS/blob/main/LICENSE).
+
+## Bronnen
+Hier vind u onze [bronnen](https://github.com/CMD-JOBS/CMD-JOBS/wiki/Bronnenlijst).
+
