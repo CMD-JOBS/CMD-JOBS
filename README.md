@@ -1,4 +1,4 @@
-# <img src="images/banner_github.svg" width="100%" alt="banner">
+# <img src="images/banner_readme.svg" width="100%" alt="banner">
 
 ## Inhoudsopgave
   - [Inhoudsopgave](#Inhoudsopgave)
