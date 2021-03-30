@@ -2,7 +2,7 @@
 
 ## Inhoudsopgave
   - [Inhoudsopgave](#Inhoudsopgave)
-  - [Wat is CMD-JOBS?](#wat-is-cmd-jobs?)
+  - [Wat is CMD-JOBS?](#wat-is-cmd-jobs)
   - [Functies](#Functies)
   - [Documentatie](#Documentatie)
   - [Installeren](#Installeren)
