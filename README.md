@@ -76,5 +76,9 @@ De makers van **CMD-JOBS** zijn:
 ## Bijdragen
 Als je wilt bijdragen aan deze app kun je dat doen door middel van een [Issue](https://github.com/CMD-JOBS/CMD-JOBS/issues).
 
+Zie ook:
+[CONTRIBUTING](https://github.com/CMD-JOBS/CMD-JOBS/blob/main/CONTRIBUTING.md)
+[CODE OF CONDUCT](https://github.com/CMD-JOBS/CMD-JOBS/blob/main/CODE_OF_CONDUCT.md)
+
 ## Licentie
 Dit project valt onder de MIT [license](https://github.com/CMD-JOBS/CMD-JOBS/blob/main/LICENSE).
