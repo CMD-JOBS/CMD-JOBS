@@ -3,44 +3,43 @@
  /* ------------------------------------------------------------------- */
 
  // Hoofdkleur
- $hoofdkleur: #FFF021;
+$hoofdkleur: #FFF021;
 
  // HTML achtergrond kleur
- $achtergrondkleur-html: #525252;
+$achtergrondkleur-html: #525252;
 
  // Body achtergrond kleur
- $achtergrondkleur-body: white;
+$achtergrondkleur-body: white;
 
  // Achtergrondkleur van de knoppen
- $achtergrondkleur-knop: black;
+$achtergrondkleur-knop: black;
 
  // Achtergrondkleur van de cards
- $achtergrondkleur-cards: white;
+$achtergrondkleur-cards: white;
 
  // Achtergrondkleur van de errors op de resulaten -opgeslagen pagina
- $achtergrondkleur-error: white;
+$achtergrondkleur-error: white;
 
  // Tekstkleur voor tekst
- $tekstkleur: black;
+$tekstkleur: black;
 
  // Tekstkleur van de knoppen
- $tekstkleur-knop: white;
+$tekstkleur-knop: white;
 
  // Tekstkleur van de placeholders
- $tekstkleur-placeholder: gray;
+$tekstkleur-placeholder: gray;
 
   // Input tekstkleur
-  $achtergrondkleur-input: white;
+$achtergrondkleur-input: white;
 
   // Uitlijnkleur input
-  $uitlijnkleur-input: gray;
+$uitlijnkleur-input: gray;
 
  // Tekstkleur van de errors
- $tekstkleur-error: tomato;
+$tekstkleur-error: tomato;
 
  // Achtergrond foto op resultaten pagina
- $achtergrond-foto: url(/images/cmd-jobs-achtergrond-10.png);
- 
+$achtergrond-foto: url(/images/cmd-jobs-achtergrond-10.png);
 
 
 
@@ -49,27 +48,22 @@
  /* ------------------------------------------------------------------- */
 
  // Gebruikte font
- $font: "Open Sans";
+$font: "Open Sans";
 
  // Tekst dikgedrukt
- $dikgedrukt: 600;
+$dikgedrukt: 600;
 
  // Font grootte errors bij inlog -registreer pagina
- $font-grootte-errors-klein: 18px;
+$font-grootte-errors-klein: 18px;
 
  // Font grootte errors op resultaten -opgeslagen pagina
- $font-grootte-errors-groot: 20px;
+$font-grootte-errors-groot: 20px;
 
  // Font grootte form tekst
- $font-grootte-form: 15px;
+$font-grootte-form: 15px;
 
  // Font grootte form tekst
- $font-grootte-knop: 16px;
-
-
-
-
+$font-grootte-knop: 16px;
 
  // EXTRA
-
- $cursor-knop: pointer;
+$cursor-knop: pointer;
