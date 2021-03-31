@@ -1,0 +1,23 @@
+form {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    width: 50%;
+    color: $tekstkleur;
+    margin: 0 auto;
+    transition: 0.25s;
+    font-size: $font-grootte-form;
+    justify-content: center;
+    align-content: center;
+}
+
+.inputvelden {
+    padding: 1em;
+    display: block;
+    border: none;
+    border-radius: 1em;
+    color: $tekstkleur;
+    background-color: $achtergrondkleur-input;
+    outline-color: $uitlijnkleur-input;
+    margin: 0.5em 0;
+}

@@ -1,25 +1,31 @@
 console.log("hello");
 
-var bewerkKnop = document.getElementById("bewerk-knop");
+var bewerkKnop = document.querySelector(".bewerk-knop");
+var bewerktVerzendKnop = document.querySelector("#bewerkt-verzend-knop");
+var textarea = document.querySelector("textarea");
+var selectBox = document.querySelectorAll("select");
+var selectBox, i;
 
-function textareaBewerken() {
-    var textarea = document.querySelector("textarea");
-    textarea.classList.toggle("bewerk-textarea");
+window.onload = function () {
 
-    var selectBox, i;
-    selectBox = document.querySelectorAll("select");
-    for (i = 0; i < selectBox.length; i++) {
-        selectBox[i].classList.toggle("bewerk-select");
-    }
-  
-    var bewerktVerzendKnop = document.getElementById("bewerkt-verzend-knop");
-    bewerktVerzendKnop.classList.toggle("laat-bewerkt-verzend-knop-zien");
+  bewerkKnop.classList.add("js-aan-bewerkknop");
+  textarea.classList.add("js-aan-textarea");
+
+  for (i = 0; i < selectBox.length; i++) {
+    selectBox[i].classList.add("js-aan-select");
+  }
+  bewerktVerzendKnop.classList.add("js-aan-verzendknop");
+};
+
+function veldenBewerkbaarMaken() {
+  textarea.classList.toggle("js-aan-textarea");
+  textarea.classList.toggle("bewerk-textarea");
+
+  for (i = 0; i < selectBox.length; i++) {
+    selectBox[i].classList.toggle("js-aan-select");
+  }
+  bewerktVerzendKnop.classList.toggle("js-aan-verzendknop");
 }
-bewerkKnop.addEventListener("click", textareaBewerken); 
+bewerkKnop.addEventListener("click", veldenBewerkbaarMaken);
 
-
-var card = document.getElementById('meer-details');
-card.addEventListener( 'click', function() {
-//   card.classList.toggle('is-flipped');
-  console.log(hoi);
-});
+console.log("hello");

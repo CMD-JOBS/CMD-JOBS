@@ -26,6 +26,21 @@ div.error2 {
   margin: 7em 2em;
   border: tomato solid 1px; }
 
+select {
+  width: 50%;
+  padding: 0.25em 0 0.25em;
+  border-radius: 0.25em;
+  float: right; }
+
+textarea {
+  padding: 0.35em 0 0 0.35em;
+  margin-bottom: 0;
+  width: calc(100% - 0.5em);
+  resize: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  border-radius: 0.25em; }
+
 form {
   position: relative;
   display: block;
@@ -33,14 +48,12 @@ form {
   width: 50%;
   color: black;
   margin: 0 auto;
-  font-weight: 600;
   transition: 0.25s;
   font-size: 15px;
   justify-content: center;
   align-content: center; }
 
-.inputvelden, .homepagina input, .registreren input, .profielToevoegen input[type=text], .profielToevoegen input[type=number], .profielToevoegen textarea,
-.profielToevoegen select {
+.inputvelden, .homepagina input, .registreren input {
   padding: 1em;
   display: block;
   border: none;
@@ -49,12 +62,6 @@ form {
   background-color: white;
   outline-color: gray;
   margin: 0.5em 0; }
-
-.flex-center, .card form, .pFoto, .pFoto > span, .pFoto div, .pFoto div span, main.registreren, main.registreren form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center; }
 
 button, .card a {
   display: block;
@@ -74,6 +81,12 @@ button, .card a {
     padding: 0.9em 3.6em;
     font-size: 17px;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px; }
+
+.flex-center, .card form, .pFoto, .pFoto > span, .pFoto div, .pFoto div span, main.registreren, main.registreren form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center; }
 
 html {
   display: block;
@@ -350,67 +363,11 @@ body {
     opacity: 1;
     transition: opacity ease .4s; }
 
-.profielToevoegen input[name="pFoto"] {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  opacity: 0;
-  margin-top: -20px; }
-
-.profielToevoegen input[type=text], .profielToevoegen input[type=number] {
-  margin: 0; }
-
-.profielToevoegen textarea,
-.profielToevoegen select {
-  outline: initial;
-  width: initial;
-  pointer-events: unset;
-  -webkit-appearance: auto;
-  appearance: auto; }
-
-.profielToevoegen textarea {
-  font-family: "Open Sans";
-  margin: 0;
-  margin-bottom: 0;
-  resize: none;
-  outline: initial;
-  pointer-events: unset;
-  width: 22em; }
-
-.profielToevoegen input[type=submit] {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 1em;
-  transform: translateX(-1em);
-  margin: 2em 0 0 1em;
-  background-color: black;
-  color: white;
-  padding: .8em 1.5em;
-  border: none;
-  border-radius: 2em;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color .25s ease, color .25s ease;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; }
-
-.profielToevoegen input[type=number] {
-  width: 3em; }
-
-.profielToevoegen label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 1em;
-  margin-bottom: .2em; }
-
-.profielToevoegen > div {
+> div {
   width: 100%;
   display: none; }
 
-.profielToevoegen > a {
+> a {
   display: none;
   font-size: 1em;
   margin-top: 1em;
@@ -429,29 +386,6 @@ body {
 
 #visable-inline-block {
   display: inline-block; }
-
-.profielToevoegen legend {
-  font-weight: 600;
-  font-size: 1.5em; }
-
-.profielToevoegen .volgendeForm {
-  transition: transform .25s ease;
-  transform: translateX(-100vw); }
-
-.profielToevoegen section:first-of-type {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-  .profielToevoegen section:first-of-type input {
-    width: 10em; }
-  .profielToevoegen section:first-of-type div:first-of-type {
-    margin-right: 1em; }
-
-.profielToevoegen select[name="Dienstverband"] {
-  width: 35%; }
-
-select[name="Bedrijfsgrootte"] {
-  width: 35%; }
 
 /* Slider rondjes */
 .profielToevoegen > div:last-of-type {
@@ -514,124 +448,90 @@ main.registreren {
   font-family: sans-serif;
   overflow-y: scroll;
   height: 656px; }
+  .profiel-pagina .profiel-foto {
+    text-align: center;
+    background-image: url(/images/cmd-jobs-achtergrond-10.png);
+    background-size: cover;
+    padding: 2.5em 0 1.5em;
+    position: relative; }
+    .profiel-pagina .profiel-foto img {
+      height: 7.5em;
+      width: 7.5em;
+      object-fit: cover;
+      background-color: #FFF021;
+      border-radius: 50%;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+    .profiel-pagina .profiel-foto h1 {
+      margin: 0;
+      margin-top: 1em;
+      padding: 0;
+      font-size: 22px;
+      font-weight: 100;
+      text-transform: uppercase;
+      font-weight: 600; }
+    .profiel-pagina .profiel-foto .bewerk-knop {
+      background-color: black;
+      display: block;
+      padding: 1.1em 1.25em;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px 0 black;
+      position: sticky;
+      top: 3em;
+      right: 3em;
+      position: absolute;
+      display: none; }
+      .profiel-pagina .profiel-foto .bewerk-knop svg {
+        height: 1.5em;
+        width: 1.2em;
+        vertical-align: middle;
+        fill: white;
+        transition: 0.25s; }
+      .profiel-pagina .profiel-foto .bewerk-knop:hover {
+        transition: 0.25s;
+        box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2); }
+  .profiel-pagina .profiel-gegevens {
+    margin: 2em;
+    padding-bottom: 5em;
+    width: auto;
+    text-align: initial; }
+    .profiel-pagina .profiel-gegevens label {
+      margin-bottom: 0.5em;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline;
+      padding-right: 1em;
+      vertical-align: middle;
+      display: inline-block; }
+    .profiel-pagina .profiel-gegevens fieldset {
+      margin: 2em 0 1.5em;
+      padding: 0;
+      border: none; }
+      .profiel-pagina .profiel-gegevens fieldset legend {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 0.5em;
+        font-size: 18px;
+        text-decoration: underline; }
 
-.profiel-foto {
-  text-align: center;
-  background-image: url(/images/cmd-jobs-achtergrond-10.png);
-  background-size: cover;
-  padding: 2.5em 0 1.5em;
-  position: relative; }
+.bewerk-textarea {
+  padding: 0.35em 0 0 0.35em; }
 
-.profiel-foto img {
-  height: 7.5em;
-  width: 7.5em;
-  object-fit: cover;
-  background-color: #FFF021;
-  border-radius: 50%;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
-
-.profiel-foto h1 {
-  margin: 0;
-  margin-top: 1em;
+.js-aan-textarea {
   padding: 0;
-  font-size: 22px;
-  font-weight: 100;
-  text-transform: uppercase;
-  font-weight: 600; }
-
-#bewerk-knop {
-  background-color: black;
-  display: block;
-  padding: 1.1em 1.25em;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px 0 black;
-  position: sticky;
-  top: 3em;
-  right: 3em;
-  position: absolute; }
-
-#bewerk-knop svg {
-  height: 1.5em;
-  width: 1.2em;
-  vertical-align: middle;
-  fill: white;
-  transition: 0.25s; }
-
-#bewerk-knop:hover {
-  transition: 0.25s;
-  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2); }
-
-/* Profiel Form */
-.profiel-gegevens {
-  margin: 2em;
-  padding-bottom: 5em;
-  width: auto;
-  text-align: initial; }
-
-.profiel-pagina label {
-  margin-bottom: 0.5em;
-  font-weight: 600;
-  font-size: 16px;
-  display: inline;
-  padding-right: 1em;
-  vertical-align: middle; }
-
-textarea {
-  margin: 1em 0;
-  margin-bottom: 0;
-  width: calc(100% - 0.5em);
-  resize: none;
-  font-family: sans-serif;
-  font-size: 14px;
   border: none;
   outline: none;
-  pointer-events: none;
-  padding: 0;
-  border-radius: 0%; }
+  pointer-events: none; }
 
-.profiel-gegevens div:not(:first-child) {
-  margin-top: 1.5em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: space-between; }
-
-.profiel-gegevens p {
-  margin-top: 1.5em;
-  font-size: 18px; }
-
-.profiel-gegevens p {
-  margin-top: 1.5em;
-  font-size: 18px; }
-
-select {
+.js-aan-select {
   border: none;
   outline: none;
-  width: 50%;
+  padding: 0.25em;
   pointer-events: none;
-  padding-left: 0.3em;
-  border-radius: 0.25em;
   -webkit-appearance: none;
   appearance: none; }
 
-.bewerk-textarea {
-  border: 1px solid black;
-  outline: unset;
-  pointer-events: unset;
-  padding: 0.25em;
-  border-radius: 0.25em; }
+.js-aan-verzendknop {
+  display: none; }
 
-.bewerk-select {
-  border: 1px solid black;
-  outline: unset;
-  pointer-events: unset;
-  border-radius: 0.25em;
-  -webkit-appearance: auto;
-  appearance: auto; }
-
-#bewerkt-verzend-knop {
-  display: none;
-  margin-top: 1.5em; }
-
-.laat-bewerkt-verzend-knop-zien {
+.js-aan-bewerkknop {
   display: block !important; }

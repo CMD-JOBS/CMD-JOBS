@@ -289,94 +289,88 @@
   }
 }
 
-.profielToevoegen {
-  input {
-    &[name="pFoto"] {
-      @include display-flex;
-      opacity: 0;
-      margin-top: -20px;
-    }
+// .profielToevoegen {
+//   input {
+//     &[name="pFoto"] {
+//       @include display-flex;
+//       opacity: 0;
+//       margin-top: -20px;
+//     }
 
-    &[type=text],
-    &[type=number] {
-      @extend .inputvelden;
-      margin: 0;
-    }
+//     &[type=text],
+//     &[type=number] {
+//       @extend .inputvelden;
+//       margin: 0;
+//     }
+//   }
+
+//   textarea,
+//   select {
+//     @extend .inputvelden;
+//     outline: initial;
+//     width: initial;
+//     pointer-events: unset;
+//     -webkit-appearance: auto;
+//     appearance: auto;
+//   }
+
+//   textarea {
+//     font-family: $font;
+//     margin: 0;
+//     margin-bottom: 0;
+//     resize: none;
+//     outline: initial;
+//     pointer-events: unset;
+//     width: 22em;
+//   }
+
+//   input {
+//     &[type=submit] {
+//       @include display-flex;
+//       font-size: 1em;
+//       transform: translateX(-1em);
+//       margin: 2em 0 0 1em;
+//       background-color: $achtergrondkleur-knop;
+//       color: $tekstkleur-knop;
+//       padding: .8em 1.5em;
+//       border: none;
+//       border-radius: 2em;
+//       cursor: pointer;
+//       font-weight: $dikgedrukt;
+//       transition: background-color .25s ease, color .25s ease;
+//       -webkit-appearance: none;
+//       -moz-appearance: none;
+//       appearance: none;
+//     }
+
+//     &[type=number] {
+//       width: 3em;
+//     }
+//   }
+// }
+
+> {
+  div {
+    width: 100%;
+    display: none;
   }
 
-  textarea,
-  select {
-    @extend .inputvelden;
-    outline: initial;
-    width: initial;
-    pointer-events: unset;
-    -webkit-appearance: auto;
-    appearance: auto;
-  }
-
-  textarea {
-    font-family: $font;
-    margin: 0;
-    margin-bottom: 0;
-    resize: none;
-    outline: initial;
-    pointer-events: unset;
-    width: 22em;
-  }
-
-  input {
-    &[type=submit] {
-      @include display-flex;
-      font-size: 1em;
-      transform: translateX(-1em);
-      margin: 2em 0 0 1em;
-      background-color: $achtergrondkleur-knop;
-      color: $tekstkleur-knop;
-      padding: .8em 1.5em;
-      border: none;
-      border-radius: 2em;
-      cursor: pointer;
-      font-weight: $dikgedrukt;
-      transition: background-color .25s ease, color .25s ease;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-    }
-
-    &[type=number] {
-      width: 3em;
-    }
-  }
-
-  label {
-    @include display-flex;
+  a {
+    display: none;
+    font-size: 1em;
     margin-top: 1em;
-    margin-bottom: .2em;
-  }
-
-  > {
-    div {
-      width: 100%;
-      display: none;
-    }
-
-    a {
-      display: none;
-      font-size: 1em;
-      margin-top: 1em;
-      background-color: $achtergrondkleur-knop;
-      color: $tekstkleur-knop;
-      padding: .8em 1.5em;
-      border: none;
-      border-radius: 2em;
-      cursor: pointer;
-      font-weight: $dikgedrukt;
-      text-decoration: none;
-      transition: background-color .25s ease, color .25s ease;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-    }
+    background-color: $achtergrondkleur-knop;
+    color: $tekstkleur-knop;
+    padding: .8em 1.5em;
+    border: none;
+    border-radius: 2em;
+    cursor: pointer;
+    font-weight: $dikgedrukt;
+    text-decoration: none;
+    transition: background-color .25s ease, color .25s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 }
 
@@ -384,37 +378,37 @@
   display: inline-block;
 }
 
-.profielToevoegen {
-  legend {
-    font-weight: $dikgedrukt;
-    font-size: 1.5em;
-  }
+// .profielToevoegen {
+//   legend {
+//     font-weight: $dikgedrukt;
+//     font-size: 1.5em;
+//   }
 
-  .volgendeForm {
-    transition: transform .25s ease;
-    transform: translateX(-100vw);
-  }
+//   .volgendeForm {
+//     transition: transform .25s ease;
+//     transform: translateX(-100vw);
+//   }
 
-  section:first-of-type {
-    @include display-flex;
+//   section:first-of-type {
+//     @include display-flex;
 
-    input {
-      width: 10em;
-    }
+//     input {
+//       width: 10em;
+//     }
 
-    div:first-of-type {
-      margin-right: 1em;
-    }
-  }
+//     div:first-of-type {
+//       margin-right: 1em;
+//     }
+//   }
 
-  select[name="Dienstverband"] {
-    width: 35%;
-  }
-}
+//   select[name="Dienstverband"] {
+//     width: 35%;
+//   }
+// }
 
-select[name="Bedrijfsgrootte"] {
-  width: 35%;
-}
+// select[name="Bedrijfsgrootte"] {
+//   width: 35%;
+// }
 
 /* Slider rondjes */
 
@@ -473,148 +467,133 @@ main.registreren {
   padding: 1em;
 }
 
+
+
+// Yunus Emre Alkan
+
 /* Profiel pagina */
 .profiel-pagina {
   font-family: sans-serif;
   overflow-y: scroll;
   height: 656px;
+
+  .profiel-foto {
+    text-align: center;
+    background-image: url(/images/cmd-jobs-achtergrond-10.png);
+    background-size: cover;
+    padding: 2.5em 0 1.5em;
+    position: relative;
+
+    img {
+      height: 7.5em;
+      width: 7.5em;
+      object-fit: cover;
+      background-color: $hoofdkleur;
+      border-radius: 50%;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      margin: 0;
+      margin-top: 1em;
+      padding: 0;
+      font-size: 22px;
+      font-weight: 100;
+      text-transform: uppercase;
+      font-weight: $dikgedrukt;
+    }
+
+    .bewerk-knop {
+      background-color: $achtergrondkleur-knop;
+      display: block;
+      padding: 1.1em 1.25em;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px 0 rgb(0, 0, 0 / 20%);
+      position: sticky;
+      top: 3em;
+      right: 3em;
+      position: absolute;
+      display: none;
+
+      svg {
+        height: 1.5em;
+        width: 1.2em;
+        vertical-align: middle;
+        fill: $tekstkleur-knop;
+        transition: 0.25s;
+      }
+
+      &:hover {
+        transition: 0.25s;
+        box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .profiel-gegevens {
+    margin: 2em;
+    padding-bottom: 5em;
+    width: auto;
+    text-align: initial;
+
+    label {
+      margin-bottom: 0.5em;
+      font-weight: $dikgedrukt;
+      font-size: 16px;
+      display: inline;
+      padding-right: 1em;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    fieldset {
+      margin: 2em 0 1.5em;
+      padding: 0;
+      border: none;
+
+      legend {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 0.5em;
+        font-size: 18px;
+        text-decoration: underline;
+      }
+    }
+
+    // div:not(:first-child) {
+    //   margin-top: 1.5em;
+    //   @include display-flex;
+    //   justify-content: space-between;
+    // }
+  }
 }
 
-.profiel-foto {
-  text-align: center;
-  background-image: url(/images/cmd-jobs-achtergrond-10.png);
-  background-size: cover;
-  padding: 2.5em 0 1.5em;
-  position: relative;
-}
-
-.profiel-foto img {
-  height: 7.5em;
-  width: 7.5em;
-  object-fit: cover;
-  background-color: $hoofdkleur;
-  border-radius: 50%;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.profiel-foto h1 {
-  margin: 0;
-  margin-top: 1em;
-  padding: 0;
-  font-size: 22px;
-  font-weight: 100;
-  text-transform: uppercase;
-  font-weight: $dikgedrukt;
-}
-
-
-#bewerk-knop {
-  background-color: $achtergrondkleur-knop;
-  display: block;
-  padding: 1.1em 1.25em;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px 0 rgb(0, 0, 0 / 20%);
-  position: sticky;
-  top: 3em;
-  right: 3em;
-  position: absolute;
-}
-
-#bewerk-knop svg {
-  height: 1.5em;
-  width: 1.2em;
-  vertical-align: middle;
-  fill: $tekstkleur-knop;
-  transition: 0.25s;
-}
-
-#bewerk-knop:hover {
-  transition: 0.25s;
-  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
-}
-
-/* Profiel Form */
-
-.profiel-gegevens {
-  margin: 2em;
-  padding-bottom: 5em;
-  width: auto;
-  text-align: initial;
-}
-
-.profiel-pagina label {
-  margin-bottom: 0.5em;
-  font-weight: $dikgedrukt;
-  font-size: 16px;
-  display: inline;
-  padding-right: 1em;
-  vertical-align: middle;
-}
-
-textarea {
-  margin: 1em 0;
-  margin-bottom: 0;
-  width: calc(100% - 0.5em);
-  resize: none;
-  font-family: sans-serif;
-  font-size: 14px;
-  border: none;
-  outline: none;
-  pointer-events: none;
-  padding: 0;
-  border-radius: 0%;
-}
-
-.profiel-gegevens div:not(:first-child) {
-  margin-top: 1.5em;
-  @include display-flex;
-  justify-content: space-between;
-}
-
-.profiel-gegevens p {
-  margin-top: 1.5em;
-  font-size: 18px;
-}
-
-.profiel-gegevens p {
-  margin-top: 1.5em;
-  font-size: 18px;
-}
-
-select {
-  border: none;
-  outline: none;
-  width: 50%;
-  pointer-events: none;
-  padding-left: 0.3em;
-  border-radius: 0.25em;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
+// BEWERKEN
 
 .bewerk-textarea {
-  border: 1px solid $tekstkleur;
-  outline: unset;
-  pointer-events: unset;
-  padding: 0.25em;
-  border-radius: 0.25em;
+  padding: 0.35em 0 0 0.35em;
 }
 
-.bewerk-select {
-  border: 1px solid $tekstkleur;
-  outline: unset;
-  pointer-events: unset;
-  border-radius: 0.25em;
-  -webkit-appearance: auto;
-  appearance: auto;
+.js-aan-textarea {
+  padding: 0;
+  border: none;
+  outline: none;
+  pointer-events: none;
 }
 
-#bewerkt-verzend-knop {
+.js-aan-select {
+    border: none;
+    outline: none;
+    padding: 0.25em;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.js-aan-verzendknop {
   display: none;
-  margin-top: 1.5em;
 }
 
-.laat-bewerkt-verzend-knop-zien {
+.js-aan-bewerkknop {
   display: block !important;
 }

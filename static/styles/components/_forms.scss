@@ -1,29 +1,24 @@
-form {
-    position: relative;
-    display: block;
-    text-decoration: none;
+select {
+    // border: none;
+    // outline: none;
     width: 50%;
-    color: $tekstkleur;
-    margin: 0 auto;
-    font-weight: $dikgedrukt;
-    transition: 0.25s;
-    font-size: $font-grootte-form;
-    justify-content: center;
-    align-content: center;
+    padding: 0.25em 0 0.25em;
+    border-radius: 0.25em;
+    // pointer-events: none;
+    // -webkit-appearance: none;
+    // appearance: none;
+    float: right;
 }
 
-.inputvelden {
-    padding: 1em;
-    display: block;
-    border: none;
-    border-radius: 1em;
-    color: $tekstkleur;
-    background-color: $achtergrondkleur-input;
-    outline-color: $uitlijnkleur-input;
-    margin: 0.5em 0;
-}
-
-.flex-center{
-    @include display-flex;
-    align-items: center;
+textarea {
+    padding: 0.35em 0 0 0.35em;
+    margin-bottom: 0;
+    width: calc(100% - 0.5em);
+    resize: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    // border: none;
+    // outline: none;
+    // pointer-events: none;
+    border-radius: 0.25em;
 }

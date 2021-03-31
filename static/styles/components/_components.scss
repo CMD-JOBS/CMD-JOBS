@@ -1,2 +1,8 @@
 @import "./forms";
+@import "./registreren";
 @import "./knoppen";
+
+.flex-center {
+    @include display-flex;
+    align-items: center;
+}
