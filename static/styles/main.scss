@@ -559,17 +559,51 @@ main.registreren {
         text-decoration: underline;
       }
     }
-
-    // div:not(:first-child) {
-    //   margin-top: 1.5em;
-    //   @include display-flex;
-    //   justify-content: space-between;
-    // }
   }
 }
 
-// BEWERKEN
 
+.profiel-pagina {
+
+  .profiel-gegevens {
+
+    div:not(:first-child) {
+      margin-top: 1em;
+      @include display-flex;
+      justify-content: space-between;
+    }
+
+    .select {
+      float: none;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BEWERKEN
 .bewerk-textarea {
   padding: 0.35em 0 0 0.35em;
 }
@@ -582,12 +616,12 @@ main.registreren {
 }
 
 .js-aan-select {
-    border: none;
-    outline: none;
-    padding: 0.25em;
-    pointer-events: none;
-    -webkit-appearance: none;
-    appearance: none;
+  border: none;
+  outline: none;
+  padding: 0.25em;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .js-aan-verzendknop {

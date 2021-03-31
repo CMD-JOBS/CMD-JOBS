@@ -316,8 +316,8 @@ app.post('/profielToevoegen', upload.single('pFoto'), async (req,res) => {
 });
 
 
-// Feature Yunus Emre
-// Profiel pagina
+// Feature Yunus Emre 1
+// Profiel pagina 1
 app.get('/profiel', checkAuthenticated, (req, res) => {
   // User data wordt opgehaald uit de session om mee te geven aan de profiel render 
   const profiel = req.session.user;
@@ -354,7 +354,69 @@ app.post('/profiel', async (req, res) => {
 
   res.redirect('/profiel');
 });
-// !Einde feature Yunus Emre
+// !Einde feature Yunus Emre 1
+
+
+
+
+
+
+
+
+
+// Feature Yunus Emre 2
+// Profiel pagina 2
+app.get('/profiel2', checkAuthenticated, (req, res) => {
+  // User data wordt opgehaald uit de session om mee te geven aan de profiel render 
+  const profiel = req.session.user;
+  res.render('profiel2', { profiel });
+});
+
+// Profiel pagina updaten
+app.post('/profiel2', async (req, res) => {
+  // Haalt data van ingelogde gebruiker op
+  const huidigeUserData = req.session.user;
+  const huidigeUserID = huidigeUserData._id;
+
+  // Zoekt in Mongo naar ingelogde gebruiker
+  await userModel.findOneAndUpdate({_id: huidigeUserID}, {
+      // Updaten van profiel
+      opleidingsNiveau: req.body.opleidingsNiveau, 
+      biografie: req.body.biografie, 
+      functie: req.body.functie, 
+      dienstverband: req.body.dienstverband,
+      bedrijfsGrootte: req.body.bedrijfsGrootte
+    }, (error, data) => {
+        if (error) {
+          console.log(error);
+        }
+      }
+  );
+
+ // Vult session met de nieuwe user data
+  await userModel.findOne({ _id: huidigeUserID })
+      .then(user => {
+        req.session.user = user
+      })
+      .catch(err => console.log(err));
+
+  res.redirect('/profiel2');
+});
+// !Einde feature Yunus Emre 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Feature Ashley & Robbin 
 // Filteren vacatures op basis profiel van ingelogde user

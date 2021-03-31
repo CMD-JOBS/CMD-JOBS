@@ -513,6 +513,16 @@ main.registreren {
         font-size: 18px;
         text-decoration: underline; }
 
+.profiel-pagina .profiel-gegevens div:not(:first-child) {
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between; }
+
+.profiel-pagina .profiel-gegevens .select {
+  float: none; }
+
 .bewerk-textarea {
   padding: 0.35em 0 0 0.35em; }
 
