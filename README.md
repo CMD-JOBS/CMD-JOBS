@@ -1,14 +1,15 @@
-# <img src="images/banner_github.svg" width="100%" alt="banner">
+# <img src="images/banner_readme.svg" width="100%" alt="banner">
 
 ## Inhoudsopgave
   - [Inhoudsopgave](#Inhoudsopgave)
-  - [Wat is CMD-JOBS?](#Wat-is-CMD-JOBS?)
+  - [Wat is CMD-JOBS?](#wat-is-cmd-jobs)
   - [Functies](#Functies)
   - [Documentatie](#Documentatie)
   - [Installeren](#Installeren)
   - [Makers](#Makers)
   - [Bijdragen](#Bijdragen)
   - [Licentie](#Licentie)
+  - [Bronnen](#Bronnen)
 
 ## Wat is CMD-JOBS?
 CMD-JOBS is een online vacature-bureau waar we voor jou de perfecte baan vinden! Door te filteren op jouw intresses, zorgen wij ervoor dat je alleen maar vacatures te zien krijgt die bij jou passen!
@@ -76,5 +77,13 @@ De makers van **CMD-JOBS** zijn:
 ## Bijdragen
 Als je wilt bijdragen aan deze app kun je dat doen door middel van een [Issue](https://github.com/CMD-JOBS/CMD-JOBS/issues).
 
+Zie ook:
+* [CONTRIBUTING](https://github.com/CMD-JOBS/CMD-JOBS/blob/main/CONTRIBUTING.md)
+* [CODE OF CONDUCT](https://github.com/CMD-JOBS/CMD-JOBS/blob/main/CODE_OF_CONDUCT.md)
+
 ## Licentie
 Dit project valt onder de MIT [license](https://github.com/CMD-JOBS/CMD-JOBS/blob/main/LICENSE).
+
+## Bronnen
+Hier vind u onze [bronnen](https://github.com/CMD-JOBS/CMD-JOBS/wiki/Bronnenlijst).
+
