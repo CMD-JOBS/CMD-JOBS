@@ -41,6 +41,9 @@ textarea {
   font-size: 14px;
   border-radius: 0.25em; }
 
+#tester {
+  display: block; }
+
 form {
   position: relative;
   display: block;
@@ -48,7 +51,6 @@ form {
   width: 50%;
   color: black;
   margin: 0 auto;
-  transition: 0.25s;
   font-size: 15px;
   justify-content: center;
   align-content: center; }
@@ -521,6 +523,57 @@ main.registreren {
   justify-content: space-between; }
 
 .profiel-pagina .profiel-gegevens .select {
+  float: none; }
+
+.profiel-pagina .bewerk-knop {
+  display: block; }
+
+.profiel-pagina .profiel-gegevens3 {
+  margin: 2em;
+  padding-bottom: 5em;
+  width: auto;
+  text-align: initial; }
+  .profiel-pagina .profiel-gegevens3 label {
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline;
+    padding-right: 1em;
+    vertical-align: middle;
+    display: inline-block; }
+  .profiel-pagina .profiel-gegevens3 textarea {
+    padding: 0;
+    border: none;
+    outline: none;
+    pointer-events: none; }
+  .profiel-pagina .profiel-gegevens3 select {
+    border: none;
+    outline: none;
+    padding: 0.25em;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none; }
+  .profiel-pagina .profiel-gegevens3 #bewerkt-verzend-knop {
+    display: none; }
+  .profiel-pagina .profiel-gegevens3 fieldset {
+    margin: 2em 0 1.5em;
+    padding: 0;
+    border: none; }
+    .profiel-pagina .profiel-gegevens3 fieldset legend {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 0.5em;
+      font-size: 18px;
+      text-decoration: underline; }
+
+.profiel-pagina div:not(:first-child) {
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between; }
+
+.profiel-pagina .select {
   float: none; }
 
 .bewerk-textarea {

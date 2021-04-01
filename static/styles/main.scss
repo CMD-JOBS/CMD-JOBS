@@ -468,8 +468,7 @@ main.registreren {
 }
 
 
-
-// Yunus Emre Alkan
+// MIJN EIGEN COOLE SCSS STUKJE
 
 /* Profiel pagina */
 .profiel-pagina {
@@ -563,6 +562,9 @@ main.registreren {
 }
 
 
+
+// PROFIEL 2
+
 .profiel-pagina {
 
   .profiel-gegevens {
@@ -582,28 +584,82 @@ main.registreren {
 
 
 
+// PROFIEL 3
+
+.profiel-pagina {
+
+  .bewerk-knop {
+    display: block;
+  }
+
+  .profiel-gegevens3 {
+    margin: 2em;
+    padding-bottom: 5em;
+    width: auto;
+    text-align: initial;
+
+    label {
+      margin-bottom: 0.5em;
+      font-weight: $dikgedrukt;
+      font-size: 16px;
+      display: inline;
+      padding-right: 1em;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    textarea {
+      padding: 0;
+      border: none;
+      outline: none;
+      pointer-events: none;
+    }
+
+    select {
+      border: none;
+      outline: none;
+      padding: 0.25em;
+      pointer-events: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    #bewerkt-verzend-knop {
+      display: none;
+    }
+
+    fieldset {
+      margin: 2em 0 1.5em;
+      padding: 0;
+      border: none;
+
+      legend {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 0.5em;
+        font-size: 18px;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  div:not(:first-child) {
+    margin-top: 1em;
+    @include display-flex;
+    justify-content: space-between;
+  }
+
+  .select {
+    float: none;
+  }
+}
 
 
 
 
 
+// PROGRESSIVE ENHANCEMENT
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// BEWERKEN
 .bewerk-textarea {
   padding: 0.35em 0 0 0.35em;
 }
