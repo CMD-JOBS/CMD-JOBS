@@ -17,3 +17,23 @@
     flex-direction: column;
 }
 
+
+@mixin object-fit-cover {
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+@mixin box-shadow {
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+@mixin transition {
+    -o-transition: 0.25s;
+    transition: 0.25s;
+}
+
+@mixin appearance-none{
+    -webkit-appearance: none;
+    appearance: none;
+}

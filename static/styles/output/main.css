@@ -476,9 +476,11 @@ main.registreren {
     .profiel-pagina .profiel-foto img {
       height: 7.5em;
       width: 7.5em;
+      -o-object-fit: cover;
       object-fit: cover;
       background-color: #FFF021;
       border-radius: 50%;
+      -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
     .profiel-pagina .profiel-foto h1 {
       margin: 0;
@@ -489,8 +491,10 @@ main.registreren {
       text-transform: uppercase;
       font-weight: 600; }
     .profiel-pagina .profiel-foto .bewerk-knop:hover, .profiel-pagina .profiel-foto .bewerk-knop3:hover, .profiel-pagina .profiel-foto .js-aan-bewerkknop:hover {
+      -o-transition: 0.25s;
       transition: 0.25s;
-      box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2); }
+      -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
   .profiel-pagina .profiel-gegevens {
     margin: 2em;
     padding-bottom: 5em;
