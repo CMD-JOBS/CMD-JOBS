@@ -1,21 +1,43 @@
-button, .card a {
-    display: block;
-    text-decoration: none;
-    appearance: none;
-    border: none;
-    color: $tekstkleur-knop;
-    background-color: $achtergrondkleur-knop;
-    cursor: $cursor-knop;
-    margin: 0.5em auto;
-    padding: 0.8em 3.5em;
-    border-radius: 2em;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
-    font-size: $font-grootte-knop;
-    text-align: center;
+button,
+.card a {
+  display: block;
+  text-decoration: none;
+  appearance: none;
+  border: none;
+  color: $tekstkleur-knop;
+  background-color: $achtergrondkleur-knop;
+  cursor: $cursor-knop;
+  margin: 0.5em auto;
+  padding: 0.8em 3.5em;
+  border-radius: 2em;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
+  font-size: $font-grootte-knop;
+  text-align: center;
 
-    &:hover {
-      padding: 0.9em 3.6em;
-      font-size: 17px;
-      box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
-    }
+  &:hover {
+    padding: 0.9em 3.6em;
+    font-size: 17px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 4px;
   }
+}
+
+.bewerk-knop {
+  background-color: $achtergrondkleur-knop;
+  padding: 1.1em 1.25em;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0 / 20%);
+  position: sticky;
+  top: 3em;
+  right: 3em;
+  position: absolute;
+  display: none;
+  cursor: pointer;
+}
+
+.profiel-pagina svg {
+  height: 1.5em;
+  width: 1.2em;
+  vertical-align: middle;
+  fill: $tekstkleur-knop;
+  transition: 0.25s;
+}

@@ -12,7 +12,7 @@ select {
 
 textarea {
     padding: 0.35em 0 0 0.35em;
-    margin-bottom: 0;
+    margin-top: 0.5em;
     width: calc(100% - 0.5em);
     resize: none;
     font-family: sans-serif;
@@ -21,8 +21,4 @@ textarea {
     // outline: none;
     // pointer-events: none;
     border-radius: 0.25em;
-}
-
-#tester{
-    display: block;
 }

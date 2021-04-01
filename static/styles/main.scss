@@ -503,24 +503,6 @@ main.registreren {
     }
 
     .bewerk-knop {
-      background-color: $achtergrondkleur-knop;
-      display: block;
-      padding: 1.1em 1.25em;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px 0 rgb(0, 0, 0 / 20%);
-      position: sticky;
-      top: 3em;
-      right: 3em;
-      position: absolute;
-      display: none;
-
-      svg {
-        height: 1.5em;
-        width: 1.2em;
-        vertical-align: middle;
-        fill: $tekstkleur-knop;
-        transition: 0.25s;
-      }
 
       &:hover {
         transition: 0.25s;
@@ -536,7 +518,54 @@ main.registreren {
     text-align: initial;
 
     label {
-      margin-bottom: 0.5em;
+      margin-bottom: 1em;
+      font-weight: $dikgedrukt;
+      font-size: 16px;
+      display: inline;
+      padding-right: 1em;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    textarea {
+      margin: -0.5em 0 0.25em;
+    }
+
+    fieldset {
+      margin: 2em 0 1.5em;
+      padding: 0;
+      border: none;
+
+      legend {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 1em;
+        font-size: 18px;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+
+// PROFIEL 2
+
+.profiel-pagina {
+
+  .profiel-gegevens2 {
+    margin: 2em;
+    padding-bottom: 5em;
+    width: auto;
+    text-align: initial;
+
+    div:not(:first-child) {
+      margin-top: 1em;
+      @include display-flex;
+      justify-content: space-between;
+    }
+
+    label {
       font-weight: $dikgedrukt;
       font-size: 16px;
       display: inline;
@@ -553,34 +582,16 @@ main.registreren {
       legend {
         margin: 0;
         padding: 0;
-        margin-bottom: 0.5em;
         font-size: 18px;
         text-decoration: underline;
       }
     }
   }
-}
 
-
-
-// PROFIEL 2
-
-.profiel-pagina {
-
-  .profiel-gegevens {
-
-    div:not(:first-child) {
-      margin-top: 1em;
-      @include display-flex;
-      justify-content: space-between;
-    }
-
-    .select {
-      float: none;
-    }
+  .select {
+    float: none;
   }
 }
-
 
 
 
@@ -588,8 +599,10 @@ main.registreren {
 
 .profiel-pagina {
 
-  .bewerk-knop {
+  .bewerk-knop3 {
+    @extend .bewerk-knop;
     display: block;
+    cursor: pointer;
   }
 
   .profiel-gegevens3 {
@@ -598,8 +611,13 @@ main.registreren {
     width: auto;
     text-align: initial;
 
+    div:not(:first-child) {
+      margin-top: 1em;
+      @include display-flex;
+      justify-content: space-between;
+    }
+
     label {
-      margin-bottom: 0.5em;
       font-weight: $dikgedrukt;
       font-size: 16px;
       display: inline;
@@ -636,17 +654,10 @@ main.registreren {
       legend {
         margin: 0;
         padding: 0;
-        margin-bottom: 0.5em;
         font-size: 18px;
         text-decoration: underline;
       }
     }
-  }
-
-  div:not(:first-child) {
-    margin-top: 1em;
-    @include display-flex;
-    justify-content: space-between;
   }
 
   .select {
@@ -685,5 +696,6 @@ main.registreren {
 }
 
 .js-aan-bewerkknop {
-  display: block !important;
+  @extend .bewerk-knop;
+  display: block;
 }
